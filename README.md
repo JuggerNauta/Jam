@@ -1,4 +1,7 @@
-Resumen>
+## Versión de Godot
+https://godotengine.org/article/maintenance-release-godot-4-7-2/
+
+## Resumen>
 En 1 oración, es como el hijo accidental entre overcooked, Dave the diver y zelda clásico que ocurrió en un pantano.
 
 Eres un sapito con una espadota que debe atender clientes sapitos en su restaurante pero los ingredientes debe conseguirlos en su patio trasero donde hay insectos y monstruos los cuales debe enfrentar para usar su carne en la cocina. El objetivo del juego es atender a los clientes lo más rápido posible para obtener las 3 estrellas.
