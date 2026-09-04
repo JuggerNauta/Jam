@@ -38,4 +38,10 @@ Eres un sapito con una espadota que debe atender clientes sapitos en su restaura
 ## EXCEL DE TAREAS
 https://docs.google.com/spreadsheets/d/1kXTkui4t0O_cGRICJpaHGH--9UZGZLSS/edit?usp=sharing&ouid=101764938605294064969&rtpof=true&sd=true
 
-Referencias Visuales>
+## Referencias Visuales>
+## Paleta de Colores>
+## Nota>
+## PowerUps>
+## Musica>
+## Diseño>
+## CodigoPrincipal>
