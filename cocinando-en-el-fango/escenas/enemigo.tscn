@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://7awyk30qjkly"]
+
+[ext_resource type="Texture2D" uid="uid://dh68six3ytnt6" path="res://sprites/untitled.png" id="1_sms58"]
+[ext_resource type="Script" uid="uid://caa223g4550sw" path="res://scrips/enemigo.gd" id="1_uhebs"]
+
+[sub_resource type="Animation" id="Animation_743j8"]
+resource_name = "tomando_daño"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04995789, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(0.5, 2, 0.5),
+"update": 0,
+"values": [Vector2(0.11111106, 0.11111106), Vector2(0.09999997, 0.09999997), Vector2(0.111, 0.111)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpq8b"]
+_data = {
+&"tomando_daño": SubResource("Animation_743j8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
+size = Vector2(170, 170)
+
+[node name="Enemigo" type="CharacterBody2D" unique_id=920097428]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_uhebs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213896992]
+position = Vector2(5.9604645e-08, -5.9604645e-08)
+texture = ExtResource("1_sms58")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1360167615]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_hpq8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213881108]
+shape = SubResource("RectangleShape2D_8w0r3")

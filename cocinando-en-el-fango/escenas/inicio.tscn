@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dawvvq0l5hjwr"]
+
+[ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo_0_2.tscn" id="2_23hle"]
+[ext_resource type="PackedScene" uid="uid://7awyk30qjkly" path="res://escenas/enemigo.tscn" id="2_63vwr"]
+
+[node name="Node2D" type="Node2D" unique_id=53467519]
+
+[node name="Enemigo" parent="." unique_id=920097428 instance=ExtResource("2_63vwr")]
+position = Vector2(297, 674)
+
+[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("2_23hle")]
+position = Vector2(663, 310)
