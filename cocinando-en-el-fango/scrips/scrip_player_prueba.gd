@@ -188,3 +188,8 @@ func _dash_logica(delta: float) -> void:
 		else:
 
 			puedo_dash = true
+			
+func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
+	global_position.x = clamp(global_position.x, limit_pos.x + 16, limit_pos.x + limit_size.x -8)
+	global_position.y = clamp(global_position.y, limit_pos.y + 32, limit_pos.y + limit_size.y -8)
+	
