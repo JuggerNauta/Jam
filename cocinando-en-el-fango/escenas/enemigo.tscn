@@ -38,14 +38,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(170, 170)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=920097428]
+[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 groups=["enemigo"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_uhebs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213896992]
 position = Vector2(5.9604645e-08, -5.9604645e-08)
+scale = Vector2(0.11111106, 0.11111106)
 texture = ExtResource("1_sms58")
 hframes = 2
 

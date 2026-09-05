@@ -6,7 +6,7 @@ var velocidad = 200
 
 #ataque
 var actual_vista_dir = "derecha"
-var puedo_atacar: bool = false
+var puedo_atacar: bool = true
 @export var tiempo_ataque: float = 0.2
 @export var tiempo_espada_regresa: float = 0.5
 @export var daño_arma: float = 1.0
@@ -33,27 +33,19 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-func atacar():
-	if get_global_mouse_position().y > global_position.y:
-		$Sprite2D/espada.show_behind_parent = false
-		$Sprite2D.frame = 0
-	else:
-		$Sprite2D/espada.show_behind_parent = true
-		$Sprite2D.frame = 1
-
-	if Input.is_action_pressed("ataque") and puedo_atacar:
-		$Sprite2D/sword/AnimationPlayer.speed_scale = $Sprite2D/espada/AnimationPlayer.get_animation("atacar").legth / tiempo_ataque
-		$Sprite2D/sword/AnimationPlayer.play("atacar")
-		puedo_atacar = false
-
 
 func spawnear_ataque():
-	pass
+	var espada_ataque_var = espada_ataque_preload.instantiate()
+	espada_ataque_var.global_position = global_position
+	espada_ataque_var.get_node("Sprite2D/AnimationPlayer").speed_scale = espada_ataque_var.get_node("Sprite2D/AnimationPlayer").get_animation("ataque").length / tiempo_ataque
+	espada_ataque_var.get_node("Sprite2D").flip_v = false if get_global_mouse_position().x > global_position.x else true
+	espada_ataque_var.daño_arma = daño_arma
+	get_parent().add_child(espada_ataque_var)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "atacar":
-		$Sprite2D/sword/AnimationPlayer.speed_scale = $Sprite2D/espada/AnimationPlayer.get_animation("ataque_regreso").legth / tiempo_espada_regresa
-		$Sprite2D/sword/AnimationPlayer.play("ataque_regreso")
+		$AnimatedSprite2D/espada/AnimationPlayer.speed_scale = $AnimatedSprite2D/espada/AnimationPlayer.get_animation("ataque_regreso").length / tiempo_espada_regresa
+		$AnimatedSprite2D/espada/AnimationPlayer.play("ataque_regreso")
 	else:
 		puedo_atacar = true
 
@@ -100,9 +92,27 @@ func get_input():
 
 	velocity = direccion * velocidad
 
-func actualizar_animacion(stado):
-	animated_sprite_2d.play(stado + "_" + ultima_direccion_personaje)
 
+	if get_global_mouse_position().y > global_position.y:
+		$AnimatedSprite2D/espada.show_behind_parent = false
+		$AnimatedSprite2D/espada.frame = 0
+	else:
+		$AnimatedSprite2D/espada.show_behind_parent = true
+		$AnimatedSprite2D.frame = 1
+
+	if Input.is_action_pressed("ataque") and puedo_atacar:
+		$AnimatedSprite2D/espada/AnimationPlayer.speed_scale = $AnimatedSprite2D/espada/AnimationPlayer.get_animation("ataque").length / tiempo_ataque
+		$AnimatedSprite2D/espada/AnimationPlayer.play("ataque")
+		
+		spawnear_ataque()
+		
+		puedo_atacar = false
+
+const espada_ataque_preload = preload("res://escenas/espada_ataque.tscn")
+
+
+func actualizar_animacion(estado):
+	animated_sprite_2d.play(estado + "_" + ultima_direccion_personaje)
 
 #dash funcion
 func _dash_logica(delta: float) -> void:

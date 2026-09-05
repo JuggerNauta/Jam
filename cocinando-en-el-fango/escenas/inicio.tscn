@@ -6,7 +6,7 @@
 [node name="Node2D" type="Node2D" unique_id=53467519]
 
 [node name="Enemigo" parent="." unique_id=920097428 instance=ExtResource("2_63vwr")]
-position = Vector2(297, 674)
+position = Vector2(381, 720)
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("2_23hle")]
 position = Vector2(663, 310)
