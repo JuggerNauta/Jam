@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b2i7y0jrp6duv"]
+
+[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://escenas/mapa.gd" id="1_a56od"]
+[ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="2_3fyb7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
+texture = ExtResource("2_3fyb7")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_as38o"]
+sources/0 = SubResource("TileSetAtlasSource_k7mp8")
+
+[node name="tile_being_moved" type="Sprite2D" unique_id=1706012603]
+script = ExtResource("1_a56od")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1295835675]
+tile_set = SubResource("TileSet_as38o")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="COCINANDO EN EL FANGO"
+run/main_scene="uid://b2i7y0jrp6duv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
