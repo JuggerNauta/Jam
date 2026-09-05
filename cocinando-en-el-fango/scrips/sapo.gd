@@ -24,6 +24,9 @@ var dash_dir: Vector2 = Vector2.ZERO
 var dash_timer_recarga: float = 0.0
 var ultima_direccion: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	add_to_group("jugador")
+
 func _physics_process(_delta):
 
 	_dash_logica(_delta)
