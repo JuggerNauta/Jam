@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqfx7pf5ldgdp"]
 
-[ext_resource type="Script" uid="uid://b8rc82lw05qb4" path="res://scrips/sapo.gd" id="1_7qkfx"]
+[ext_resource type="Script" uid="uid://ui0d8lcgyflr" path="res://scrips/scrip_player_prueba.gd" id="1_e68lp"]
 [ext_resource type="Texture2D" uid="uid://bbsrx88i6dwyl" path="res://sprites/abajo.png" id="2_6bjmb"]
 [ext_resource type="Texture2D" uid="uid://da7jvko5ivc6t" path="res://sprites/arriba.png" id="3_1pe0m"]
 [ext_resource type="Texture2D" uid="uid://05cyo76bmme4" path="res://sprites/derecha.png" id="4_mn05s"]
@@ -418,7 +418,7 @@ _data = {
 
 [node name="sapo 0_2" type="CharacterBody2D" unique_id=662870097]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_7qkfx")
+script = ExtResource("1_e68lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061]
 shape = SubResource("RectangleShape2D_8w0r3")
