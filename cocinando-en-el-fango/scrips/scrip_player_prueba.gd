@@ -184,6 +184,7 @@ func _dash_logica(delta: float) -> void:
 			puedo_dash = true
 			
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
-	global_position.x = clamp(global_position.x, limit_pos.x + 16, limit_pos.x + limit_size.x -8)
-	global_position.y = clamp(global_position.y, limit_pos.y + 32, limit_pos.y + limit_size.y -8)
+	var player_size: Vector2i = self.animated_sprite_2d.sprite_frames.get_frame_texture("idle_abajo",0).get_size() * self.scale
+	global_position.x = clamp(global_position.x, limit_pos.x + (player_size.x / 2) , limit_pos.x + limit_size.x - (player_size.x / 2))
+	global_position.y = clamp(global_position.y, limit_pos.y + (player_size.y), limit_pos.y + limit_size.y - (player_size.y / 2))
 	

@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cdqep68nt7xm5" path="res://tiles/debug_tilemap.png" id="4_6bp1q"]
 [ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo_0_2.tscn" id="5_7h7mq"]
 [ext_resource type="Script" uid="uid://cadgx6a2j1lbq" path="res://scrips/spawner.gd" id="7_3y3fl"]
-[ext_resource type="PackedScene" uid="uid://7awyk30qjkly" path="res://escenas/enemigo.tscn" id="8_6bp1q"]
-[ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://escenas/main_world/enemy_handler.gd" id="8_7h7mq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
 texture = ExtResource("3_3y3fl")
@@ -62,9 +60,6 @@ sources/2 = SubResource("TileSetAtlasSource_s2ld1")
 sources/3 = SubResource("TileSetAtlasSource_3y3fl")
 sources/4 = SubResource("TileSetAtlasSource_6bp1q")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_as38o"]
-size = Vector2(1439, 986.5)
-
 [node name="Mapas" type="Node2D" unique_id=1116109976]
 script = ExtResource("1_6x3aa")
 
@@ -75,7 +70,7 @@ tile_map_data = PackedByteArray("AAAAAA4ABAAAAAAAAAAAAA8ABAAAAAAAAAAAABAABAAAAAA
 tile_set = SubResource("TileSet_as38o")
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(202, 1806)
+position = Vector2(533, 1706)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
 position = Vector2(15, 1213)
@@ -91,32 +86,5 @@ script = ExtResource("7_3y3fl")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1935487750]
 wait_time = 5.0
 autostart = true
-
-[node name="EnemyHandler2" type="Area2D" parent="." unique_id=1084879849]
-position = Vector2(2823, 1713)
-script = ExtResource("8_7h7mq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHandler2" unique_id=580865953]
-shape = SubResource("RectangleShape2D_as38o")
-
-[node name="EnemyHandler" type="Area2D" parent="." unique_id=1345685281]
-position = Vector2(1142, 1730)
-script = ExtResource("8_7h7mq")
-
-[node name="Enemigo" parent="EnemyHandler" unique_id=920097428 node_paths=PackedStringArray("waypoints") instance=ExtResource("8_6bp1q")]
-position = Vector2(-524, 198)
-waypoints = [NodePath("../../Node2D/Marker2D"), NodePath("../../Node2D/Marker2D2")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHandler" unique_id=765359949]
-shape = SubResource("RectangleShape2D_as38o")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=2028956700]
-position = Vector2(750, 1621)
-
-[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=1551798899]
-position = Vector2(227, 263)
-
-[node name="Marker2D2" type="Marker2D" parent="Node2D" unique_id=222701364]
-position = Vector2(731, 232)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

@@ -7,6 +7,8 @@ var release_falloff = 35
 var acceleration = 100
 var velocity: Vector2 = Vector2.ZERO
 @export var tilemap: TileMapLayer
+var current_cell: Vector2i
+var viewport_size: Vector2i
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_anchor_mode(Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT)
@@ -16,9 +18,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input_vector = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
+	var old_cell = current_cell
 	calculate_velocity(input_vector)
 	update_global_position()
-	apply_camera_limits()
+	#apply_camera_limits()
+	if old_cell != current_cell:
+		player.clamp_to_limits(global_position, viewport_size)
 	
 
 func apply_camera_limits():
@@ -31,11 +36,9 @@ func apply_camera_limits():
 	#
 func update_global_position():
 	var delta = get_process_delta_time()
-	var viewport_size: Vector2i  = get_viewport_rect().size
-	var current_cell = Vector2i(player.global_position) / viewport_size
+	viewport_size  = get_viewport_rect().size
+	current_cell = Vector2i(player.global_position) / viewport_size
 	
-	print("Player POS",player.global_position, "VP SIZE", viewport_size)
-	print("LA CELDA ACTUAL ES", current_cell)
 	global_position = current_cell * viewport_size
 	#global_position += lerp(
 		#velocity,
