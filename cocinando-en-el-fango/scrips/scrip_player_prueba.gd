@@ -18,7 +18,7 @@ var ultima_direccion: Vector2 = Vector2.ZERO
 #atacar variables
 
 @export var tiempo_ataque: float = 0.2
-@export var tiempo_espada_regresa: float = 0.5
+@export var tiempo_espada_regresa: float = 0.3
 @export var daño_arma: float = 1.0
 
 var puedo_atacar: bool = true
@@ -182,7 +182,7 @@ func _dash_logica(delta: float) -> void:
 		else:
 
 			puedo_dash = true
-			
+
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
 	global_position.x = clamp(global_position.x, limit_pos.x + 16, limit_pos.x + limit_size.x -8)
 	global_position.y = clamp(global_position.y, limit_pos.y + 32, limit_pos.y + limit_size.y -8)
