@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" path="res://escenas/objetos/objeto_recogible.tscn" id="3_obj"]
 [ext_resource type="Script" uid="uid://buykm5ia2r30o" path="res://scrips/inventario_ui.gd" id="4_ui"]
 [ext_resource type="Texture2D" uid="uid://k6cjbkuhg2bf" path="res://sprites/inventario/estomago.png" id="5_estomago"]
+[ext_resource type="PackedScene" uid="uid://7awyk30qjkly" path="res://escenas/enemigo.tscn" id="5_lyg4d"]
 
 [node name="Node2D" type="Node2D" unique_id=53467519]
 
@@ -219,3 +220,6 @@ offset_right = 14.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Enemigo" parent="." unique_id=920097428 instance=ExtResource("5_lyg4d")]
+position = Vector2(815, 332)

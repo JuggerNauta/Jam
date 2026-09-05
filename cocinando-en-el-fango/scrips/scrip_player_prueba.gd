@@ -28,7 +28,7 @@ const espada_ataque_preload = preload("res://escenas/espada_ataque.tscn")
 
 #dash variables
 
-@export var dash_velocidad: float = 1500.0
+@export var dash_velocidad: float = 2500.0
 @export var dash_tiempo: float = 0.12
 @export var dash_costo_recarga: float = 0.2
 
@@ -36,7 +36,6 @@ var puedo_dash: bool = true
 var dash_timer: float = 0.0
 var dash_timer_recarga: float = 0.0
 var dash_dir: Vector2 = Vector2.ZERO
-
 
 func _physics_process(delta: float) -> void:
 
@@ -64,16 +63,10 @@ func seguir_espada() -> void:
 
 	espada.rotation = angulo
 
-	if angulo > PI / 2 or angulo < -PI / 2:
-		espada_sprite.flip_v = true
-	else:
-		espada_sprite.flip_v = false
-
-	if get_global_mouse_position().y > global_position.y:
+	if direccion.y > 0:
 		espada.show_behind_parent = false
 	else:
 		espada.show_behind_parent = true
-
 
 func atacar() -> void:
 
@@ -85,14 +78,15 @@ func atacar() -> void:
 		await get_tree().create_timer(tiempo_ataque).timeout
 
 func spawnear_ataque() -> void:
-
 	var espada_ataque = espada_ataque_preload.instantiate()
+
 	espada_ataque.global_position = global_position
+
 	var animation_player: AnimationPlayer = espada_ataque.get_node("Sprite2D/AnimationPlayer")
 	var animacion = animation_player.get_animation("ataque")
+
 	animation_player.speed_scale = animacion.length / tiempo_ataque
-	var mirando_derecha = get_global_mouse_position().x > global_position.x
-	espada_ataque.get_node("Sprite2D").flip_v = not mirando_derecha
+
 	espada_ataque.daño_arma = daño_arma
 	
 	get_parent().add_child(espada_ataque)

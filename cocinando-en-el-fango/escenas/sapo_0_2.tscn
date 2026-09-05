@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bgp72kgjmupiv" path="res://sprites/idle_izquierda.png" id="10_e68lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(200, 350)
+size = Vector2(180, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpfh1"]
 atlas = ExtResource("2_6bjmb")
@@ -379,7 +379,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.95)]
+"values": [Vector2(1, 1), Vector2(1.2, 1.35)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -420,7 +420,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.65),
 "transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
-"values": [Vector2(0.8, 0.95), Vector2(1, 1)]
+"values": [Vector2(1.2, 1.35), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mn05s"]
@@ -446,11 +446,13 @@ autoplay = "idle_abajo"
 [node name="espada" type="Node2D" parent="AnimatedSprite2D" unique_id=1118899854]
 
 [node name="espada_sprite" type="Sprite2D" parent="AnimatedSprite2D/espada" unique_id=1118964008]
-position = Vector2(32, 96)
+position = Vector2(192, 5.5134296e-07)
 texture = ExtResource("7_7qkfx")
 offset = Vector2(180, -360)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/espada/espada_sprite" unique_id=1742997471]
 libraries/ = SubResource("AnimationLibrary_mn05s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=565088098]
 
 [connection signal="animation_finished" from="AnimatedSprite2D/espada/espada_sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

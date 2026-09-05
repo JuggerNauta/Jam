@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://b2i7y0jrp6duv"]
 
-[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://escenas/mapa.gd" id="1_a56od"]
+[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://scrips/mapa.gd" id="1_a56od"]
 [ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="2_3fyb7"]
 [ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo_0_2.tscn" id="3_k7mp8"]
 [ext_resource type="Texture2D" uid="uid://cdqep68nt7xm5" path="res://tiles/debug_tilemap.png" id="3_s41wn"]
+[ext_resource type="PackedScene" uid="uid://7awyk30qjkly" path="res://escenas/enemigo.tscn" id="5_s2ld1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
 texture = ExtResource("2_3fyb7")
@@ -33,4 +34,20 @@ tile_map_data = PackedByteArray("AAABAAIAAgACAAAAAAACAAIAAgACAAAAAAADAAIAAgACAAA
 tile_set = SubResource("TileSet_as38o")
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("3_k7mp8")]
-position = Vector2(605, 348)
+position = Vector2(1697, 999)
+
+[node name="Enemigo" parent="." unique_id=920097428 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_s2ld1")]
+position = Vector2(515, 217)
+waypoints = [NodePath("../waypoints/waypoints"), NodePath("../waypoints/waypoints2"), NodePath("../waypoints/waypoints3")]
+
+[node name="waypoints" type="Node2D" parent="." unique_id=615676262]
+position = Vector2(719, 435)
+
+[node name="waypoints" type="Marker2D" parent="waypoints" unique_id=1124443064]
+position = Vector2(388, 0)
+
+[node name="waypoints2" type="Marker2D" parent="waypoints" unique_id=1007328396]
+position = Vector2(625, 145)
+
+[node name="waypoints3" type="Marker2D" parent="waypoints" unique_id=614128860]
+position = Vector2(316, 370)
