@@ -145,7 +145,6 @@ script = ExtResource("1_nsn53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=27517091]
 modulate = Color(1, 1, 1, 0)
-z_index = -1
 texture = ExtResource("1_72cv6")
 offset = Vector2(-16, 0)
 hframes = 5

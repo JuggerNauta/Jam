@@ -18,7 +18,7 @@ var ultima_direccion: Vector2 = Vector2.ZERO
 #atacar variables
 
 @export var tiempo_ataque: float = 0.2
-@export var tiempo_espada_regresa: float = 0.5
+@export var tiempo_espada_regresa: float = 0.3
 @export var daño_arma: float = 1.0
 
 var puedo_atacar: bool = true
@@ -182,7 +182,7 @@ func _dash_logica(delta: float) -> void:
 		else:
 
 			puedo_dash = true
-			
+
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
 	var player_size: Vector2i = self.animated_sprite_2d.sprite_frames.get_frame_texture("idle_abajo",0).get_size() * self.scale
 	global_position.x = clamp(global_position.x, limit_pos.x + (player_size.x / 2) , limit_pos.x + limit_size.x - (player_size.x / 2))

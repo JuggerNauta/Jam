@@ -1,5 +1,5 @@
+class_name enemigo
 extends CharacterBody2D
-
 
 #variables para el ruta de movimiento
 @export var waypoints: Array[Marker2D]
@@ -36,6 +36,10 @@ func _draw(): #nomas para ver si funciona
 	draw_line(Vector2.ZERO, derecha_direccion, Color.YELLOW, 2.0)
 
 func esta_en_el_cono():
+	
+	if jugador == null:
+		return false
+		
 	var posicion_local_jugador = to_local(jugador.global_position)
 	var angulo_hacia_jugador = direccion_detector.angle_to(posicion_local_jugador)
 	var distancia = posicion_local_jugador.length()
@@ -156,9 +160,9 @@ func actualizar_animacion(estado: String) -> void:
 func _on_timer_timeout() -> void:
 	esta_esperando = false
 
-#func recibir_daño(daño_arma: float):
-	#$Sprite2D/AnimationPlayer.play("tomando_daño")
-	#vida -= daño_arma
-	#
-	#if vida <= 0.0:
-		#queue_free()
+func recibir_daño(daño_arma: float):
+	$Sprite2D/AnimationPlayer.play("tomando_daño")
+	vida -= daño_arma
+	
+	if vida <= 0.0:
+		queue_free()
