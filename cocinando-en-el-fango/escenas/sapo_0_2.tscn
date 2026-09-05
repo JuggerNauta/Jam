@@ -453,6 +453,4 @@ offset = Vector2(180, -360)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/espada/espada_sprite" unique_id=1742997471]
 libraries/ = SubResource("AnimationLibrary_mn05s")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=565088098]
-
 [connection signal="animation_finished" from="AnimatedSprite2D/espada/espada_sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
