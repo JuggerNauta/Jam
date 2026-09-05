@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var espada: Sprite2D = $AnimatedSprite2D/espada
-@onready var espada_animation_player: AnimationPlayer = $AnimatedSprite2D/espada/AnimationPlayer
+
+@onready var espada: Node2D = $AnimatedSprite2D/espada
+@onready var espada_sprite: Sprite2D = $AnimatedSprite2D/espada/espada_sprite
+@onready var espada_animation_player: AnimationPlayer = $AnimatedSprite2D/espada/espada_sprite/AnimationPlayer
+
 
 #movimiento variables
 
@@ -42,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	if dash_timer <= 0.0:
 		get_input()
 
+	seguir_espada()
+
 	atacar()
 
 	move_and_slide()
@@ -50,22 +55,34 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	add_to_group("jugador")
 
-func atacar() -> void:
+func seguir_espada() -> void:
+
+	var direccion = get_global_mouse_position() - global_position
+	espada.rotation = direccion.angle()
+
+	var angulo = direccion.angle()
+
+	espada.rotation = angulo
+
+	if angulo > PI / 2 or angulo < -PI / 2:
+		espada_sprite.flip_v = true
+	else:
+		espada_sprite.flip_v = false
 
 	if get_global_mouse_position().y > global_position.y:
 		espada.show_behind_parent = false
 	else:
 		espada.show_behind_parent = true
 
+
+func atacar() -> void:
+
 	if Input.is_action_just_pressed("ataque") and puedo_atacar:
 
-		var animacion_ataque = espada_animation_player.get_animation("ataque")
-		espada_animation_player.speed_scale = animacion_ataque.length / tiempo_ataque
-		espada_animation_player.play("ataque")
-
-		spawnear_ataque()
-
 		puedo_atacar = false
+		espada_animation_player.play("ataque")
+		spawnear_ataque()
+		await get_tree().create_timer(tiempo_ataque).timeout
 
 func spawnear_ataque() -> void:
 
