@@ -12,24 +12,7 @@ var viewport_size: Vector2i
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_anchor_mode(Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT)
-	if not tilemap:
-		return
-	var map_rect = tilemap.get_used_rect()
-	var tile_size = tilemap.tile_set.tile_size
-	var map_size = map_rect.size * tile_size
-	var viewport_size = get_viewport_rect().size
 	
-	# Calculate zoom scale factors for X and Y
-	var zoom_x = viewport_size.x 
-	var zoom_y = viewport_size.y 
-	
-	# Use the smaller zoom to fit entirely, or larger to fill
-	var final_zoom = min(zoom_x, zoom_y)
-	zoom = Vector2(final_zoom, final_zoom)
-	
-	# Center camera on the tilemap
-	position = Vector2i(map_size) / 2 + map_rect.position * tile_size
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var input_vector = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
@@ -55,6 +38,7 @@ func update_global_position():
 	current_cell = Vector2i(player.global_position) / viewport_size
 	
 	global_position = current_cell * viewport_size
+	print(global_position, viewport_size)
 	#global_position += lerp(
 		#velocity,
 		#Vector2.ZERO,

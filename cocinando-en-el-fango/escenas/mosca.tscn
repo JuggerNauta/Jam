@@ -407,18 +407,18 @@ wait_time = 2.0
 [node name="Ruta" type="Node2D" parent="." unique_id=291087077]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=1396284476]
-position = Vector2(493, 155)
+position = Vector2(116, 18)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=198772795]
-position = Vector2(-643, -337)
+position = Vector2(-64, -43)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=1982639199]
-position = Vector2(776, 654)
+position = Vector2(53, 59)
 
 [node name="M4" type="Marker2D" parent="Ruta" unique_id=1724609157]
-position = Vector2(444, -486)
+position = Vector2(56, -59)
 
 [node name="M5" type="Marker2D" parent="Ruta" unique_id=12838656]
-position = Vector2(-581, 663)
+position = Vector2(-52, 48)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

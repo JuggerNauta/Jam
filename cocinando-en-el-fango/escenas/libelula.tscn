@@ -400,7 +400,7 @@ waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 material = SubResource("ShaderMaterial_e4ir3")
 sprite_frames = SubResource("SpriteFrames_rpqlo")
-animation = &"caminar_abajo"
+animation = &"idle_abajo"
 autoplay = "idle_abajo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1821769913]
@@ -416,13 +416,13 @@ wait_time = 2.0
 [node name="Ruta" type="Node2D" parent="." unique_id=385410960]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=2043070548]
-position = Vector2(363, 794)
+position = Vector2(12, 76)
 scale = Vector2(2, 2)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=521647686]
-position = Vector2(-1171, -427)
+position = Vector2(-122, -32)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=705185855]
-position = Vector2(610, -693)
+position = Vector2(36, -52)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -27,7 +27,6 @@ func _on_timer_timeout() -> void:
 		print("INSTANCIANDO EN ", random_position)
 	
 		local_enemy.global_position = random_position - enemy_handler.global_position
-		local_enemy.apply_scale(Vector2.ONE * 0.25)
 		enemy_handler.add_child(local_enemy)
 		total_enemigos += 1
 
