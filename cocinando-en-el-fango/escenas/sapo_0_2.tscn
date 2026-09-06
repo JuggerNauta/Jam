@@ -431,8 +431,6 @@ _data = {
 }
 
 [node name="sapo 0_2" type="CharacterBody2D" unique_id=662870097]
-position = Vector2(224, 201)
-scale = Vector2(0.25, 0.25)
 script = ExtResource("1_e68lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061]

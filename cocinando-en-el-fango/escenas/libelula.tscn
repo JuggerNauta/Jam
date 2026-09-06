@@ -274,9 +274,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
 size = Vector2(180, 180)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=994728527]
-scale = Vector2(0.25, 0.25)
+[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 450.0
 angulo = 60.0
 largo = 2500.0
@@ -287,9 +287,21 @@ animation = &"caminar_abajo"
 autoplay = "idle_abajo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
+scale = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_rpqlo")
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
 wait_time = 2.0
+
+[node name="Ruta" type="Node2D" parent="." unique_id=385410960]
+
+[node name="M1" type="Marker2D" parent="Ruta" unique_id=2043070548]
+scale = Vector2(2, 2)
+
+[node name="M2" type="Marker2D" parent="Ruta" unique_id=521647686]
+position = Vector2(-1171, -427)
+
+[node name="M3" type="Marker2D" parent="Ruta" unique_id=705185855]
+position = Vector2(610, -693)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
