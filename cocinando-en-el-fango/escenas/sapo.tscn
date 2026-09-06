@@ -457,14 +457,13 @@ _data = {
 [node name="sapo" type="CharacterBody2D" unique_id=662870097]
 script = ExtResource("1_e68lp")
 velocidad = 600.0
-vida = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061 groups=["jugador"]]
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=56541827]
 material = SubResource("ShaderMaterial_7h7mq")
-rotation = 2.9836163e-05
+rotation = 1.1428595e-05
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_jlb2t")
 animation = &"caminar_arriba"

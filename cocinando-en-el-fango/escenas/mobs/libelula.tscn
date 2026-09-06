@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://c71lpemk7f4jw"]
 
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
+[ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_s85l8"]
 [ext_resource type="Texture2D" uid="uid://cx8h6d3kpkb8o" path="res://sprites/mobs/libelula_der.png" id="4_hry84"]
 [ext_resource type="Texture2D" uid="uid://cu71fl3ub0pkx" path="res://sprites/mobs/libelula_izq.png" id="5_jw3h8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eo1w6"]
+shader = ExtResource("2_s85l8")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4ir3"]
 atlas = ExtResource("4_hry84")
@@ -271,57 +280,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_hry84"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.1, 0.1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_jw3h8"]
 resource_name = "tomando_daño"
 length = 0.35
@@ -352,7 +310,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -377,7 +335,6 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_unocq"]
 _data = {
-&"RESET": SubResource("Animation_hry84"),
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
@@ -389,14 +346,15 @@ size = Vector2(72, 36)
 
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
-velocidad_dash = 500.0
+velocidad_dash = 400.0
 tiempo_entre_dash = 1.5
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
-velocidad = 175.0
+velocidad = 150.0
 angulo = 270.0
 largo = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
+material = SubResource("ShaderMaterial_eo1w6")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rpqlo")
 animation = &"caminar_abajo"
@@ -407,6 +365,7 @@ libraries/ = SubResource("AnimationLibrary_unocq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
 shape = SubResource("RectangleShape2D_rpqlo")
+debug_color = Color(0.8601341, 0.0006838417, 0.87673676, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
 wait_time = 2.0

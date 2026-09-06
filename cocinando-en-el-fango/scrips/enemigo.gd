@@ -15,7 +15,7 @@ var esta_esperando: bool = false
 #señales
 
 signal enemigo_murio(enemigo)
-
+var estelas: Array[Node2D] = []
 #animaciones
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -236,6 +236,13 @@ func recibir_daño(daño_arma: float) -> void:
 		morirse()
 
 func morirse() -> void:
+
+	# Eliminar todas las estelas
+	for estela in estelas:
+		if is_instance_valid(estela):
+			estela.queue_free()
+
+	estelas.clear()
 
 	enemigo_murio.emit(self)
 	queue_free()

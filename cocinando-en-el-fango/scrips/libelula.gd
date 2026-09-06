@@ -13,7 +13,7 @@ var preparando_dash: bool = false
 #variables shader
 
 var tiempo_actual_duplicado: float = 0
-var tiempo_duplicado: float = 0.05
+var tiempo_duplicado: float = 0.005
 var tiempo_vida_duplicado: float = 0.2
 
 func _physics_process(delta):
@@ -48,7 +48,17 @@ func hacer_dash() -> void:
 	direccion_dash = global_position.direction_to(jugador.global_position)
 	haciendo_dash = true
 
-	await get_tree().create_timer(duracion_dash).timeout
+	velocity = direccion_dash * velocidad_dash
+
+	var tiempo_transcurrido: float = 0.0
+
+	while tiempo_transcurrido < duracion_dash:
+
+		crear_duplicado_shader()
+
+		await get_tree().create_timer(tiempo_duplicado).timeout
+
+		tiempo_transcurrido += tiempo_duplicado
 
 	haciendo_dash = false
 	velocity = Vector2.ZERO
@@ -59,25 +69,31 @@ func hacer_dash() -> void:
 	
 func crear_duplicado_shader() -> void:
 
-	var duplicado = $AnimatedSprite2D.duplicate(true)
+	var duplicado = $AnimatedSprite2D.duplicate(false)
 
-	duplicado.material = $AnimatedSprite2D.material.duplicate(true)
+	if $AnimatedSprite2D.material:
+		duplicado.material = $AnimatedSprite2D.material.duplicate(true)
 
-	#configuración del shader
-	duplicado.material.set_shader_parameter("opacity", 1.0) #0.7
-	duplicado.material.set_shader_parameter("r", 1.0) #0.392
-	duplicado.material.set_shader_parameter("g", 1.0) #0.282
-	duplicado.material.set_shader_parameter("b", 1.0)#0.235
-	duplicado.material.set_shader_parameter("mix_color", 1.0) #0.5
+		duplicado.material.set_shader_parameter("opacity", 1.0)
+		duplicado.material.set_shader_parameter("r", 1.0)
+		duplicado.material.set_shader_parameter("g", 1.0)
+		duplicado.material.set_shader_parameter("b", 1.0)
+		duplicado.material.set_shader_parameter("mix_color", 1.0)
 
 	var posicion_duplicado = global_position
 
 	get_parent().add_child(duplicado)
 
 	duplicado.global_position = posicion_duplicado
-
+	duplicado.global_scale = $AnimatedSprite2D.global_scale
 	duplicado.z_index = 1
+
+
+	estelas.append(duplicado)
 
 	await get_tree().create_timer(tiempo_vida_duplicado).timeout
 
-	duplicado.queue_free()
+	estelas.erase(duplicado)
+
+	if is_instance_valid(duplicado):
+		duplicado.queue_free()

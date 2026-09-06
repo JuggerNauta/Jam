@@ -273,57 +273,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_hry84"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.1, 0.1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_jw3h8"]
 resource_name = "tomando_daño"
 length = 0.35
@@ -379,7 +328,6 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkjoe"]
 _data = {
-&"RESET": SubResource("Animation_hry84"),
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
@@ -399,12 +347,14 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_8w0r3")
 animation = &"caminar_arriba"
 autoplay = "idle_abajo"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1942422627]
 libraries/ = SubResource("AnimationLibrary_xkjoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213881108 groups=["enemigo"]]
 shape = SubResource("RectangleShape2D_8w0r3")
+debug_color = Color(0.8294085, 0.001481272, 0.94781655, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=251111865]
 wait_time = 2.0
