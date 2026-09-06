@@ -107,6 +107,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_qhmoj"]
 sources/0 = SubResource("TileSetAtlasSource_o57ik")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0bqh"]
+size = Vector2(1100, 2200)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpkmm"]
 size = Vector2(1000, 700)
 
@@ -139,19 +142,19 @@ tilemap = NodePath("../Environment")
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 script = ExtResource("7_3y3fl")
-max_enemigos = 3
+max_enemigos = 20
 
 [node name="Timer" type="Timer" parent="FlySpawner" unique_id=2071323185]
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="FlySpawner" unique_id=116698452]
-position = Vector2(2170, 1270)
-shape = SubResource("RectangleShape2D_mpkmm")
+position = Vector2(2214, 1270)
+shape = SubResource("RectangleShape2D_j0bqh")
 
 [node name="DragonflySpawner" type="Area2D" parent="." unique_id=457887317]
 script = ExtResource("7_3y3fl")
 enemy = ExtResource("10_mpkmm")
-max_enemigos = 3
+max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="DragonflySpawner" unique_id=1935487750]
 autostart = true

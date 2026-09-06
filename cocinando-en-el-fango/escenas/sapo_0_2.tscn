@@ -332,6 +332,68 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_e68lp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0qkmg"]
+resource_name = "recibir_daño"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.00043441646, 0.1, 0.34956557),
+"transitions": PackedFloat32Array(2, 1, 2),
+"update": 0,
+"values": [0.0, 0.61086524, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghixb"]
+_data = {
+&"RESET": SubResource("Animation_e68lp"),
+&"recibir_daño": SubResource("Animation_0qkmg")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mpkmm"]
 shader = ExtResource("2_0qkmg")
 shader_parameter/opacity = 1.0
@@ -416,6 +478,9 @@ material = SubResource("ShaderMaterial_7h7mq")
 sprite_frames = SubResource("SpriteFrames_jlb2t")
 animation = &"caminar_abajo"
 autoplay = "idle_abajo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1842397912]
+libraries/ = SubResource("AnimationLibrary_ghixb")
 
 [node name="espada" type="Node2D" parent="AnimatedSprite2D" unique_id=1118899854]
 

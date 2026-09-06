@@ -36,9 +36,12 @@ var tiempo_perdiendo_jugador: float = 0.0
 
 #variable vida
 
+@export var daño: int = 1
 var vida: float = 3.0
 
 func _ready() -> void:
+
+	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 
 	jugador = get_tree().get_first_node_in_group("jugador")
 	mitad_angulo_radiales = deg_to_rad(angulo / 2.0)
@@ -53,7 +56,6 @@ func _ready() -> void:
 			posiciones_waypoints.append(waypoint.global_position)
 
 	queue_redraw()
-
 func _draw() -> void:
 
 	var izquierda_direccion = direccion_detector.rotated(-mitad_angulo_radiales) * largo
@@ -236,3 +238,8 @@ func morirse() -> void:
 
 	enemigo_murio.emit(self)
 	queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+
+	if body.is_in_group("jugador"):
+		body.recibir_daño(daño)
