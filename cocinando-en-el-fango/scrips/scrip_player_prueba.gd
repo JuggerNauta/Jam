@@ -37,7 +37,7 @@ var dash_dir: Vector2 = Vector2.ZERO
 
 #variables vida
 
-var vida: float = 10.0
+@export var vida: float = 10.0
 var esta_muriendo: bool = false
 
 #variables shader
@@ -231,7 +231,6 @@ func recibir_daño(cantidad: int) -> void:
 	if vida <= 0:
 		esta_muriendo = true
 		call_deferred("_morir")
-
 
 func _morir() -> void:
 	get_tree().change_scene_to_file("res://escenas/game_over.tscn")

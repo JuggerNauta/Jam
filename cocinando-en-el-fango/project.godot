@@ -33,6 +33,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 enemigo=""
+jugador=""
 
 [input]
 
