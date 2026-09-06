@@ -55,6 +55,25 @@ theme_override_font_sizes/font_size = 80
 text = "❚❚  PAUSA"
 horizontal_alignment = 1
 
+[node name="Volumen" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=771001001]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer/Volumen" unique_id=771001002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.909804, 0.588235, 1)
+theme_override_font_sizes/font_size = 26
+text = "VOLUMEN"
+
+[node name="Slider" type="HSlider" parent="Panel/CenterContainer/VBoxContainer/Volumen" unique_id=771001003]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
 [node name="BotonReanudar" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=783495449]
 custom_minimum_size = Vector2(320, 80)
 layout_mode = 2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp60v8pf2rwbc"
+path="res://.godot/imported/moscas xD.mp3-15c92294440886fc5e6e9c82ba38efd1.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/moscas xD.mp3"
+dest_files=["res://.godot/imported/moscas xD.mp3-15c92294440886fc5e6e9c82ba38efd1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
