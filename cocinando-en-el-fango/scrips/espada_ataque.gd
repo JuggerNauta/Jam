@@ -4,8 +4,6 @@ var daño_arma: float = 1.0
 
 func _ready():
 
-	look_at(get_global_mouse_position())
-
 	$Sprite2D/AnimationPlayer.play("ataque")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

@@ -140,7 +140,7 @@ tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAA
 tile_set = SubResource("TileSet_qhmoj")
 
 [node name="Jugador" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(575, 669)
+position = Vector2(549, 681)
 velocidad = 200.0
 dash_velocidad = 1000.0
 
@@ -183,7 +183,6 @@ position = Vector2(1855, 206)
 shape = SubResource("RectangleShape2D_j0bqh")
 
 [node name="CrabSpaw" type="Area2D" parent="." unique_id=1385029937]
-position = Vector2(996, 203)
 script = ExtResource("7_3y3fl")
 enemy = ExtResource("13_5rq4x")
 max_enemigos = 2
@@ -193,7 +192,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="CrabSpaw" unique_id=720091381]
-position = Vector2(860, 469)
+position = Vector2(1836, 672)
 shape = SubResource("RectangleShape2D_5rq4x")
 
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=975077062]
