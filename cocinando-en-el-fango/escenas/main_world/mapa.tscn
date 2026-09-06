@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cadgx6a2j1lbq" path="res://scrips/spawner.gd" id="7_3y3fl"]
 [ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://escenas/main_world/enemy_handler.gd" id="8_7h7mq"]
 [ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/libelula.tscn" id="10_mpkmm"]
+[ext_resource type="PackedScene" uid="uid://dwo0qwrg43bns" path="res://escenas/inventario_ui.tscn" id="10_o57ik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
 texture = ExtResource("3_3y3fl")
@@ -111,6 +112,8 @@ shape = SubResource("RectangleShape2D_mpkmm")
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=975077062]
 position = Vector2(1142, 1730)
 script = ExtResource("8_7h7mq")
+
+[node name="InventarioUI" parent="." unique_id=1734074673 instance=ExtResource("10_o57ik")]
 
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]
