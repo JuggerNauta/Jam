@@ -149,7 +149,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caminar_abajo",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -166,7 +166,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caminar_arriba",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +183,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caminar_derecha",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caminar_izquierda",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -217,7 +217,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_abajo",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -234,7 +234,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_arriba",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -251,7 +251,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_derecha",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -268,13 +268,123 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_izquierda",
-"speed": 5.0
+"speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_xkjoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v2uhy"]
+resource_name = "tomando_daño"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19977443, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.61086524, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4ir3"]
+_data = {
+&"RESET": SubResource("Animation_xkjoe"),
+&"tomando_daño": SubResource("Animation_v2uhy")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
 size = Vector2(180, 180)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
+[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_dfdpt")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 450.0
@@ -283,8 +393,11 @@ largo = 2500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
-animation = &"caminar_abajo"
+animation = &"idle_izquierda"
 autoplay = "idle_abajo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=975251689]
+libraries/ = SubResource("AnimationLibrary_e4ir3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
 scale = Vector2(2, 1)
@@ -296,6 +409,7 @@ wait_time = 2.0
 [node name="Ruta" type="Node2D" parent="." unique_id=385410960]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=2043070548]
+position = Vector2(363, 794)
 scale = Vector2(2, 2)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=521647686]

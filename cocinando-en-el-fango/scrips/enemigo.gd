@@ -62,7 +62,7 @@ func perseguir_jugador():
 		#detecta al mongolo del sapo
 	if esta_en_el_cono():
 		persiguiendo = true
-		animated_sprite_2d.self_modulate = Color.RED
+		animated_sprite_2d.self_modulate = Color.WHITE
 	else:
 		animated_sprite_2d.self_modulate = Color.WHITE
 

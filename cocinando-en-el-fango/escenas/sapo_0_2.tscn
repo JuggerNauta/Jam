@@ -443,10 +443,9 @@ animation = &"idle_abajo"
 autoplay = "idle_abajo"
 
 [node name="espada" type="Node2D" parent="AnimatedSprite2D" unique_id=1118899854]
-position = Vector2(-136, 76)
 
 [node name="espada_sprite" type="Sprite2D" parent="AnimatedSprite2D/espada" unique_id=1118964008]
-position = Vector2(192, 5.5134296e-07)
+position = Vector2(112, 0)
 texture = ExtResource("7_7qkfx")
 offset = Vector2(180, -360)
 

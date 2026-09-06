@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
@@ -32,7 +32,7 @@ func _on_timer_timeout() -> void:
 		total_enemigos += 1
 
 
-func _on_enemigo_enemigo_murio(enemigo: Variant) -> void:
+func _on_enemigo_enemigo_murio(_enemigo: Variant) -> void:
 	total_enemigos -= 1
 
 func get_random_position():
