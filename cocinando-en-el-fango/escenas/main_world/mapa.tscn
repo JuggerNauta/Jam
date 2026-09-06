@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://scrips/mapa.gd" id="1_6x3aa"]
 [ext_resource type="Script" uid="uid://ipvj56py2vyo" path="res://scrips/camera_2d.gd" id="2_0nlt0"]
+[ext_resource type="Script" uid="uid://buykm5ia2r30o" path="res://scrips/inventario_ui.gd" id="2_28t68"]
 [ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="3_3y3fl"]
+[ext_resource type="Texture2D" uid="uid://k6cjbkuhg2bf" path="res://sprites/inventario/estomago.png" id="3_dq1yp"]
 [ext_resource type="Texture2D" uid="uid://bvpxrjfwivo3o" path="res://tiles/base_tiles.png" id="4_0nlt0"]
 [ext_resource type="Texture2D" uid="uid://cdqep68nt7xm5" path="res://tiles/debug_tilemap.png" id="4_6bp1q"]
 [ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo_0_2.tscn" id="5_7h7mq"]
@@ -129,6 +131,165 @@ size = Vector2(1256.75, 982.5)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
 script = ExtResource("1_6x3aa")
+
+[node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
+script = ExtResource("2_28t68")
+
+[node name="Control" type="Control" parent="InventarioUI" unique_id=95508160]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 952.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventarioUI/Control" unique_id=326941484]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -110.0
+offset_right = 280.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Slot1" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=218149327]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot1" unique_id=105079002]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot2" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=994880346]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot2" unique_id=1913650433]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot3" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=126826491]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot3" unique_id=273096467]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot4" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=427087162]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot4" unique_id=605056696]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot5" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=592864335]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot5" unique_id=157405671]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot6" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=821363207]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("3_dq1yp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icono" type="ColorRect" parent="InventarioUI/Control/HBoxContainer/Slot6" unique_id=2068938104]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Environment" type="TileMapLayer" parent="." unique_id=1295835675]
 position = Vector2(0, -6)
