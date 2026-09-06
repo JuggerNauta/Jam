@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var spawn_area: CollisionShape2D = $SpawnArea
 
-@export var enemy = preload("res://escenas/mosca.tscn")
+@export var enemy: PackedScene
 @export var generation_area: Vector2i
 var total_enemigos = 0
 @export var max_enemigos: int = 5

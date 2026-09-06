@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://scrips/enemy_handler.gd" id="8_7h7mq"]
 [ext_resource type="PackedScene" uid="uid://dwo0qwrg43bns" path="res://escenas/inventario_ui.tscn" id="9_v5ou0"]
 [ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/mobs/libelula.tscn" id="10_mpkmm"]
-[ext_resource type="PackedScene" uid="uid://dwccx7bsepupi" path="res://escenas/mobs/mosca.tscn" id="11_2b5um"]
 [ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
 [ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
@@ -128,11 +127,7 @@ position = Vector2(0, -31)
 tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAAAAAAYAB4AAAABAAAAAAAYAB8AAAABAAAAAAAYACAAAAABAAAAAAAYACEAAAABAAAAAAAYACIAAAABAAAAAAAYACMAAAABAAAAAAAYACQAAAABAAAAAAAYACUAAAABAAAAAAAYACYAAAABAAAAAAAYACcAAAABAAAAAAAYACgAAAABAAAAAAAYACkAAAABAAAAAAAYACoAAAABAAAAAAAYACsAAAABAAAAAAAYACwAAAABAAAAAAAYAC0AAAABAAAAAAAYAC4AAAABAAAAAAAYAC8AAAABAAAAAAAYADAAAAABAAAAAAAYADEAAAABAAAAAAAYADIAAAABAAAAAAAYADMAAAABAAAAAAAYADQAAAABAAAAAAAYADUAAAABAAAAAAAZABsAAAABAAAAAAAZABwAAAABAAAAAAAZAB0AAAABAAAAAAAZAB4AAAABAAAAAAAZAB8AAAABAAAAAAAZACAAAAABAAAAAAAZACEAAAABAAAAAAAZACIAAAABAAAAAAAZACMAAAABAAAAAAAZACQAAAABAAAAAAAZACUAAAABAAAAAAAZACYAAAABAAAAAAAZACcAAAABAAAAAAAZACgAAAABAAAAAAAZACkAAAABAAAAAAAZACoAAAABAAAAAAAZACsAAAABAAAAAAAZACwAAAABAAAAAAAZAC0AAAABAAAAAAAZAC4AAAABAAAAAAAZAC8AAAABAAAAAAAZADAAAAABAAAAAAAZADEAAAABAAAAAAAZADIAAAABAAAAAAAZADMAAAABAAAAAAAZADQAAAABAAAAAAAZADUAAAABAAAAAAAaABsAAAABAAAAAAAaABwAAAABAAAAAAAaAB0AAAABAAAAAAAaAB4AAAABAAAAAAAaAB8AAAABAAAAAAAaACAAAAABAAAAAAAaACEAAAABAAAAAAAaACIAAAABAAAAAAAaACMAAAABAAAAAAAaACQAAAABAAAAAAAaACUAAAABAAAAAAAaACYAAAABAAAAAAAaACcAAAABAAAAAAAaACgAAAABAAAAAAAaACkAAAABAAAAAAAaACoAAAABAAAAAAAaACsAAAABAAAAAAAaACwAAAABAAAAAAAaAC0AAAABAAAAAAAaAC4AAAABAAAAAAAaAC8AAAABAAAAAAAaADAAAAABAAAAAAAaADEAAAABAAAAAAAaADIAAAABAAAAAAAaADMAAAABAAAAAAAaADQAAAABAAAAAAAaADUAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_qhmoj")
 
-[node name="sapo 0_3" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(291, 601)
-
-[node name="sapo 0_2" parent="." unique_id=57809902 instance=ExtResource("5_7h7mq")]
-visible = false
+[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
 position = Vector2(401, 635)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
@@ -147,7 +142,6 @@ tilemap = NodePath("../Environment")
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 script = ExtResource("7_3y3fl")
-enemy = ExtResource("11_2b5um")
 max_enemigos = 20
 
 [node name="Timer" type="Timer" parent="FlySpawner" unique_id=2071323185]
@@ -350,6 +344,9 @@ position = Vector2(-3, 212)
 
 [node name="FilaClientes" parent="FilaClientes/FilaClientes/FilaClientes" unique_id=1646549566 instance=ExtResource("15_lpxjc")]
 position = Vector2(-3, 212)
+
+[node name="libelula" parent="." unique_id=994728527 instance=ExtResource("10_mpkmm")]
+position = Vector2(551.83496, 617.5094)
 
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]

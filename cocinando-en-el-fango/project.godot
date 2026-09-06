@@ -81,3 +81,5 @@ ataque={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/size/viewport_width=1980
+textures/size/viewport_height=2250
