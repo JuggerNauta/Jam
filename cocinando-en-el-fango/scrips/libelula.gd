@@ -10,6 +10,12 @@ var direccion_dash: Vector2 = Vector2.ZERO
 var tiempo_preparacion_dash: float = 1.0
 var preparando_dash: bool = false
 
+#variables shader
+
+var tiempo_actual_duplicado: float = 0
+var tiempo_duplicado: float = 0.05
+var tiempo_vida_duplicado: float = 0.2
+
 func _physics_process(delta):
 
 	if haciendo_dash:
@@ -50,3 +56,28 @@ func hacer_dash() -> void:
 	await get_tree().create_timer(tiempo_entre_dash).timeout
 
 	puede_hacer_dash = true
+	
+func crear_duplicado_shader() -> void:
+
+	var duplicado = $AnimatedSprite2D.duplicate(true)
+
+	duplicado.material = $AnimatedSprite2D.material.duplicate(true)
+
+	#configuración del shader
+	duplicado.material.set_shader_parameter("opacity", 1.0) #0.7
+	duplicado.material.set_shader_parameter("r", 1.0) #0.392
+	duplicado.material.set_shader_parameter("g", 1.0) #0.282
+	duplicado.material.set_shader_parameter("b", 1.0)#0.235
+	duplicado.material.set_shader_parameter("mix_color", 1.0) #0.5
+
+	var posicion_duplicado = global_position
+
+	get_parent().add_child(duplicado)
+
+	duplicado.global_position = posicion_duplicado
+
+	duplicado.z_index = 1
+
+	await get_tree().create_timer(tiempo_vida_duplicado).timeout
+
+	duplicado.queue_free()
