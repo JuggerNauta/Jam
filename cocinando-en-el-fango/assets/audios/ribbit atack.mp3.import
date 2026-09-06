@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm34li6flc0qk"
+path="res://.godot/imported/ribbit atack.mp3-66ea6a5be1b10fc2e1714c7ea5572c8b.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/ribbit atack.mp3"
+dest_files=["res://.godot/imported/ribbit atack.mp3-66ea6a5be1b10fc2e1714c7ea5572c8b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
