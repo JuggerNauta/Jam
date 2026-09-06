@@ -431,7 +431,6 @@ _data = {
 }
 
 [node name="sapo 0_2" type="CharacterBody2D" unique_id=662870097]
-scale = Vector2(0.25, 0.25)
 script = ExtResource("1_e68lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061]
@@ -444,6 +443,7 @@ animation = &"idle_abajo"
 autoplay = "idle_abajo"
 
 [node name="espada" type="Node2D" parent="AnimatedSprite2D" unique_id=1118899854]
+position = Vector2(-136, 76)
 
 [node name="espada_sprite" type="Sprite2D" parent="AnimatedSprite2D/espada" unique_id=1118964008]
 position = Vector2(192, 5.5134296e-07)

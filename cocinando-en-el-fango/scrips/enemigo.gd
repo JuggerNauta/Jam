@@ -6,9 +6,13 @@ extends CharacterBody2D
 #variables para el ruta de movimiento
 @export var waypoints: Array[Marker2D]
 @export var velocidad: float = 200.0
+var direccion = Vector2.ZERO
+
+signal enemigo_murio(enemigo)
+
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+var posiciones_waypoints: Array[Vector2] = []
 var ultima_direccion_personaje: String = "abajo"
 var current_index = 0
 var esta_esperando = false
@@ -29,6 +33,9 @@ func _ready() -> void:
 	jugador = get_tree().get_first_node_in_group("jugador")
 	mitad_angulo_radiales = deg_to_rad(angulo / 2)
 	add_to_group("enemigo")
+	
+	for waypoint in waypoints:
+		posiciones_waypoints.append(waypoint.global_position)
 
 func _draw(): #nomas para ver si funciona
 	var izquierda_direccion = direccion_detector.rotated(-mitad_angulo_radiales) * largo
@@ -51,12 +58,8 @@ func esta_en_el_cono():
 
 	return abs(angulo_hacia_jugador) <= mitad_angulo_radiales
 
-
-func _physics_process(_delta):
-
-	var direccion = Vector2.ZERO
-
-	#detecta al mongolo del sapo
+func perseguir_jugador():
+		#detecta al mongolo del sapo
 	if esta_en_el_cono():
 		persiguiendo = true
 		animated_sprite_2d.self_modulate = Color.RED
@@ -98,15 +101,17 @@ func _physics_process(_delta):
 
 		return
 
+func _physics_process(_delta):
+	perseguir_jugador()
 	#movimiento tipo patrulla, que vaya de un lado a otro
 	if esta_esperando:
 		return
 
 	var distancia_minima = 5.0
-	var posicion_señalada = waypoints[current_index].global_position
+	var posicion_señalada = posiciones_waypoints[current_index]
 
 	direccion = posicion_señalada - global_position
-	var distancia = direccion.length()
+	var distancia = direccion.length() * scale.x
 
 	if distancia < distancia_minima:
 
@@ -125,7 +130,7 @@ func _physics_process(_delta):
 	#moverse hacia el waypoin
 	direccion = direccion.normalized()
 
-	velocity = direccion * velocidad
+	velocity = direccion * velocidad 
 
 	#direccion enemigo
 	if abs(direccion.x) > abs(direccion.y):
@@ -169,3 +174,6 @@ func recibir_daño(daño_arma: float):
 	 
 	if vida <= 0.0: 
 		queue_free()
+func morirse():
+	enemigo_murio.emit(self)
+	queue_free()

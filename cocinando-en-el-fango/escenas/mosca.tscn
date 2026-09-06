@@ -276,9 +276,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
 size = Vector2(180, 180)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 groups=["enemigo"]]
-scale = Vector2(0.25, 0.25)
+[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_xkjoe")
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=390575452]
 sprite_frames = SubResource("SpriteFrames_8w0r3")
@@ -290,5 +290,21 @@ shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="Timer" type="Timer" parent="." unique_id=251111865]
 wait_time = 2.0
+
+[node name="Ruta" type="Node2D" parent="." unique_id=291087077]
+
+[node name="M1" type="Marker2D" parent="Ruta" unique_id=1396284476]
+
+[node name="M2" type="Marker2D" parent="Ruta" unique_id=198772795]
+position = Vector2(-472, -228)
+
+[node name="M3" type="Marker2D" parent="Ruta" unique_id=1982639199]
+position = Vector2(404, 320)
+
+[node name="M4" type="Marker2D" parent="Ruta" unique_id=1724609157]
+position = Vector2(360, -240)
+
+[node name="M5" type="Marker2D" parent="Ruta" unique_id=12838656]
+position = Vector2(-376, 304)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
