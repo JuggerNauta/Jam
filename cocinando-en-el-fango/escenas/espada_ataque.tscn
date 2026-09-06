@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b53j3kf8y1j0b"]
 
+[ext_resource type="Texture2D" uid="uid://b7gmsmu56litq" path="res://sprites/player/espada_slash.png" id="1_72cv6"]
 [ext_resource type="Script" uid="uid://blfmg71hgsyob" path="res://scrips/espada_ataque.gd" id="1_nsn53"]
 
 [sub_resource type="Animation" id="Animation_rkp5q"]
@@ -67,7 +68,9 @@ size = Vector2(70, 100)
 script = ExtResource("1_nsn53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=27517091]
+visible = false
 modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_72cv6")
 offset = Vector2(-184, 0)
 hframes = 5
 

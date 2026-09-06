@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var spawn_area: CollisionShape2D = $SpawnArea
 
-@export var enemy = preload("res://escenas/mosca.tscn")
+@export var enemy: PackedScene
 @export var generation_area: Vector2i
 var total_enemigos = 0
 @export var max_enemigos: int = 5
@@ -24,7 +24,6 @@ func _on_timer_timeout() -> void:
 	var random_position = get_random_position()
 	if total_enemigos < max_enemigos:
 		var local_enemy: CharacterBody2D = enemy.instantiate()
-		print("INSTANCIANDO EN ", random_position)
 		
 		local_enemy.enemigo_murio.connect(_on_enemigo_enemigo_murio)
 		local_enemy.global_position = random_position - enemy_handler.global_position
