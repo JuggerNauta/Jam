@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
 [ext_resource type="PackedScene" uid="uid://b6kr83mfrc1l3" path="res://escenas/mobs/cangrejo.tscn" id="13_5rq4x"]
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
+[ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p57by"]
 
@@ -126,6 +127,9 @@ size = Vector2(440, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rq4x"]
 size = Vector2(400, 260)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
+size = Vector2(200, 500)
+
 [node name="GameManager" type="Node2D" unique_id=1116109976]
 script = ExtResource("1_6x3aa")
 
@@ -191,7 +195,7 @@ enemy = ExtResource("13_5rq4x")
 max_enemigos = 2
 
 [node name="Timer" type="Timer" parent="CrabSpaw" unique_id=1348058001]
-wait_time = 2.0
+wait_time = 7.0
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="CrabSpaw" unique_id=720091381]
@@ -382,6 +386,16 @@ position = Vector2(-3, 212)
 [node name="FilaClientes" parent="FilaClientes/FilaClientes/FilaClientes" unique_id=1646549566 instance=ExtResource("15_lpxjc")]
 position = Vector2(-3, 212)
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1511945949]
+position = Vector2(542, 628)
+script = ExtResource("19_qur8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=650996500]
+position = Vector2(-25, 44)
+shape = SubResource("RectangleShape2D_8w0r3")
+
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="CrabSpaw/Timer" to="CrabSpaw" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="Jugador" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Jugador" method="_on_area_2d_body_exited"]

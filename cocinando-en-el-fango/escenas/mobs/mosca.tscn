@@ -342,7 +342,8 @@ size = Vector2(36, 36)
 script = ExtResource("1_xkjoe")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
 velocidad = 150.0
-largo = 200.0
+angulo = 350.0
+largo = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=285179399]
 modulate = Color(1, 1, 1, 0.4)

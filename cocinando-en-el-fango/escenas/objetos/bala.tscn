@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhwtitn4ujb2u"]
+
+[ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="1_qoi1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrn55"]
+
+[node name="bala" type="Area2D" unique_id=1741669926]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1474743609]
+position = Vector2(2.0861626e-07, 2.0861626e-07)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_qoi1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613722527]
+shape = SubResource("CircleShape2D_jrn55")
