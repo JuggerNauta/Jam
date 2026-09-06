@@ -25,9 +25,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8803419, 0.23076923)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(36, 36)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7h7mq"]
 shader = ExtResource("2_0qkmg")
 shader_parameter/opacity = 1.0
@@ -467,6 +464,9 @@ _data = {
 &"ataque_regreso": SubResource("Animation_1pe0m")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0qrw"]
+height = 40.0
+
 [node name="sapo" type="CharacterBody2D" unique_id=662870097]
 script = ExtResource("1_e68lp")
 velocidad = 600.0
@@ -475,9 +475,6 @@ velocidad = 600.0
 visible = false
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_8w0r3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061 groups=["jugador"]]
-shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148930667]
 modulate = Color(0, 0, 0, 0.4)
@@ -512,5 +509,8 @@ libraries/ = SubResource("AnimationLibrary_mn05s")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=267741158]
 visible = false
 color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061 groups=["jugador"]]
+shape = SubResource("CapsuleShape2D_p0qrw")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/espada/espada_sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
