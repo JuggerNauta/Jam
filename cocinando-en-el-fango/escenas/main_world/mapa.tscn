@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/libelula.tscn" id="10_mpkmm"]
 [ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
 [ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
+[ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
 texture = ExtResource("3_3y3fl")
@@ -331,6 +332,18 @@ grow_vertical = 2
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
 position = Vector2(744, 1348)
+
+[node name="FilaClientes" parent="." unique_id=556170947 instance=ExtResource("15_lpxjc")]
+position = Vector2(130, 949)
+
+[node name="FilaClientes" parent="FilaClientes" unique_id=689610250 instance=ExtResource("15_lpxjc")]
+position = Vector2(-3, 212)
+
+[node name="FilaClientes" parent="FilaClientes/FilaClientes" unique_id=1551199088 instance=ExtResource("15_lpxjc")]
+position = Vector2(-3, 212)
+
+[node name="FilaClientes" parent="FilaClientes/FilaClientes/FilaClientes" unique_id=1646549566 instance=ExtResource("15_lpxjc")]
+position = Vector2(-3, 212)
 
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]
