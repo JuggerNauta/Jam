@@ -386,6 +386,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
 size = Vector2(36, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjoe"]
+size = Vector2(70, 20)
+
 [node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_xkjoe")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
@@ -421,5 +424,10 @@ position = Vector2(56, -59)
 
 [node name="M5" type="Marker2D" parent="Ruta" unique_id=12838656]
 position = Vector2(-52, 48)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1557598893]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=277197211]
+shape = SubResource("RectangleShape2D_xkjoe")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
