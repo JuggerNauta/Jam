@@ -67,14 +67,12 @@ func _ready() -> void:
 
 func seguir_espada() -> void:
 
-	var direccion = get_global_mouse_position() - global_position
-	espada.rotation = direccion.angle()
+	# La espada apunta hacia la última dirección de movimiento
+	if ultima_direccion != Vector2.ZERO:
+		espada.rotation = ultima_direccion.angle()
 
-	var angulo = direccion.angle()
-
-	espada.rotation = angulo
-
-	if direccion.y > 0:
+	# Controlar si la espada queda delante o detrás del personaje
+	if ultima_direccion.y > 0:
 		espada.show_behind_parent = false
 	else:
 		espada.show_behind_parent = true
@@ -89,9 +87,13 @@ func atacar() -> void:
 		await get_tree().create_timer(tiempo_ataque).timeout
 
 func spawnear_ataque() -> void:
-	var espada_ataque = espada_ataque_preload.instantiate()
 
-	espada_ataque.global_position = global_position
+	var espada_ataque = espada_ataque_preload.instantiate()
+	
+	var distancia_ataque := 0.0
+
+	espada_ataque.global_position = global_position + ultima_direccion * distancia_ataque
+	espada_ataque.global_rotation = espada.global_rotation
 
 	var animation_player: AnimationPlayer = espada_ataque.get_node("Sprite2D/AnimationPlayer")
 	var animacion = animation_player.get_animation("ataque")

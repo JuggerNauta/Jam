@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b6kr83mfrc1l3"]
 
 [ext_resource type="Texture2D" uid="uid://cg5faangg7psy" path="res://sprites/mobs/cagelelo.png" id="1_3nbr8"]
-[ext_resource type="Script" uid="uid://caa223g4550sw" path="res://scrips/enemigo.gd" id="1_pra10"]
+[ext_resource type="Script" uid="uid://cqqxwm86vkybe" path="res://scrips/cangrejo.gd" id="1_nbpyc"]
+[ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_nbpyc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pra10"]
 atlas = ExtResource("1_3nbr8")
@@ -165,15 +166,15 @@ radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
 
-[node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
+[node name="cangrejo" type="CharacterBody2D" unique_id=1991961352]
 scale = Vector2(2, 2)
-script = ExtResource("1_pra10")
-waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
-velocidad = 100.0
-angulo = 70.0
-largo = 100.0
-vida = 5.0
-"daño" = 2.0
+script = ExtResource("1_nbpyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202712401]
+modulate = Color(0, 0, 0, 0.4)
+position = Vector2(0, 12)
+scale = Vector2(0.8, 0.4)
+texture = ExtResource("2_nbpyc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579319357]
 scale = Vector2(0.1, 0.1)
