@@ -268,3 +268,12 @@ func crear_duplicado_shader() -> void:
 	await get_tree().create_timer(tiempo_vida_duplicado).timeout
 
 	duplicado.queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+
+	$AnimatedSprite2D/espada/espada_sprite.visible = false
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+
+	$AnimatedSprite2D/espada/espada_sprite.visible = true

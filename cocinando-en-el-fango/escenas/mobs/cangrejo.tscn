@@ -3,6 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cg5faangg7psy" path="res://sprites/mobs/cagelelo.png" id="1_3nbr8"]
 [ext_resource type="Script" uid="uid://cqqxwm86vkybe" path="res://scrips/cangrejo.gd" id="1_nbpyc"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_nbpyc"]
+[ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="3_rceuu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbpyc"]
+shader = ExtResource("3_rceuu")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pra10"]
 atlas = ExtResource("1_3nbr8")
@@ -166,9 +175,14 @@ radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
 
-[node name="cangrejo" type="CharacterBody2D" unique_id=1991961352]
+[node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
 scale = Vector2(2, 2)
 script = ExtResource("1_nbpyc")
+velocidad_dash = 400.0
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
+velocidad = 100.0
+angulo = 180.0
+largo = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202712401]
 modulate = Color(0, 0, 0, 0.4)
@@ -177,6 +191,7 @@ scale = Vector2(0.8, 0.4)
 texture = ExtResource("2_nbpyc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579319357]
+material = SubResource("ShaderMaterial_nbpyc")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_h4t55")
 animation = &"caminar_izquierda"
@@ -200,15 +215,15 @@ shape = SubResource("CircleShape2D_h4t55")
 [node name="Ruta" type="Node2D" parent="." unique_id=1931600629]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=902603721]
-position = Vector2(-65.5, -42.5)
+position = Vector2(-54.5, -28.5)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=1307795293]
-position = Vector2(45.5, 57.5)
+position = Vector2(44.5, 18.5)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=801239452]
-position = Vector2(-34, 58.5)
+position = Vector2(-28, 45.5)
 
 [node name="M4" type="Marker2D" parent="Ruta" unique_id=1645271585]
-position = Vector2(58.5, -74)
+position = Vector2(53.5, -54)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
