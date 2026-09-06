@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b2i7y0jrp6duv"]
 
-[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://escenas/main_world/mapa.gd" id="1_6x3aa"]
+[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://scrips/mapa.gd" id="1_6x3aa"]
 [ext_resource type="Script" uid="uid://ipvj56py2vyo" path="res://escenas/main_world/camera_2d.gd" id="2_0nlt0"]
 [ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="3_3y3fl"]
 [ext_resource type="Texture2D" uid="uid://b6ldvukqmtyiy" path="res://tiles/base_tiles.png" id="4_0nlt0"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
 [ext_resource type="Texture2D" uid="uid://csqdf7qqittwy" path="res://sprites/libelula derecha abajo arriba.png" id="2_e4ir3"]
 [ext_resource type="Texture2D" uid="uid://dnov4v0fsfcir" path="res://sprites/libelula izquierda abajo arriba.png" id="3_hry84"]
+[ext_resource type="Script" uid="uid://udehvk7go7nm" path="res://scrips/area_de_daño_dash_enemigo.gd" id="4_hry84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw3h8"]
 atlas = ExtResource("2_e4ir3")
@@ -271,10 +272,75 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
-size = Vector2(180, 180)
+[sub_resource type="Animation" id="Animation_e4ir3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=994728527]
+[sub_resource type="Animation" id="Animation_hry84"]
+resource_name = "tomando_daño"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(0.5, 2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jw3h8"]
+_data = {
+&"RESET": SubResource("Animation_e4ir3"),
+&"tomando_daño": SubResource("Animation_hry84")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
+size = Vector2(360, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
+size = Vector2(700, 300)
+
+[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 groups=["enemigo"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_dfdpt")
 velocidad = 450.0
@@ -283,13 +349,23 @@ largo = 2500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
-animation = &"caminar_abajo"
+animation = &"idle_abajo"
 autoplay = "idle_abajo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=616379887]
+libraries/ = SubResource("AnimationLibrary_jw3h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371]
 shape = SubResource("RectangleShape2D_rpqlo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1266250474]
+script = ExtResource("4_hry84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=544594021]
+shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
 wait_time = 2.0
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

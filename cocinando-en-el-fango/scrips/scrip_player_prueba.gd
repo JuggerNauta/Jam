@@ -37,6 +37,9 @@ var dash_timer: float = 0.0
 var dash_timer_recarga: float = 0.0
 var dash_dir: Vector2 = Vector2.ZERO
 
+#variables vida
+var vida: float = 3.0
+
 func _physics_process(delta: float) -> void:
 
 	_dash_logica(delta)
@@ -182,6 +185,13 @@ func _dash_logica(delta: float) -> void:
 		else:
 
 			puedo_dash = true
+
+func recibir_daño(cantidad: int) -> void:
+	
+	vida -= cantidad
+
+	if vida <= 0:
+		queue_free()
 
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
 	global_position.x = clamp(global_position.x, limit_pos.x + 16, limit_pos.x + limit_size.x -8)

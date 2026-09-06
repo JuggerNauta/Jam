@@ -138,7 +138,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(50, 16)
+size = Vector2(50, 70)
 
 [node name="espada_ataque" type="Node2D" unique_id=578289322]
 script = ExtResource("1_nsn53")
@@ -155,7 +155,8 @@ libraries/ = SubResource("AnimationLibrary_lf1s3")
 [node name="Area2D" type="Area2D" parent="." unique_id=780941346]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1784741188]
-position = Vector2(25, 0)
+position = Vector2(152, 0)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

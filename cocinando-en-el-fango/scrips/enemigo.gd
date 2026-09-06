@@ -1,6 +1,8 @@
 class_name enemigo
 extends CharacterBody2D
 
+
+
 #variables para el ruta de movimiento
 @export var waypoints: Array[Marker2D]
 @export var velocidad: float = 200.0
@@ -144,6 +146,7 @@ func _physics_process(_delta):
 			ultima_direccion_personaje = "arriba"
 			direccion_detector = Vector2.UP
 
+
 	queue_redraw()
 
 	actualizar_animacion("caminar")
@@ -160,9 +163,9 @@ func actualizar_animacion(estado: String) -> void:
 func _on_timer_timeout() -> void:
 	esta_esperando = false
 
-func recibir_daño(daño_arma: float):
-	$Sprite2D/AnimationPlayer.play("tomando_daño")
-	vida -= daño_arma
-	
-	if vida <= 0.0:
+func recibir_daño(daño_arma: float): 
+	$AnimatedSprite2D/AnimationPlayer.play("tomando_daño") 
+	vida -= daño_arma 
+	 
+	if vida <= 0.0: 
 		queue_free()
