@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const BUS_MASTER := 0
+const VOLUMEN_INICIAL := 0.07
 
 @onready var boton_pausa: Button = $BotonPausa
 @onready var panel: Control = $Panel
@@ -14,7 +15,8 @@ func _ready() -> void:
 	boton_reanudar.pressed.connect(reanudar)
 	boton_menu.pressed.connect(ir_al_menu)
 	slider_volumen.value_changed.connect(_on_volumen_cambiado)
-	slider_volumen.value = db_to_linear(AudioServer.get_bus_volume_db(BUS_MASTER))
+	slider_volumen.value = VOLUMEN_INICIAL
+	_on_volumen_cambiado(slider_volumen.value)
 	panel.hide()
 
 
