@@ -94,36 +94,14 @@ texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
 2:2/0 = 0
 3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
 2:3/0 = 0
 3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-4:7/0 = 0
-5:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qhmoj"]
 sources/0 = SubResource("TileSetAtlasSource_o57ik")
@@ -151,8 +129,8 @@ tile_set = SubResource("TileSet_qhmoj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
 position = Vector2(2.9999657, 3.0517578e-05)
-rotation = 0.9087068
 anchor_mode = 0
+zoom = Vector2(1.3, 1.3)
 limit_enabled = false
 script = ExtResource("2_0nlt0")
 player = NodePath("../sapo 0_2")
@@ -352,7 +330,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(740, 542)
+position = Vector2(744, 1348)
 
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]

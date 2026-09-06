@@ -34,11 +34,10 @@ func apply_camera_limits():
 	#
 func update_global_position():
 	var _delta = get_process_delta_time()
-	viewport_size  = get_viewport_rect().size
+	viewport_size = Vector2i(get_viewport_rect().size / zoom)
 	current_cell = Vector2i(player.global_position) / viewport_size
-	
+
 	global_position = current_cell * viewport_size
-	print(global_position, viewport_size)
 	#global_position += lerp(
 		#velocity,
 		#Vector2.ZERO,
