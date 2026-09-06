@@ -153,7 +153,7 @@ shape = SubResource("RectangleShape2D_j0bqh")
 [node name="DragonflySpawner" type="Area2D" parent="." unique_id=457887317]
 script = ExtResource("7_3y3fl")
 enemy = ExtResource("10_mpkmm")
-max_enemigos = 3
+max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="DragonflySpawner" unique_id=1935487750]
 autostart = true

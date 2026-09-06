@@ -384,10 +384,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(36, 36)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjoe"]
-size = Vector2(70, 20)
+size = Vector2(36, 36)
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_xkjoe")

@@ -38,6 +38,7 @@ var dash_dir: Vector2 = Vector2.ZERO
 #variables vida
 
 var vida: float = 3.0
+var esta_muriendo: bool = false
 
 #variables shader
 
@@ -209,10 +210,31 @@ func _dash_logica(delta: float) -> void:
 
 func recibir_daño(cantidad: int) -> void:
 	
+	$AnimatedSprite2D/AnimationPlayer.play("recibir_daño")
+
+	animated_sprite_2d.material.set_shader_parameter("r", 1.0)
+	animated_sprite_2d.material.set_shader_parameter("g", 1.0)
+	animated_sprite_2d.material.set_shader_parameter("b", 1.0)
+	animated_sprite_2d.material.set_shader_parameter("mix_color", 1.0)
+	animated_sprite_2d.material.set_shader_parameter("opacity", 1.0)
+
+	await get_tree().create_timer(0.15).timeout
+
+	animated_sprite_2d.material.set_shader_parameter("mix_color", 0.0)
+	animated_sprite_2d.material.set_shader_parameter("opacity", 1.0)
+	
+	if esta_muriendo:
+		return
+
 	vida -= cantidad
 
 	if vida <= 0:
-		queue_free()
+		esta_muriendo = true
+		call_deferred("_morir")
+
+
+func _morir() -> void:
+	get_tree().change_scene_to_file("res://escenas/game_over.tscn")
 
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
 

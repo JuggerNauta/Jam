@@ -382,15 +382,17 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
-size = Vector2(36, 18)
+size = Vector2(64, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(70, 20)
+size = Vector2(72, 36)
 
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
-largo = 200.0
+velocidad = 350.0
+angulo = 60.0
+largo = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
@@ -401,7 +403,6 @@ autoplay = "idle_abajo"
 libraries/ = SubResource("AnimationLibrary_unocq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
-scale = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_rpqlo")
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
