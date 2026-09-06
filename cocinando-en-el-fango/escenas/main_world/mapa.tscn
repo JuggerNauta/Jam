@@ -310,7 +310,7 @@ tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAA
 tile_set = SubResource("TileSet_qhmoj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
-position = Vector2(0, 1215)
+rotation = 0.9087068
 anchor_mode = 0
 limit_enabled = false
 script = ExtResource("2_0nlt0")
