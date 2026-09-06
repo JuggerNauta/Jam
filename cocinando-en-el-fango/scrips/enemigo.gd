@@ -1,179 +1,238 @@
 class_name enemigo
 extends CharacterBody2D
 
+#patrulla del coso que se mueva (esta que me cuelga)
 
-
-#variables para el ruta de movimiento
 @export var waypoints: Array[Marker2D]
 @export var velocidad: float = 200.0
-var direccion = Vector2.ZERO
+
+var direccion := Vector2.ZERO
+var posiciones_waypoints: Array[Vector2] = []
+var current_index: int = 0
+var esta_esperando: bool = false
+
+
+#señales
 
 signal enemigo_murio(enemigo)
 
+#animaciones
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-var posiciones_waypoints: Array[Vector2] = []
+
 var ultima_direccion_personaje: String = "abajo"
-var current_index = 0
-var esta_esperando = false
 
-#variables para que detecte al jugador
-@export var angulo: float = 120
-@export var largo: float = 2000
+#variables para la deteccion del jugador
 
-var direccion_detector = Vector2.DOWN
-var mitad_angulo_radiales 
-var jugador 
-var persiguiendo = false
+@export var angulo: float = 120.0
+@export var largo: float = 2000.0
+@export var tiempo_busqueda: float = 2.0
 
-#enemigo vida
+var direccion_detector := Vector2.DOWN
+var mitad_angulo_radiales: float
+var jugador: Node2D = null
+var persiguiendo: bool = false
+var tiempo_perdiendo_jugador: float = 0.0
+
+#variable vida
+
 var vida: float = 3.0
 
 func _ready() -> void:
-	jugador = get_tree().get_first_node_in_group("jugador")
-	mitad_angulo_radiales = deg_to_rad(angulo / 2)
-	add_to_group("enemigo")
-	
-	for waypoint in waypoints:
-		posiciones_waypoints.append(waypoint.global_position)
 
-func _draw(): #nomas para ver si funciona
+	jugador = get_tree().get_first_node_in_group("jugador")
+	mitad_angulo_radiales = deg_to_rad(angulo / 2.0)
+
+	add_to_group("enemigo")
+
+	posiciones_waypoints.clear()
+
+	for waypoint in waypoints:
+
+		if waypoint != null:
+			posiciones_waypoints.append(waypoint.global_position)
+
+	queue_redraw()
+
+func _draw() -> void:
+
 	var izquierda_direccion = direccion_detector.rotated(-mitad_angulo_radiales) * largo
+
 	var derecha_direccion = direccion_detector.rotated(mitad_angulo_radiales) * largo
 
-	draw_line(Vector2.ZERO, izquierda_direccion, Color.YELLOW, 2.0)
-	draw_line(Vector2.ZERO, derecha_direccion, Color.YELLOW, 2.0)
+	draw_line(Vector2.ZERO,izquierda_direccion,Color.YELLOW,2.0)
+	draw_line(Vector2.ZERO,derecha_direccion,Color.YELLOW,2.0)
 
-func esta_en_el_cono():
-	
+func esta_en_el_cono() -> bool:
+
 	if jugador == null:
+
 		return false
-		
-	var posicion_local_jugador = to_local(jugador.global_position)
-	var angulo_hacia_jugador = direccion_detector.angle_to(posicion_local_jugador)
-	var distancia = posicion_local_jugador.length()
-	
+
+	var posicion_local_jugador: Vector2 = to_local(jugador.global_position)
+
+	var distancia: float = posicion_local_jugador.length()
+
 	if distancia > largo:
+
 		return false
+
+	if distancia < 5.0:
+
+		return true
+
+	var angulo_hacia_jugador: float = direccion_detector.angle_to(posicion_local_jugador)
 
 	return abs(angulo_hacia_jugador) <= mitad_angulo_radiales
 
-func perseguir_jugador():
-		#detecta al mongolo del sapo
-	if esta_en_el_cono():
-		persiguiendo = true
-		animated_sprite_2d.self_modulate = Color.WHITE
-	else:
-		animated_sprite_2d.self_modulate = Color.WHITE
+func _physics_process(delta: float) -> void:
 
-	#persigue al jugador
-	if persiguiendo:
+	if jugador == null:
 
-		direccion = (jugador.global_position - global_position).normalized()
-		velocity = direccion * velocidad
+		patrullar()
 
-		#donde mira
-		if abs(direccion.x) > abs(direccion.y):
+		return
 
-			if direccion.x > 0:
-				ultima_direccion_personaje = "derecha"
-				direccion_detector = Vector2.RIGHT
-			else:
-				ultima_direccion_personaje = "izquierda"
-				direccion_detector = Vector2.LEFT
+	if not persiguiendo:
+
+		if esta_en_el_cono():
+			persiguiendo = true
+			tiempo_perdiendo_jugador = 0.0
+
+			perseguir_jugador()
 
 		else:
+			patrullar()
 
-			if direccion.y > 0:
-				ultima_direccion_personaje = "abajo"
-				direccion_detector = Vector2.DOWN
-			else:
-				ultima_direccion_personaje = "arriba"
-				direccion_detector = Vector2.UP
+		return
 
-		queue_redraw()
-		actualizar_animacion("caminar")
-		move_and_slide()
+	if persiguiendo:
 
-		# ya no ve al jugador?, que pena se va
-		if not esta_en_el_cono():
+		if esta_en_el_cono():
+
+			tiempo_perdiendo_jugador = 0.0
+
+		else:
+			tiempo_perdiendo_jugador += delta
+
+		if tiempo_perdiendo_jugador >= tiempo_busqueda:
 			persiguiendo = false
+			tiempo_perdiendo_jugador = 0.0
+			velocity = Vector2.ZERO
 
-		return
+			patrullar()
 
-func _physics_process(_delta):
-	perseguir_jugador()
-	#movimiento tipo patrulla, que vaya de un lado a otro
-	if esta_esperando:
-		return
+			return
 
-	var distancia_minima = 5.0
-	var posicion_señalada = posiciones_waypoints[current_index]
+		perseguir_jugador()
 
-	direccion = posicion_señalada - global_position
-	var distancia = direccion.length() * scale.x
+func perseguir_jugador() -> void:
 
-	if distancia < distancia_minima:
-
-		current_index += 1
+	if jugador == null:
+		persiguiendo = false
 		velocity = Vector2.ZERO
 
-		$Timer.start()
+		return
 
-		esta_esperando = true
+	direccion = (jugador.global_position - global_position).normalized()
+	velocity = direccion * velocidad
 
-		if current_index >= waypoints.size():
-			current_index = 0
+	actualizar_direccion(direccion)
+
+	actualizar_animacion("caminar")
+
+	move_and_slide()
+
+func patrullar() -> void:
+
+	if posiciones_waypoints.is_empty():
+		velocity = Vector2.ZERO
 
 		return
 
-	#moverse hacia el waypoin
+	if esta_esperando:
+		velocity = Vector2.ZERO
+
+		return
+
+	if current_index >= posiciones_waypoints.size():
+		current_index = 0
+
+	var posicion_señalada: Vector2 = posiciones_waypoints[current_index]
+
+	direccion = posicion_señalada - global_position
+
+	var distancia: float = direccion.length()
+	var distancia_minima: float = 5.0
+
+	if distancia <= distancia_minima:
+		velocity = Vector2.ZERO
+		current_index += 1
+
+		if current_index >= posiciones_waypoints.size():
+			current_index = 0
+		esta_esperando = true
+		$Timer.start()
+
+		return
+
 	direccion = direccion.normalized()
+	velocity = direccion * velocidad
 
-	velocity = direccion * velocidad 
+	actualizar_direccion(direccion)
 
-	#direccion enemigo
-	if abs(direccion.x) > abs(direccion.y):
+	actualizar_animacion("caminar")
 
-		if direccion.x > 0:
+	move_and_slide()
+
+func actualizar_direccion(nueva_direccion: Vector2) -> void:
+
+	if nueva_direccion == Vector2.ZERO:
+		return
+
+	if abs(nueva_direccion.x) > abs(nueva_direccion.y):
+
+		if nueva_direccion.x > 0:
 			ultima_direccion_personaje = "derecha"
 			direccion_detector = Vector2.RIGHT
+
 		else:
 			ultima_direccion_personaje = "izquierda"
 			direccion_detector = Vector2.LEFT
 
 	else:
 
-		if direccion.y > 0:
+		if nueva_direccion.y > 0:
+
 			ultima_direccion_personaje = "abajo"
 			direccion_detector = Vector2.DOWN
+
 		else:
 			ultima_direccion_personaje = "arriba"
 			direccion_detector = Vector2.UP
 
-
 	queue_redraw()
-
-	actualizar_animacion("caminar")
-
-	move_and_slide()
 
 func actualizar_animacion(estado: String) -> void:
 
-	var animacion = estado + "_" + ultima_direccion_personaje
-	if animated_sprite_2d.animation != animacion:
+	var animacion: String = (estado + "_" + ultima_direccion_personaje)
 
-			animated_sprite_2d.play(animacion)
+	if animated_sprite_2d.animation != animacion:
+		animated_sprite_2d.play(animacion)
 
 func _on_timer_timeout() -> void:
+
 	esta_esperando = false
 
-func recibir_daño(daño_arma: float): 
-	$AnimatedSprite2D/AnimationPlayer.play("tomando_daño") 
-	vida -= daño_arma 
-	 
-	if vida <= 0.0: 
-		queue_free()
-func morirse():
+func recibir_daño(daño_arma: float) -> void:
+
+	$AnimatedSprite2D/AnimationPlayer.play("tomando_daño")
+	vida -= daño_arma
+
+	if vida <= 0.0:
+		morirse()
+
+func morirse() -> void:
+
 	enemigo_murio.emit(self)
 	queue_free()

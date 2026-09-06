@@ -384,12 +384,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
 size = Vector2(180, 180)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
+[node name="Enemigo" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
-velocidad = 450.0
-angulo = 60.0
-largo = 2500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
