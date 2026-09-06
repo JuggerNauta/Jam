@@ -362,7 +362,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35),
 "transitions": PackedFloat32Array(2, 2, 2),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -388,7 +388,7 @@ size = Vector2(36, 36)
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_xkjoe")
-waypoints = [NodePath("Ruta/M1"), null, null, null, null]
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=390575452]
 sprite_frames = SubResource("SpriteFrames_8w0r3")

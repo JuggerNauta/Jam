@@ -2,16 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
 [ext_resource type="Texture2D" uid="uid://csqdf7qqittwy" path="res://sprites/libelula derecha abajo arriba.png" id="2_e4ir3"]
-[ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_hry84"]
 [ext_resource type="Texture2D" uid="uid://dnov4v0fsfcir" path="res://sprites/libelula izquierda abajo arriba.png" id="3_hry84"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4ir3"]
-shader = ExtResource("2_hry84")
-shader_parameter/opacity = 1.0
-shader_parameter/r = 0.0
-shader_parameter/g = 0.0
-shader_parameter/b = 0.0
-shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw3h8"]
 atlas = ExtResource("2_e4ir3")
@@ -342,10 +333,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 1, 2]
+"values": [0, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -369,7 +360,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35),
 "transitions": PackedFloat32Array(2, 2, 2),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -398,7 +389,6 @@ script = ExtResource("1_dfdpt")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
-material = SubResource("ShaderMaterial_e4ir3")
 sprite_frames = SubResource("SpriteFrames_rpqlo")
 animation = &"caminar_abajo"
 autoplay = "idle_abajo"
