@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo_0_2.tscn" id="5_7h7mq"]
 [ext_resource type="Texture2D" uid="uid://cnopcf8ximalh" path="res://tiles/decor_kitchen_tiles.png" id="5_mpkmm"]
 [ext_resource type="Script" uid="uid://cadgx6a2j1lbq" path="res://scrips/spawner.gd" id="7_3y3fl"]
-[ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://escenas/main_world/enemy_handler.gd" id="8_7h7mq"]
-[ext_resource type="PackedScene" uid="uid://dwccx7bsepupi" path="res://escenas/mosca.tscn" id="9_7h7mq"]
+[ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://scrips/enemy_handler.gd" id="8_7h7mq"]
+[ext_resource type="PackedScene" uid="uid://dwo0qwrg43bns" path="res://escenas/inventario_ui.tscn" id="9_v5ou0"]
 [ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/libelula.tscn" id="10_mpkmm"]
 [ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
 [ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
@@ -118,7 +118,6 @@ size = Vector2(559.5, 368)
 size = Vector2(555, 311)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
-position = Vector2(-3, 0)
 script = ExtResource("1_6x3aa")
 
 [node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
@@ -134,14 +133,18 @@ position = Vector2(0, -31)
 tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAAAAAAYAB4AAAABAAAAAAAYAB8AAAABAAAAAAAYACAAAAABAAAAAAAYACEAAAABAAAAAAAYACIAAAABAAAAAAAYACMAAAABAAAAAAAYACQAAAABAAAAAAAYACUAAAABAAAAAAAYACYAAAABAAAAAAAYACcAAAABAAAAAAAYACgAAAABAAAAAAAYACkAAAABAAAAAAAYACoAAAABAAAAAAAYACsAAAABAAAAAAAYACwAAAABAAAAAAAYAC0AAAABAAAAAAAYAC4AAAABAAAAAAAYAC8AAAABAAAAAAAYADAAAAABAAAAAAAYADEAAAABAAAAAAAYADIAAAABAAAAAAAYADMAAAABAAAAAAAYADQAAAABAAAAAAAYADUAAAABAAAAAAAZABsAAAABAAAAAAAZABwAAAABAAAAAAAZAB0AAAABAAAAAAAZAB4AAAABAAAAAAAZAB8AAAABAAAAAAAZACAAAAABAAAAAAAZACEAAAABAAAAAAAZACIAAAABAAAAAAAZACMAAAABAAAAAAAZACQAAAABAAAAAAAZACUAAAABAAAAAAAZACYAAAABAAAAAAAZACcAAAABAAAAAAAZACgAAAABAAAAAAAZACkAAAABAAAAAAAZACoAAAABAAAAAAAZACsAAAABAAAAAAAZACwAAAABAAAAAAAZAC0AAAABAAAAAAAZAC4AAAABAAAAAAAZAC8AAAABAAAAAAAZADAAAAABAAAAAAAZADEAAAABAAAAAAAZADIAAAABAAAAAAAZADMAAAABAAAAAAAZADQAAAABAAAAAAAZADUAAAABAAAAAAAaABsAAAABAAAAAAAaABwAAAABAAAAAAAaAB0AAAABAAAAAAAaAB4AAAABAAAAAAAaAB8AAAABAAAAAAAaACAAAAABAAAAAAAaACEAAAABAAAAAAAaACIAAAABAAAAAAAaACMAAAABAAAAAAAaACQAAAABAAAAAAAaACUAAAABAAAAAAAaACYAAAABAAAAAAAaACcAAAABAAAAAAAaACgAAAABAAAAAAAaACkAAAABAAAAAAAaACoAAAABAAAAAAAaACsAAAABAAAAAAAaACwAAAABAAAAAAAaAC0AAAABAAAAAAAaAC4AAAABAAAAAAAaAC8AAAABAAAAAAAaADAAAAABAAAAAAAaADEAAAABAAAAAAAaADIAAAABAAAAAAAaADMAAAABAAAAAAAaADQAAAABAAAAAAAaADUAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_qhmoj")
 
+[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
+position = Vector2(1142, 1182)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
-position = Vector2(2.9999657, 3.0517578e-05)
 anchor_mode = 0
 zoom = Vector2(1.3, 1.3)
 limit_enabled = false
 script = ExtResource("2_0nlt0")
 player = NodePath("../sapo 0_2")
 tilemap = NodePath("../Environment")
+
+[node name="InventarioUI2" parent="Camera2D" unique_id=1734074673 instance=ExtResource("9_v5ou0")]
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 script = ExtResource("7_3y3fl")
@@ -338,9 +341,6 @@ offset_right = 14.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(235, 675)
 
 [node name="FilaClientes" parent="." unique_id=556170947 instance=ExtResource("15_lpxjc")]
 position = Vector2(130, 949)

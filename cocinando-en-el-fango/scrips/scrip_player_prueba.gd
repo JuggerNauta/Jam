@@ -37,7 +37,7 @@ var dash_dir: Vector2 = Vector2.ZERO
 
 #variables vida
 
-var vida: float = 3.0
+var vida: float = 10.0
 var esta_muriendo: bool = false
 
 #variables shader
