@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://escenas/main_world/enemy_handler.gd" id="8_7h7mq"]
 [ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/libelula.tscn" id="10_mpkmm"]
 [ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
+[ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7mp8"]
 texture = ExtResource("3_3y3fl")
@@ -88,6 +89,7 @@ sources/3 = SubResource("TileSetAtlasSource_28t68")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o57ik"]
 texture = ExtResource("5_mpkmm")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -130,7 +132,10 @@ sources/0 = SubResource("TileSetAtlasSource_o57ik")
 size = Vector2(1256.75, 982.5)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
+position = Vector2(-3, -428)
 script = ExtResource("1_6x3aa")
+
+[node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
 
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
 script = ExtResource("2_28t68")
@@ -140,7 +145,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 952.0
+offset_left = -3.0
+offset_top = 524.0
+offset_right = -3.0
+offset_bottom = -428.0
 grow_horizontal = 2
 grow_vertical = 2
 
