@@ -62,15 +62,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(50, 100)
+size = Vector2(70, 100)
 
 [node name="espada_ataque" type="Node2D" unique_id=578289322]
 script = ExtResource("1_nsn53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=27517091]
 visible = false
-modulate = Color(1, 1, 1, 0.058618605)
-position = Vector2(0.30251858, 0)
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_72cv6")
 offset = Vector2(-184, 0)
 hframes = 5
@@ -81,7 +80,7 @@ libraries/ = SubResource("AnimationLibrary_lf1s3")
 [node name="Area2D" type="Area2D" parent="." unique_id=780941346]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1784741188]
-position = Vector2(56, 8)
+position = Vector2(70, 0)
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

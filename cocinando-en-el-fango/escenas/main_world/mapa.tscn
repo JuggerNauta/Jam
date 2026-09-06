@@ -129,10 +129,10 @@ texture_region_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_o57ik")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpkmm"]
-size = Vector2(1256.75, 982.5)
+size = Vector2(1000, 700)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
-position = Vector2(-3, -428)
+position = Vector2(-3, 0)
 script = ExtResource("1_6x3aa")
 
 [node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
@@ -150,17 +150,13 @@ tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAA
 tile_set = SubResource("TileSet_qhmoj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
-position = Vector2(5.000004, 428)
+position = Vector2(2.9999657, 3.0517578e-05)
 rotation = 0.9087068
 anchor_mode = 0
 limit_enabled = false
 script = ExtResource("2_0nlt0")
 player = NodePath("../sapo 0_2")
 tilemap = NodePath("../Environment")
-
-[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-z_index = 2
-position = Vector2(300, 1106)
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 script = ExtResource("7_3y3fl")
@@ -170,7 +166,7 @@ max_enemigos = 3
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="FlySpawner" unique_id=116698452]
-position = Vector2(2186, 1905)
+position = Vector2(2170, 1270)
 shape = SubResource("RectangleShape2D_mpkmm")
 
 [node name="DragonflySpawner" type="Area2D" parent="." unique_id=457887317]
@@ -182,7 +178,7 @@ max_enemigos = 3
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="DragonflySpawner" unique_id=1234867125]
-position = Vector2(4755, 587)
+position = Vector2(3713, 473)
 shape = SubResource("RectangleShape2D_mpkmm")
 
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=975077062]
@@ -354,6 +350,9 @@ offset_right = 14.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
+position = Vector2(740, 542)
 
 [connection signal="timeout" from="FlySpawner/Timer" to="FlySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DragonflySpawner/Timer" to="DragonflySpawner" method="_on_timer_timeout"]
