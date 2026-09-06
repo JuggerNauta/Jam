@@ -143,16 +143,16 @@ tile_map_data = PackedByteArray("AAAYABsAAAABAAAAAAAYABwAAAABAAAAAAAYAB0AAAABAAA
 tile_set = SubResource("TileSet_qhmoj")
 
 [node name="sapo 0_2" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
-position = Vector2(113, 1516)
-scale = Vector2(0.25, 0.25)
+z_index = 2
+position = Vector2(561, 1648)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
-position = Vector2(15, 1213)
+[node name="Camera2D" type="Camera2D" parent="sapo 0_2" unique_id=1614339378 node_paths=PackedStringArray("player", "tilemap")]
+position = Vector2(-561, -433)
 anchor_mode = 0
 limit_enabled = false
 script = ExtResource("2_0nlt0")
-player = NodePath("../sapo 0_2")
-tilemap = NodePath("../Environment")
+player = NodePath("..")
+tilemap = NodePath("../../Environment")
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 script = ExtResource("7_3y3fl")

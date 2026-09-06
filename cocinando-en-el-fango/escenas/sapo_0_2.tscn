@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqfx7pf5ldgdp"]
 
 [ext_resource type="Script" uid="uid://ui0d8lcgyflr" path="res://scrips/scrip_player_prueba.gd" id="1_e68lp"]
+[ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_0qkmg"]
 [ext_resource type="Texture2D" uid="uid://bbsrx88i6dwyl" path="res://sprites/abajo.png" id="2_6bjmb"]
 [ext_resource type="Texture2D" uid="uid://da7jvko5ivc6t" path="res://sprites/arriba.png" id="3_1pe0m"]
 [ext_resource type="Texture2D" uid="uid://05cyo76bmme4" path="res://sprites/derecha.png" id="4_mn05s"]
@@ -13,7 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://bgp72kgjmupiv" path="res://sprites/idle_izquierda.png" id="10_e68lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(180, 300)
+size = Vector2(45, 75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7h7mq"]
+shader = ExtResource("2_0qkmg")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpfh1"]
 atlas = ExtResource("2_6bjmb")
@@ -338,6 +347,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpkmm"]
+shader = ExtResource("2_0qkmg")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
+
 [sub_resource type="Animation" id="Animation_e68lp"]
 length = 0.001
 tracks/0/type = "value"
@@ -437,16 +454,18 @@ script = ExtResource("1_e68lp")
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=56541827]
+material = SubResource("ShaderMaterial_7h7mq")
 position = Vector2(-2.682209e-07, -5.5134296e-07)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_jlb2t")
 animation = &"idle_abajo"
 autoplay = "idle_abajo"
 
 [node name="espada" type="Node2D" parent="AnimatedSprite2D" unique_id=1118899854]
-position = Vector2(-136, 76)
 
 [node name="espada_sprite" type="Sprite2D" parent="AnimatedSprite2D/espada" unique_id=1118964008]
-position = Vector2(192, 5.5134296e-07)
+material = SubResource("ShaderMaterial_mpkmm")
+position = Vector2(112, 0)
 texture = ExtResource("7_7qkfx")
 offset = Vector2(180, -360)
 

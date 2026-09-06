@@ -6,14 +6,12 @@ extends CharacterBody2D
 @onready var espada_sprite: Sprite2D = $AnimatedSprite2D/espada/espada_sprite
 @onready var espada_animation_player: AnimationPlayer = $AnimatedSprite2D/espada/espada_sprite/AnimationPlayer
 
-
 #movimiento variables
 
 @export var velocidad: float = 200.0
 
 var ultima_direccion_personaje: String = "abajo"
 var ultima_direccion: Vector2 = Vector2.ZERO
-
 
 #atacar variables
 
@@ -37,7 +35,19 @@ var dash_timer: float = 0.0
 var dash_timer_recarga: float = 0.0
 var dash_dir: Vector2 = Vector2.ZERO
 
+#variables vida
+
+var vida: float = 3.0
+
+#variables shader
+
+var tiempo_actual_duplicado: float = 0
+var tiempo_duplicado: float = 0.05
+var tiempo_vida_duplicado: float = 0.2
+
 func _physics_process(delta: float) -> void:
+
+	tiempo_actual_duplicado += delta
 
 	_dash_logica(delta)
 
@@ -94,6 +104,7 @@ func spawnear_ataque() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 	if anim_name == "ataque":
+
 		var animacion_regreso = espada_animation_player.get_animation("ataque_regreso")
 
 		espada_animation_player.speed_scale = animacion_regreso.length / tiempo_espada_regresa
@@ -158,6 +169,7 @@ func get_input() -> void:
 func actualizar_animacion(estado: String) -> void:
 
 	var animacion = estado + "_" + ultima_direccion_personaje
+
 	if animated_sprite_2d.animation != animacion:
 
 		animated_sprite_2d.play(animacion)
@@ -166,25 +178,70 @@ func actualizar_animacion(estado: String) -> void:
 
 func _dash_logica(delta: float) -> void:
 
-
 	if puedo_dash and Input.is_action_just_pressed("dash"):
+
 		puedo_dash = false
 		dash_timer = dash_tiempo
 		dash_timer_recarga = dash_costo_recarga
+
 		dash_dir = ultima_direccion
+
 		velocity = dash_dir * dash_velocidad
 
+	# Mientras estamos haciendo dash
 	if dash_timer > 0.0:
+
 		dash_timer = max(0.0, dash_timer - delta)
+
+		tiempo_actual_duplicado += delta
+
+		if tiempo_actual_duplicado >= tiempo_duplicado:
+			tiempo_actual_duplicado = 0.0
+			crear_duplicado_shader()
+
 	else:
+
 		if dash_timer_recarga > 0.0:
 			dash_timer_recarga -= delta
-		else:
 
+		else:
 			puedo_dash = true
 
+func recibir_daño(cantidad: int) -> void:
+	
+	vida -= cantidad
+
+	if vida <= 0:
+		queue_free()
+
 func clamp_to_limits(limit_pos: Vector2, limit_size: Vector2):
-	var player_size: Vector2i = self.animated_sprite_2d.sprite_frames.get_frame_texture("idle_abajo",0).get_size() * self.scale
+
+	var player_size: Vector2 = self.animated_sprite_2d.sprite_frames.get_frame_texture("idle_abajo", 0).get_size() * self.scale
+	
 	global_position.x = clamp(global_position.x, limit_pos.x + (player_size.x / 2) , limit_pos.x + limit_size.x - (player_size.x / 2))
 	global_position.y = clamp(global_position.y, limit_pos.y + (player_size.y), limit_pos.y + limit_size.y - (player_size.y / 2))
-	
+
+func crear_duplicado_shader() -> void:
+
+	var duplicado = $AnimatedSprite2D.duplicate(true)
+
+	duplicado.material = $AnimatedSprite2D.material.duplicate(true)
+
+	#configuración del shader
+	duplicado.material.set_shader_parameter("opacity", 0.7)
+	duplicado.material.set_shader_parameter("r", 0.392)
+	duplicado.material.set_shader_parameter("g", 0.282)
+	duplicado.material.set_shader_parameter("b", 0.235)
+	duplicado.material.set_shader_parameter("mix_color", 0.5)
+
+	var posicion_duplicado = global_position
+
+	get_parent().add_child(duplicado)
+
+	duplicado.global_position = posicion_duplicado
+
+	duplicado.z_index = 1
+
+	await get_tree().create_timer(tiempo_vida_duplicado).timeout
+
+	duplicado.queue_free()

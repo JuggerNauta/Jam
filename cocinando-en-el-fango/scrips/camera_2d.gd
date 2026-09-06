@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var input_vector = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	var old_cell = current_cell
 	calculate_velocity(input_vector)
@@ -28,14 +28,14 @@ func _process(delta: float) -> void:
 
 func apply_camera_limits():
 	var tilemap_info = get_tilemap_info()
-	var level_size = Vector2i(tilemap_info.tile_size * tilemap_info.size)
+	var _level_size = Vector2i(tilemap_info.tile_size * tilemap_info.size)
 	#set_limit(SIDE_LEFT, 0)
 	#set_limit(SIDE_TOP, -level_size.y/2)
 	#set_limit(SIDE_RIGHT, level_size.x)
 	#set_limit(SIDE_BOTTOM, level_size.y/2)
 	#
 func update_global_position():
-	var delta = get_process_delta_time()
+	var _delta = get_process_delta_time()
 	viewport_size  = get_viewport_rect().size
 	current_cell = Vector2i(player.global_position) / viewport_size
 	
