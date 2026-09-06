@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bbpxm7t3hnaa1"]
+
+[ext_resource type="Texture2D" uid="uid://bnjuvwmqr8fui" path="res://sprites/mobs/cliente_c_skater.png" id="1_alcff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxchn"]
+atlas = ExtResource("1_alcff")
+region = Rect2(0, 0, 450, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xq630"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxchn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxchn")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="cliente_c" type="Node2D" unique_id=1345570471]
+top_level = true
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1474340199]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_xq630")
+animation = &"idle"

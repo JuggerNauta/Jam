@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://wg13e3ro30a4"]
+
+[ext_resource type="Texture2D" uid="uid://dmj3cs0cvpnb2" path="res://sprites/mobs/cliente_de_der.png" id="1_w557l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_704yg"]
+atlas = ExtResource("1_w557l")
+region = Rect2(0, 0, 360, 513)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isc0g"]
+atlas = ExtResource("1_w557l")
+region = Rect2(0, 0, 360, 513)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71jry"]
+atlas = ExtResource("1_w557l")
+region = Rect2(360, 0, 360, 513)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_704yg")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isc0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71jry")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]

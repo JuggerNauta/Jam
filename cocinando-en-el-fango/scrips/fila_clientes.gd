@@ -9,8 +9,8 @@ var velocidad := 120.0
 
 const SEPARACION := 40.0
 
-var _fila: Array[Node2D] = []
-var _saliendo: Array[Node2D] = []
+var _fila: Array = []
+var _saliendo: Array = []
 
 @onready var _punto_a: Marker2D = $PuntoA
 @onready var _punto_b: Marker2D = $PuntoB
@@ -30,11 +30,16 @@ func _physics_process(delta: float) -> void:
 	for i in _fila.size():
 		var llego := _mover_hacia(_fila[i], _puesto(i), avance)
 		if i == 0 and llego and not _mostrador.atendiendo:
+			var sprites = _fila[i].get_node("Visual") as AnimatedSprite2D
+			sprites.play("idle")
 			_mostrador.atender()
 
 	for i in range(_saliendo.size() - 1, -1, -1):
 		if _mover_hacia(_saliendo[i], _punto_a.global_position, avance):
 			_saliendo[i].queue_free()
+			#_saliendo[i].get_node("Visual").play("walking")
+			#
+			#_saliendo[i].scale.x *= -1
 			_saliendo.remove_at(i)
 
 	_spawner.pausado = _fila.size() >= capacidad
@@ -45,15 +50,24 @@ func _mover_hacia(cliente: Node2D, objetivo: Vector2, avance: float) -> bool:
 	return cliente.global_position.is_equal_approx(objetivo)
 
 
-func _al_crear_cliente(cliente: Node2D) -> void:
+func _al_crear_cliente(cliente:Node2D) -> void:
 	_clientes.add_child(cliente)
+	var sprites = cliente.get_node("Visual")
+	sprites.play("walking")
 	cliente.global_position = _punto_a.global_position
 	_fila.append(cliente)
 
 
 func _al_terminar_atencion() -> void:
 	if not _fila.is_empty():
-		_saliendo.append(_fila.pop_front())
+		var cliente = _fila.pop_front()
+
+		var sprite := cliente.get_node("Visual") as AnimatedSprite2D
+		sprite.play("walking")
+
+		cliente.scale.x *= -1
+
+		_saliendo.append(cliente)
 
 
 func _puesto(indice: int) -> Vector2:

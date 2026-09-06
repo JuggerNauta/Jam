@@ -1,28 +1,30 @@
 [gd_scene format=3 uid="uid://beqjhru6fcxal"]
 
 [ext_resource type="Script" uid="uid://bhlc4rxwycy43" path="res://scrips/fila_clientes.gd" id="1_fila"]
-[ext_resource type="PackedScene" uid="uid://c0cubojam0001" path="res://fila_clientes/cubo.tscn" id="2_cliente"]
+[ext_resource type="PackedScene" uid="uid://c3bp1d11whnrb" path="res://fila_clientes/cliente_a.tscn" id="3_7d5rq"]
 [ext_resource type="Script" uid="uid://cerj3w235ujbg" path="res://scrips/spawner_clientes.gd" id="3_spawner"]
+[ext_resource type="PackedScene" uid="uid://b01ukk34ar5ac" path="res://fila_clientes/cliente_d.tscn" id="4_fvfwh"]
 [ext_resource type="Script" uid="uid://cv3ac11labjn6" path="res://scrips/mostrador.gd" id="4_mostrador"]
+[ext_resource type="PackedScene" uid="uid://dtmn8g80bbowm" path="res://fila_clientes/cliente_b.tscn" id="5_8hdhm"]
+[ext_resource type="PackedScene" uid="uid://bbpxm7t3hnaa1" path="res://fila_clientes/cliente_c.tscn" id="6_huaef"]
 
-[node name="FilaClientes" type="Node2D"]
+[node name="FilaClientes" type="Node2D" unique_id=1242235017]
 script = ExtResource("1_fila")
-capacidad = 4
-velocidad = 360.0
+capacidad = 1
+velocidad = 100.0
 
-[node name="PuntoA" type="Marker2D" parent="."]
+[node name="PuntoA" type="Marker2D" parent="." unique_id=1974994352]
 position = Vector2(-140, 0)
 
-[node name="PuntoB" type="Marker2D" parent="."]
+[node name="PuntoB" type="Marker2D" parent="." unique_id=1769056760]
 position = Vector2(565, 0)
 
-[node name="Clientes" type="Node2D" parent="."]
+[node name="Clientes" type="Node2D" parent="." unique_id=2106265737]
 
-[node name="Spawner" type="Node" parent="."]
+[node name="Spawner" type="Node" parent="." unique_id=728695935]
 script = ExtResource("3_spawner")
-escena = ExtResource("2_cliente")
-intervalo = 2.0
+escenas = Array[PackedScene]([ExtResource("3_7d5rq"), ExtResource("4_fvfwh"), ExtResource("5_8hdhm"), ExtResource("6_huaef")])
 
-[node name="Mostrador" type="Node" parent="."]
+[node name="Mostrador" type="Node" parent="." unique_id=131379065]
 script = ExtResource("4_mostrador")
-duracion = 3.7
+duracion = 10.0
