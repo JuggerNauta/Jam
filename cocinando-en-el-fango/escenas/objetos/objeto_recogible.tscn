@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://rhgenna80wcd"]
 
-[ext_resource type="Script" path="res://scrips/objeto_recogible.gd" id="1"]
+[ext_resource type="Script" uid="uid://d1gikmmosom7b" path="res://scrips/objeto_recogible.gd" id="1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 20.0
 
-[node name="ObjetoRecogible" type="Area2D"]
+[node name="ObjetoRecogible" type="Area2D" unique_id=1602271870]
 script = ExtResource("1")
+nombre = ""
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1383621086]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=553251995]
 shape = SubResource("CircleShape2D_1")
