@@ -115,29 +115,6 @@ region = Rect2(1080, 0, 360, 360)
 atlas = ExtResource("7_0qkmg")
 region = Rect2(1440, 0, 360, 360)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e68lp"]
-load_path = "res://.godot/imported/idle_arriba.png-c4b3fb67af67c09deac9a5141b4a59b2.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghixb"]
-atlas = SubResource("CompressedTexture2D_e68lp")
-region = Rect2(0, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlb2t"]
-atlas = SubResource("CompressedTexture2D_e68lp")
-region = Rect2(36, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iaakm"]
-atlas = SubResource("CompressedTexture2D_e68lp")
-region = Rect2(72, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ygp8a"]
-atlas = SubResource("CompressedTexture2D_e68lp")
-region = Rect2(108, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_15are"]
-atlas = SubResource("CompressedTexture2D_e68lp")
-region = Rect2(144, 0, 36, 36)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcqsn"]
 atlas = ExtResource("9_ghixb")
 region = Rect2(0, 0, 360, 360)
@@ -295,21 +272,6 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ghixb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlb2t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iaakm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ygp8a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_15are")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qcqsn")
 }, {
@@ -504,7 +466,7 @@ _data = {
 &"ataque_regreso": SubResource("Animation_1pe0m")
 }
 
-[node name="sapo 0_2" type="CharacterBody2D" unique_id=662870097]
+[node name="sapo" type="CharacterBody2D" unique_id=662870097]
 script = ExtResource("1_e68lp")
 velocidad = 600.0
 
@@ -515,7 +477,7 @@ shape = SubResource("RectangleShape2D_8w0r3")
 material = SubResource("ShaderMaterial_7h7mq")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_jlb2t")
-animation = &"caminar_abajo"
+animation = &"caminar_arriba"
 autoplay = "idle_abajo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1842397912]

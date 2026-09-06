@@ -1,80 +1,31 @@
 extends Camera2D
 
 @export var player : CharacterBody2D
-
-var max_speed: float = 10
-var release_falloff = 35
-var acceleration = 100
-var velocity: Vector2 = Vector2.ZERO
-@export var tilemap: TileMapLayer
-var current_cell: Vector2i
+@onready var screen_size: Vector2 = get_viewport_rect().size
+@export var tilemap_layer: TileMapLayer
 var viewport_size: Vector2i
-# Called when the node enters the scene tree for the first time.
+var current_cell: Vector2i
+var zoom_factor: Vector2
+var room_size: Vector2i = Vector2i(736, 448)
+
 func _ready() -> void:
 	set_anchor_mode(Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT)
+	set_screen_position()
+	await get_tree().process_frame
+	position_smoothing_enabled = true
+	position_smoothing_speed = 7.0
+	zoom_factor = screen_size/ Vector2(room_size.x, room_size.y)
+	set_zoom(zoom_factor)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var input_vector = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
-	var old_cell = current_cell
-	calculate_velocity(input_vector)
-	update_global_position()
-	#apply_camera_limits()
-	if old_cell != current_cell:
-		player.clamp_to_limits(global_position, viewport_size)
+	set_screen_position()
 	
-
-func apply_camera_limits():
-	var tilemap_info = get_tilemap_info()
-	var _level_size = Vector2i(tilemap_info.tile_size * tilemap_info.size)
-	#set_limit(SIDE_LEFT, 0)
-	#set_limit(SIDE_TOP, -level_size.y/2)
-	#set_limit(SIDE_RIGHT, level_size.x)
-	#set_limit(SIDE_BOTTOM, level_size.y/2)
-	#
-func update_global_position():
-	var _delta = get_process_delta_time()
-	viewport_size = Vector2i(get_viewport_rect().size / zoom)
-	current_cell = Vector2i(player.global_position) / viewport_size
-
-	global_position = current_cell * viewport_size
-	#global_position += lerp(
-		#velocity,
-		#Vector2.ZERO,
-		#pow(2, -32 * delta)
-	#)
-	
-	#var limit_left = get_limit(SIDE_LEFT)
-	#var limit_top = get_limit(SIDE_TOP)
-	#var limit_right = get_limit(SIDE_RIGHT)
-	#var limit_bot = get_limit(SIDE_BOTTOM)
-	#global_position.x = clamp(global_position.x, limit_left, limit_right)
-	#global_position.y = clamp(global_position.y, limit_top, limit_bot)
-	
-func calculate_velocity(direction):
-	var delta = get_process_delta_time()
-
-	velocity += direction * acceleration * delta	
-	if direction.x == 0:
-		velocity.x = lerp(0.0, velocity.x, pow(2, -release_falloff * delta))
-	if direction.y == 0:
-		velocity.y = lerp(0.0, velocity.y, pow(2, -release_falloff * delta))
-	velocity.x = clamp(
-		velocity.x,
-		-max_speed,
-		max_speed
-	)
-	velocity.y = clamp(
-		velocity.y,
-		-max_speed,
-		max_speed
-	)
-	
-func get_tilemap_info():
-	var tile_size = tilemap.tile_set.tile_size
-	var tilemap_rect = tilemap.get_used_rect()
-	var tilemap_size = Vector2i(
-		tilemap_rect.end.x - tilemap_rect.position.x,
-		tilemap_rect.end.y - tilemap_rect.position.y
-	)
-	return {"size": tilemap_size, "tile_size": tile_size}
+func set_screen_position():
+	var player_pos = player.global_position
+	var current_x_cell: int = floor(player_pos.x / screen_size.x * zoom_factor.x )
+	var current_y_cell: int = floor(player_pos.y / screen_size.y * zoom_factor.y)
+	current_cell = Vector2i(current_x_cell, current_y_cell)
+	var x =  current_x_cell * room_size.x 
+	var y = current_y_cell * room_size.y
+	global_position = Vector2(x, y) 
+	#set_zoom(zoom)
