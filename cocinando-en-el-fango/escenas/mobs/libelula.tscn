@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c71lpemk7f4jw"]
 
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
+[ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_e2xqg"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_s85l8"]
 [ext_resource type="Texture2D" uid="uid://cx8h6d3kpkb8o" path="res://sprites/mobs/libelula_der.png" id="4_hry84"]
 [ext_resource type="Texture2D" uid="uid://cu71fl3ub0pkx" path="res://sprites/mobs/libelula_izq.png" id="5_jw3h8"]
@@ -353,7 +354,15 @@ velocidad = 150.0
 angulo = 270.0
 largo = 150.0
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1150208961]
+modulate = Color(1, 1, 1, 0.4)
+position = Vector2(0, 24)
+scale = Vector2(1.8, 0.4)
+texture = ExtResource("2_e2xqg")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
+light_mask = 2
+visibility_layer = 2
 material = SubResource("ShaderMaterial_eo1w6")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rpqlo")

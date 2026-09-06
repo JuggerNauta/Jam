@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ui0d8lcgyflr" path="res://scrips/scrip_player_prueba.gd" id="1_e68lp"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_0qkmg"]
+[ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_p57by"]
 [ext_resource type="Texture2D" uid="uid://cakx41hhdkqbk" path="res://sprites/player/camina_abajo.png" id="3_0qkmg"]
 [ext_resource type="Texture2D" uid="uid://cotycynq1iic8" path="res://sprites/player/camina_arriba.png" id="4_ghixb"]
 [ext_resource type="Texture2D" uid="uid://d3uvpuqnvddnd" path="res://sprites/player/camina_der.png" id="5_0qkmg"]
@@ -11,6 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://darw2m5ekfh2b" path="res://sprites/player/idle_izq.png" id="10_e68lp"]
 [ext_resource type="Texture2D" uid="uid://c6pgnnvld5l6q" path="res://sprites/player/idle_der.png" id="10_jlb2t"]
 [ext_resource type="Texture2D" uid="uid://dk4bnh84g3d2f" path="res://sprites/player/espada.png" id="12_0qkmg"]
+
+[sub_resource type="Gradient" id="Gradient_d6606"]
+offsets = PackedFloat32Array(0.9516908, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8w0r3"]
+gradient = SubResource("Gradient_d6606")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8803419, 0.23076923)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
 size = Vector2(36, 36)
@@ -458,8 +471,20 @@ _data = {
 script = ExtResource("1_e68lp")
 velocidad = 600.0
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2144660970]
+visible = false
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_8w0r3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511410061 groups=["jugador"]]
 shape = SubResource("RectangleShape2D_8w0r3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=148930667]
+modulate = Color(0, 0, 0, 0.4)
+position = Vector2(0, 14)
+rotation = 1.1428595e-05
+scale = Vector2(0.8, 0.4)
+texture = ExtResource("2_p57by")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=56541827]
 material = SubResource("ShaderMaterial_7h7mq")
@@ -483,5 +508,9 @@ offset = Vector2(0, -720)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/espada/espada_sprite" unique_id=1742997471]
 libraries/ = SubResource("AnimationLibrary_mn05s")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=267741158]
+visible = false
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [connection signal="animation_finished" from="AnimatedSprite2D/espada/espada_sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
