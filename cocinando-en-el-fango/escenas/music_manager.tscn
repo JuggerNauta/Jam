@@ -3,6 +3,5 @@
 [ext_resource type="Script" path="res://scrips/music_manager.gd" id="1_music"]
 
 [node name="MusicManager" type="AudioStreamPlayer"]
-autoplay = false
 bus = &"Master"
 script = ExtResource("1_music")
