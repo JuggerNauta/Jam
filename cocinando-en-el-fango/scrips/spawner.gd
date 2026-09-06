@@ -25,7 +25,8 @@ func _on_timer_timeout() -> void:
 	if total_enemigos < max_enemigos:
 		var local_enemy: CharacterBody2D = enemy.instantiate()
 		print("INSTANCIANDO EN ", random_position)
-	
+		
+		local_enemy.enemigo_murio.connect(_on_enemigo_enemigo_murio)
 		local_enemy.global_position = random_position - enemy_handler.global_position
 		enemy_handler.add_child(local_enemy)
 		total_enemigos += 1
