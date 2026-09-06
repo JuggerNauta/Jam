@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://csqdf7qqittwy" path="res://sprites/libelula derecha abajo arriba.png" id="2_e4ir3"]
 [ext_resource type="Texture2D" uid="uid://dnov4v0fsfcir" path="res://sprites/libelula izquierda abajo arriba.png" id="3_hry84"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
+size = Vector2(36, 18)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw3h8"]
 atlas = ExtResource("2_e4ir3")
 region = Rect2(0, 0, 72, 45)
@@ -381,13 +384,16 @@ _data = {
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
-size = Vector2(36, 18)
-
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 largo = 200.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1296478383]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1455147059 groups=["enemigo"]]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_rpqlo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
@@ -396,10 +402,6 @@ autoplay = "idle_abajo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1821769913]
 libraries/ = SubResource("AnimationLibrary_unocq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
-scale = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_rpqlo")
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
 wait_time = 2.0
@@ -415,5 +417,9 @@ position = Vector2(-122, -32)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=705185855]
 position = Vector2(36, -52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_rpqlo")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
