@@ -389,10 +389,12 @@ size = Vector2(72, 36)
 
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
+tiempo_entre_dash = 1.5
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 350.0
 angulo = 60.0
-largo = 150.0
+largo = 300.0
+"daño" = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606900983]
 sprite_frames = SubResource("SpriteFrames_rpqlo")
