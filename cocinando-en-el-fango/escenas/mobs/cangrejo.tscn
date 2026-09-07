@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5faangg7psy" path="res://sprites/mobs/cagelelo.png" id="1_3nbr8"]
 [ext_resource type="Script" uid="uid://cqqxwm86vkybe" path="res://scrips/cangrejo.gd" id="1_nbpyc"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_nbpyc"]
-[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_x8s0l"]
+[ext_resource type="Resource" uid="uid://c7jx8bqq00y0q" path="res://resources/loottable/crab_loot.tres" id="2_x8s0l"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="3_rceuu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbpyc"]

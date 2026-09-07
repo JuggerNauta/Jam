@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObjetoData" format=3 uid="uid://bsdjn73sy788e"]
+
+[ext_resource type="Script" uid="uid://bel5ipuu1m77p" path="res://scrips/objeto_data.gd" id="1_515ex"]
+[ext_resource type="Texture2D" uid="uid://dm0w6d585qmar" path="res://sprites/items/carnita_mosca.png" id="2_idyl2"]
+
+[resource]
+script = ExtResource("1_515ex")
+nombre = "Carne de Mosca"
+sprite = ExtResource("2_idyl2")
