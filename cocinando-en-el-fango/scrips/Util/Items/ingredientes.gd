@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _register_items() -> void:
 	for item in all_items:
-		item_registry[item.item_name] = item
+		item_registry[item.nombre] = item
 
 
 func get_item(item_name: String) -> ObjetoData:
