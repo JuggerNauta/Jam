@@ -5,7 +5,7 @@ signal puntaje_cambiado(puntaje: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	add_to_group("score_manager")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,8 +27,8 @@ func _updateText(cantidad: int):
 	label.text = str(cantidad)
 	puntaje_cambiado.emit(puntaje)
 	
-	if puntaje >= 100:
-		get_tree().change_scene_to_file(ESCENA_VICTORIA)
+	if puntaje >= 1000:
+		get_tree().change_scene_to_file.call_deferred(ESCENA_VICTORIA)
 		
 
 func reiniciar():
