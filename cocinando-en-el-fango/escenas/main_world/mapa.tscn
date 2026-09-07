@@ -27,10 +27,14 @@
 [ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
 [ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
 [ext_resource type="PackedScene" uid="uid://b6kr83mfrc1l3" path="res://escenas/mobs/cangrejo.tscn" id="13_5rq4x"]
+[ext_resource type="Texture2D" uid="uid://dq4f47c5syaj3" path="res://tiles/bloque_para_cocinar.png" id="13_e6ujr"]
+[ext_resource type="Texture2D" uid="uid://bynjf0jv2p6gs" path="res://tiles/bloque_para_cocinar_empty.png" id="14_smwrb"]
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
+[ext_resource type="Texture2D" uid="uid://dgkkjv8gfrp3h" path="res://tiles/platos_apilados.png" id="17_ioas7"]
 [ext_resource type="PackedScene" uid="uid://cloo2ncg2per8" path="res://escenas/mobs/lagartija.tscn" id="18_gtse8"]
 [ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
 [ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="20_7nvlj"]
+[ext_resource type="Texture2D" uid="uid://dnyw4ihyd0kmx" path="res://tiles/kitchen_full.png" id="20_l8cl3"]
 [ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="20_vidaui"]
 [ext_resource type="Script" uid="uid://cka4qfr5s13l7" path="res://scrips/score_manager.gd" id="21_7omhy"]
 [ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
@@ -210,6 +214,16 @@ texture_region_size = Vector2i(32, 32)
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_na424"]
+texture = ExtResource("13_e6ujr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1j3v1"]
+texture = ExtResource("14_smwrb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inkq8"]
 texture = ExtResource("7_y0jfl")
 texture_region_size = Vector2i(32, 32)
@@ -245,6 +259,11 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_o6txm")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dcpp4"]
+texture = ExtResource("17_ioas7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_as38o"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -257,6 +276,9 @@ sources/1 = SubResource("TileSetAtlasSource_qpl2r")
 sources/3 = SubResource("TileSetAtlasSource_0yx8p")
 sources/7 = SubResource("TileSetAtlasSource_inkq8")
 sources/8 = SubResource("TileSetAtlasSource_eai1v")
+sources/5 = SubResource("TileSetAtlasSource_na424")
+sources/6 = SubResource("TileSetAtlasSource_1j3v1")
+sources/9 = SubResource("TileSetAtlasSource_dcpp4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtse8"]
 texture = ExtResource("3_3y3fl")
@@ -324,11 +346,50 @@ texture_region_size = Vector2i(61, 39)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-16, -2)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohh2x"]
+texture = ExtResource("13_e6ujr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8iqw"]
+texture = ExtResource("14_smwrb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_au0ow"]
+texture = ExtResource("17_ioas7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1g5dg"]
+texture = ExtResource("20_l8cl3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_qhmoj"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_o57ik")
 sources/3 = SubResource("TileSetAtlasSource_xkswk")
 sources/4 = SubResource("TileSetAtlasSource_kk3cu")
+sources/5 = SubResource("TileSetAtlasSource_ohh2x")
+sources/6 = SubResource("TileSetAtlasSource_c8iqw")
+sources/7 = SubResource("TileSetAtlasSource_au0ow")
+sources/9 = SubResource("TileSetAtlasSource_1g5dg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b5um"]
 size = Vector2(200, 200)
@@ -368,6 +429,7 @@ position = Vector2(4, 78)
 [node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
 
 [node name="mapa_minimapa" parent="." unique_id=186682887 instance=ExtResource("3_6c6cw")]
+visible = false
 position = Vector2(3, -3)
 
 [node name="Environment" type="TileMapLayer" parent="." unique_id=1295835675]
@@ -381,7 +443,7 @@ tile_set = SubResource("TileSet_kk3cu")
 
 [node name="Layer1" type="TileMapLayer" parent="." unique_id=910478758]
 position = Vector2(0, -31)
-tile_map_data = PackedByteArray("AAAvAA8AAwAAAAAAAAAvABcAAwAAAAAAAAAvABwAAwAAAAAAAAAwABIAAwAAAAAAAAAwABwAAwAAAAAAAAAxABYAAwAAAAAAAAAyABQAAwAAAAAAAAAzABAAAwAAAAAAAAA0ABUAAwAAAAAAAAA0ABcAAwAAAAAAAAA1ABUAAwAAAAAAAAA1ABYAAwAAAAAAAAA3ABEAAwAAAAAAAAA3ABUAAwAAAAAAAAA4AA8AAwAAAAAAAAA5ABMAAwAAAAAAAAA5ABgAAwAAAAAAAAA6AA8AAwAAAAAAAAA6ABAAAwAAAAAAAAA6ABYAAwAAAAAAAAA7ABcAAwAAAAAAAAA8ABIAAwAAAAAAAAA8ABUAAwAAAAAAAAA8ABwAAwAAAAAAAAA9ABAAAwAAAAAAAAA9ABEAAwAAAAAAAAA9ABQAAwAAAAAAAAA9ABgAAwAAAAAAAAA9ABwAAwAAAAAAAAA+ABUAAwAAAAAAAABAABIAAwAAAAAAAABAABwAAwAAAAAAAABBAA8AAwAAAAAAAABBABAAAwAAAAAAAABBABEAAwAAAAAAAABBABQAAwAAAAAAAABBABwAAwAAAAAAAABCABYAAwAAAAAAAABCABwAAwAAAAAAAABDABIAAwAAAAAAAABDABYAAwAAAAAAAABDABoAAwAAAAAAAABDABsAAwAAAAAAAABEABgAAwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAvAA8AAwAAAAAAAAAvABcAAwAAAAAAAAAvABwAAwAAAAAAAAAwABIAAwAAAAAAAAAwABwAAwAAAAAAAAAxABYAAwAAAAAAAAAyABQAAwAAAAAAAAAzABAAAwAAAAAAAAA0ABUAAwAAAAAAAAA0ABcAAwAAAAAAAAA1ABUAAwAAAAAAAAA1ABYAAwAAAAAAAAA3ABEAAwAAAAAAAAA3ABUAAwAAAAAAAAA4AA8AAwAAAAAAAAA5ABMAAwAAAAAAAAA5ABgAAwAAAAAAAAA6AA8AAwAAAAAAAAA6ABAAAwAAAAAAAAA6ABYAAwAAAAAAAAA7ABcAAwAAAAAAAAA8ABIAAwAAAAAAAAA8ABUAAwAAAAAAAAA8ABwAAwAAAAAAAAA9ABAAAwAAAAAAAAA9ABEAAwAAAAAAAAA9ABQAAwAAAAAAAAA9ABgAAwAAAAAAAAA9ABwAAwAAAAAAAAA+ABUAAwAAAAAAAABAABIAAwAAAAAAAABAABwAAwAAAAAAAABBAA8AAwAAAAAAAABBABAAAwAAAAAAAABBABEAAwAAAAAAAABBABQAAwAAAAAAAABBABwAAwAAAAAAAABCABYAAwAAAAAAAABCABwAAwAAAAAAAABDABIAAwAAAAAAAABDABYAAwAAAAAAAABDABoAAwAAAAAAAABDABsAAwAAAAAAAABEABgAAwAAAAAAAAATAA8ABwAAAAAAAAAUAA8ABwAAAAAAAAASAA8ABgAAAAAAAAARAA8ABgAAAAAAAAAMAA8ACQADAAAAAAAMABAACQACAAIAAAAMABQACQACAAIAAAAMABcACQACAAIAAAAMABoACQACAAIAAAAMABkACQACAAEAAAAMABgACQACAAMAAAAMABYACQADAAAAAAAMABUACQACAAMAAAAMABMACQADAAAAAAAMABIACQADAAAAAAAMABEACQACAAMAAAAMABsACQACAAMAAAAMABwACQADAAAAAAAWAA4ACQABAAEAAFAVAA4ACQABAAEAAAAUAA4ACQABAAEAAAATAA4ACQABAAEAAAASAA4ACQABAAEAAAARAA4ACQABAAEAAAAQAA4ACQABAAEAAAAPAA4ACQABAAEAAAAOAA4ACQABAAEAAAANAA4ACQABAAEAAAAMAA4ACQABAAEAAAALAA4ACQABAAEAAAAKAA4ACQABAAEAAAAJAA4ACQABAAEAAAAIAA4ACQABAAEAAAAHAA4ACQABAAEAAAAGAA4ACQABAAEAAAAFAA4ACQABAAEAAAAEAA4ACQABAAEAAAADAA4ACQABAAEAAAACAA4ACQABAAEAAAABAA4ACQABAAEAAAAAAA4ACQABAAEAAAD//w4ACQABAAEAAGAQAA8ACQAAAAMAAAAPAA8ACQABAAMAAAD//w8ACQABAAEAAGD//xAACQABAAEAAGD//xEACQABAAEAAGD//xIACQABAAEAAGD//xMACQABAAEAAGD//xQACQABAAEAAGD//xUACQABAAEAAGD//xYACQABAAEAAGD//xcACQABAAEAAGD//xgACQABAAEAAGD//xkACQABAAEAAGD//xoACQABAAEAAGD//xsACQABAAEAAGD//xwACQABAAEAAGD//x0ACQABAAEAADAAAB0ACQABAAEAADABAB0ACQABAAEAADACAB0ACQABAAEAADADAB0ACQABAAEAADAEAB0ACQABAAEAADAFAB0ACQABAAEAADAGAB0ACQABAAEAADAHAB0ACQABAAEAADAIAB0ACQABAAEAADAJAB0ACQABAAEAADAKAB0ACQABAAEAADALAB0ACQABAAEAADAMAB0ACQABAAEAADANAB0ACQABAAEAADAOAB0ACQABAAEAADAPAB0ACQABAAEAADAQAB0ACQABAAEAADARAB0ACQABAAEAADASAB0ACQABAAEAADATAB0ACQABAAEAADAUAB0ACQABAAEAADAVAB0ACQABAAEAADAWAB0ACQABAAEAADAWABkACQABAAEAAFAWABgACQABAAEAAFAWABcACQABAAEAAFAWABYACQABAAEAAFAWABUACQABAAEAAFAWABQACQABAAEAAFAWABMACQABAAEAAFAWABIACQABAAEAAFAWABEACQABAAEAAFAWABAACQABAAEAAFAWAA8ACQABAAEAAFA=")
 tile_set = SubResource("TileSet_qhmoj")
 
 [node name="Jugador" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
@@ -485,8 +547,10 @@ position = Vector2(1142, 1730)
 script = ExtResource("8_7h7mq")
 
 [node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("11_pausa")]
+visible = false
 
 [node name="Score" type="CanvasLayer" parent="." unique_id=1087169124]
+visible = false
 script = ExtResource("21_7omhy")
 
 [node name="Control" type="Control" parent="Score" unique_id=437298131]
@@ -506,6 +570,7 @@ text = "000"
 label_settings = SubResource("LabelSettings_7nvlj")
 
 [node name="VidaUI" type="CanvasLayer" parent="." unique_id=331936200]
+visible = false
 script = ExtResource("20_vidaui")
 
 [node name="Control" type="Control" parent="VidaUI" unique_id=331936201]
@@ -560,6 +625,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Cronometro" type="CanvasLayer" parent="." unique_id=1067474624]
+visible = false
 script = ExtResource("20_7nvlj")
 
 [node name="Control" type="Control" parent="Cronometro" unique_id=486361330]
@@ -579,6 +645,7 @@ text = "09:30"
 label_settings = SubResource("LabelSettings_7nvlj")
 
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
+visible = false
 offset = Vector2(0, 400)
 transform = Transform2D(1, 0, 0, 1, 0, 400)
 script = ExtResource("2_28t68")
@@ -725,7 +792,7 @@ offset_right = 20.02
 offset_bottom = 20.02
 
 [node name="FilaClientes" parent="." unique_id=556170947 instance=ExtResource("15_lpxjc")]
-position = Vector2(77, 505)
+position = Vector2(77, 494)
 scale = Vector2(0.5, 0.5)
 
 [node name="FilaClientes" parent="FilaClientes" unique_id=689610250 instance=ExtResource("15_lpxjc")]
@@ -738,6 +805,7 @@ position = Vector2(-3, 212)
 position = Vector2(-3, 212)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1511945949]
+visible = false
 position = Vector2(542, 628)
 script = ExtResource("19_qur8h")
 
@@ -746,6 +814,7 @@ position = Vector2(9.5, 44)
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="minimapa" parent="." unique_id=1536366674 node_paths=PackedStringArray("jugador", "mapa_minimapa") instance=ExtResource("28_7omhy")]
+visible = false
 jugador = NodePath("../Jugador")
 mapa_minimapa = NodePath("../mapa_minimapa")
 
