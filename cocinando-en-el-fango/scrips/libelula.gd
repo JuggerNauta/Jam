@@ -74,11 +74,11 @@ func crear_duplicado_shader() -> void:
 	if $AnimatedSprite2D.material:
 		duplicado.material = $AnimatedSprite2D.material.duplicate(true)
 
-		duplicado.material.set_shader_parameter("opacity", 1.0)
+		duplicado.material.set_shader_parameter("opacity", 0.7)
 		duplicado.material.set_shader_parameter("r", 1.0)
-		duplicado.material.set_shader_parameter("g", 1.0)
-		duplicado.material.set_shader_parameter("b", 1.0)
-		duplicado.material.set_shader_parameter("mix_color", 1.0)
+		duplicado.material.set_shader_parameter("g", 0.29)
+		duplicado.material.set_shader_parameter("b", 0.2)
+		duplicado.material.set_shader_parameter("mix_color", 0.3)
 
 	var posicion_duplicado = global_position
 
