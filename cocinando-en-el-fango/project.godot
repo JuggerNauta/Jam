@@ -35,6 +35,7 @@ window/stretch/aspect="expand"
 
 enemigo=""
 jugador=""
+pared=""
 
 [input]
 
