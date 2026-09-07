@@ -236,7 +236,6 @@ position = Vector2(90, -10)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1597881558]
 path_desired_distance = 40.0
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1344971361]
 

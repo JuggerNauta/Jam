@@ -583,7 +583,6 @@ shape = SubResource("CapsuleShape2D_fbnlo")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1047222548]
 path_desired_distance = 40.0
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1492196490]
 
