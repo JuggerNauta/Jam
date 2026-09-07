@@ -10,6 +10,7 @@ var direccion := Vector2.ZERO
 var posiciones_waypoints: Array[Vector2] = []
 var current_index: int = 0
 var esta_esperando: bool = false
+var item_drop : PackedScene = preload("res://escenas/objetos/item_drop.tscn")
 
 @export var loot_table = Resource
 #señales
@@ -262,6 +263,12 @@ func morirse() -> void:
 	estelas.clear()
 
 	enemigo_murio.emit(self)
+	if loot_table:
+		for stack: ItemStack in loot_table.roll_loot():
+			var spawned_item : ItemDrop = item_drop.instantiate()
+			spawned_item.stack = stack
+			spawned_item.global_position = global_position
+			get_tree().current_scene.add_child.call_deferred(spawned_item)
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
