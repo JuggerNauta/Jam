@@ -19,7 +19,7 @@ var item_registry := {}
 
 func _ready() -> void:
 	_register_items()
-	Ingredientes.EMPTY.nombre = "VACIO"
+	EMPTY.nombre = "VACIO"
 
 
 func _register_items() -> void:

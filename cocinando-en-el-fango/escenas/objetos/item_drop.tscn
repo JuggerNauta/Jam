@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccnvmja63q8jx"]
+
+[ext_resource type="Script" uid="uid://dpd7cl77xihiy" path="res://scrips/Util/Enemy/item_drop.gd" id="1_ijoda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as38o"]
+size = Vector2(32, 32)
+
+[node name="ItemDrop" type="Node2D" unique_id=1509075860]
+script = ExtResource("1_ijoda")
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=566958623]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=548884547]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1272362587]
+shape = SubResource("RectangleShape2D_as38o")
+
+[node name="CountLabel" type="Label" parent="." unique_id=2111848457]
+offset_left = -20.0
+offset_top = 7.0
+offset_right = 20.0
+offset_bottom = 30.0
+text = "TEST"
+horizontal_alignment = 1

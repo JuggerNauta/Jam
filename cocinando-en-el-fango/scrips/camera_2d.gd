@@ -19,9 +19,7 @@ func _ready() -> void:
 	position_smoothing_enabled = true
 	position_smoothing_speed = 7.0
 	zoom_factor = screen_size/ Vector2(room_size.x, room_size.y)
-	set_zoom(zoom_factor) #1.5 zoom is fine
-	#camera size could be 16x12 tiles
-	#camera limits could be current state
+	set_zoom(zoom_factor)
 
 func _process(_delta: float) -> void:
 
@@ -39,4 +37,3 @@ func set_screen_position():
 	var y = current_y_cell * room_size.y
 
 	global_position = Vector2(x, y) 
-	#set_zoom(zoom)

@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -70,11 +71,9 @@ func _ready() -> void:
 
 func seguir_espada() -> void:
 
-	# La espada apunta hacia la última dirección de movimiento
 	if ultima_direccion != Vector2.ZERO:
 		espada.rotation = ultima_direccion.angle()
 
-	# Controlar si la espada queda delante o detrás del personaje
 	if ultima_direccion.y > 0:
 		espada.show_behind_parent = false
 	else:
@@ -126,27 +125,23 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func get_input() -> void:
 	var direccion := Vector2.ZERO
 
-	# Movimiento vertical
 	if Input.is_action_pressed("abajo"):
 		direccion += transform.y
 
 	if Input.is_action_pressed("arriba"):
 		direccion -= transform.y
 
-	# Movimiento horizontal
 	if Input.is_action_pressed("izquierda"):
 		direccion -= transform.x
 
 	if Input.is_action_pressed("derecha"):
 		direccion += transform.x
 
-	# Si hay movimiento
 	if direccion != Vector2.ZERO:
 
 		direccion = direccion.normalized()
 		ultima_direccion = direccion
 
-	# Si no se está moviendo
 	if direccion == Vector2.ZERO:
 
 		velocity = Vector2.ZERO
@@ -194,7 +189,7 @@ func _dash_logica(delta: float) -> void:
 
 		velocity = dash_dir * dash_velocidad
 
-	# Mientras estamos haciendo dash
+	#cuando el coso este jugador se meta el dado para el dash
 	if dash_timer > 0.0:
 
 		dash_timer = max(0.0, dash_timer - delta)

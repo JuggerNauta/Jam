@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7awyk30qjkly"]
 
 [ext_resource type="Script" uid="uid://caa223g4550sw" path="res://scrips/enemigo.gd" id="1_uhebs"]
+[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_c2o53"]
 [ext_resource type="Texture2D" uid="uid://cply4a4vi76wv" path="res://sprites/mobs/mosca_arriba.png" id="2_ehqcm"]
 [ext_resource type="Texture2D" uid="uid://c56hdf66xnl3v" path="res://sprites/mobs/mosca_abajo.png" id="2_ufvxx"]
 [ext_resource type="Texture2D" uid="uid://dena82bjdrwis" path="res://sprites/mobs/mosca_der.png" id="3_ufvxx"]
@@ -279,6 +280,13 @@ size = Vector2(180, 180)
 [node name="Enemigo" type="CharacterBody2D" unique_id=920097428 groups=["enemigo"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_uhebs")
+velocidad = null
+loot_table = ExtResource("2_c2o53")
+angulo = null
+largo = null
+tiempo_busqueda = null
+vida = null
+"daño" = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=390575452]
 unique_name_in_owner = true

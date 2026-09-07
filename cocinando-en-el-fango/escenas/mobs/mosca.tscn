@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwccx7bsepupi"]
 
 [ext_resource type="Script" uid="uid://dkbq18hmiobg0" path="res://scrips/mosca.gd" id="1_xkjoe"]
+[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_brry3"]
 [ext_resource type="Texture2D" uid="uid://c56hdf66xnl3v" path="res://sprites/mobs/mosca_abajo.png" id="2_cq50o"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_p2tp6"]
 [ext_resource type="Texture2D" uid="uid://cply4a4vi76wv" path="res://sprites/mobs/mosca_arriba.png" id="3_xkjoe"]
@@ -337,12 +338,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
 radius = 20.0
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
+[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 groups=["enemigo"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_xkjoe")
-waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
 velocidad = 150.0
+loot_table = ExtResource("2_brry3")
 angulo = 350.0
 largo = 100.0
 

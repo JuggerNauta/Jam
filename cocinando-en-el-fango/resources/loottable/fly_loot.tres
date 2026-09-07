@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LootTable" format=3 uid="uid://cblyh5mq426sv"]
+
+[ext_resource type="Script" uid="uid://ow5fonsa0jml" path="res://scrips/Util/Enemy/loot_table.gd" id="1_pl7i7"]
+[ext_resource type="Script" uid="uid://e3gjbncgnctw" path="res://scrips/Util/Items/item_roll.gd" id="1_ts85k"]
+[ext_resource type="Resource" uid="uid://cnjwow6dj7e27" path="res://resources/items/ingredients/fly_meat.tres" id="2_nt6wq"]
+
+[sub_resource type="Resource" id="Resource_nt6wq"]
+script = ExtResource("1_ts85k")
+item = ExtResource("2_nt6wq")
+count = 1
+weight = 0.9
+metadata/_custom_type_script = "uid://e3gjbncgnctw"
+
+[resource]
+script = ExtResource("1_pl7i7")
+item_rolls = Array[ExtResource("1_ts85k")]([SubResource("Resource_nt6wq")])
+roll_times = 0
