@@ -15,7 +15,7 @@ var velocity_tween : Tween
 func _ready():
 	hitbox.body_entered.connect(on_body_entered)
 	item_sprite.texture = stack.item.sprite
-	count_label.text = str(stack.count)
+	count_label.text = str("")
 	
 	var speed = randf_range(75, 100)
 	velocity = Vector2.RIGHT.rotated(deg_to_rad(randf_range(0.0, 360.0))) * speed
@@ -35,7 +35,11 @@ func update_display():
 func on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		#stack = body.inventory.agregar(stack)
-		Inventario.agregar_objeto(stack.item)
+		for i in stack.count:
+			Inventario.agregar_objeto(stack.item)
+		
+		stack.count = 0
+		stack.item = Ingredientes.EMPTY
 		if stack.is_empty():
 			queue_free()
 		else:
