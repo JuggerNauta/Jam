@@ -521,7 +521,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_3hey1")
 velocidad_dash = 300.0
 duracion_dash = 0.1
-waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5"), NodePath("Ruta/M6")]
 velocidad = 125.0
 loot_table = ExtResource("2_fbnlo")
 largo = 200.0
@@ -557,13 +557,22 @@ wait_time = 0.5
 [node name="Ruta" type="Node2D" parent="." unique_id=2000735585]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=330267252]
-position = Vector2(218, 46)
+position = Vector2(225, 1)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=1992693416]
-position = Vector2(-169, -35)
+position = Vector2(225, -139)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=1104794325]
-position = Vector2(86, 25)
+position = Vector2(-228, -139)
+
+[node name="M4" type="Marker2D" parent="Ruta" unique_id=943933870]
+position = Vector2(-228, 207)
+
+[node name="M5" type="Marker2D" parent="Ruta" unique_id=974382616]
+position = Vector2(0, 198)
+
+[node name="M6" type="Marker2D" parent="Ruta" unique_id=759674338]
+position = Vector2(225, 198)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=44828937]
 
