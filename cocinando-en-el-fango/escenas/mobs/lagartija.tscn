@@ -525,6 +525,7 @@ duracion_dash = 0.1
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5"), NodePath("Ruta/M6")]
 velocidad = 125.0
 loot_table = ExtResource("2_fbnlo")
+angulo = 350.0
 largo = 200.0
 vida = 5.0
 tiempo_aturdido = 2.0

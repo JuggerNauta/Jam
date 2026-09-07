@@ -154,7 +154,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35),
 "transitions": PackedFloat32Array(0.5, 2, 0.5),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.12, 0.12), Vector2(0.2, 0.2)]
+"values": [Vector2(0.1, 0.1), Vector2(0.06, 0.06), Vector2(0.1, 0.1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -194,6 +194,7 @@ radius = 18.0
 radius = 20.0
 
 [node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
+scale = Vector2(2, 2)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_nbpyc")
@@ -202,15 +203,15 @@ tiempo_entre_dash = 3.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
 velocidad = 100.0
 loot_table = ExtResource("2_x8s0l")
-angulo = 270.0
+angulo = 350.0
 largo = 100.0
 vida = 7.0
 "daño" = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202712401]
 modulate = Color(0, 0, 0, 0.4)
-position = Vector2(0, 24)
-scale = Vector2(1.8, 0.4)
+position = Vector2(0, 12)
+scale = Vector2(0.9, 0.2)
 texture = ExtResource("2_nbpyc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579319357]

@@ -356,7 +356,7 @@ velocidad_dash = 300.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 150.0
 loot_table = ExtResource("2_2rpd7")
-angulo = 270.0
+angulo = 350.0
 largo = 150.0
 vida = 4.0
 
