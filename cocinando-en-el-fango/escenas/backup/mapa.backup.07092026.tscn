@@ -1,53 +1,53 @@
-[gd_scene format=4 uid="uid://b2i7y0jrp6duv"]
+[gd_scene format=4 uid="uid://b10cvg45phbm6"]
 
-[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://scrips/mapa.gd" id="1_6x3aa"]
-[ext_resource type="Script" uid="uid://ipvj56py2vyo" path="res://scrips/camera_2d.gd" id="2_0nlt0"]
-[ext_resource type="Script" uid="uid://buykm5ia2r30o" path="res://scrips/inventario_ui.gd" id="2_28t68"]
-[ext_resource type="Script" uid="uid://wxlvpw51tjr" path="res://scrips/counter_food_pool.gd" id="2_spehb"]
-[ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="3_3y3fl"]
-[ext_resource type="PackedScene" uid="uid://diu2v1p8qwlq2" path="res://escenas/minimapa_mapa.tscn" id="3_6c6cw"]
-[ext_resource type="Texture2D" uid="uid://k6cjbkuhg2bf" path="res://sprites/inventario/estomago.png" id="3_dq1yp"]
-[ext_resource type="Script" uid="uid://bel5ipuu1m77p" path="res://scrips/objeto_data.gd" id="3_inkq8"]
-[ext_resource type="Texture2D" uid="uid://bvpxrjfwivo3o" path="res://tiles/base_tiles.png" id="4_0nlt0"]
-[ext_resource type="Texture2D" uid="uid://cdqep68nt7xm5" path="res://tiles/debug_tilemap.png" id="4_6bp1q"]
-[ext_resource type="Resource" uid="uid://ulcl0pu48yga" path="res://resources/items/ingredients/crab_meat.tres" id="4_eai1v"]
-[ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo.tscn" id="5_7h7mq"]
-[ext_resource type="Resource" uid="uid://bq3bjb478d38g" path="res://resources/items/ingredients/cuija_meat.tres" id="5_7qtrp"]
-[ext_resource type="Texture2D" uid="uid://cnopcf8ximalh" path="res://tiles/decor_kitchen_tiles.png" id="5_mpkmm"]
-[ext_resource type="Resource" uid="uid://cnjwow6dj7e27" path="res://resources/items/ingredients/fly_meat.tres" id="6_m8gh5"]
-[ext_resource type="Script" uid="uid://cadgx6a2j1lbq" path="res://scrips/spawner.gd" id="7_3y3fl"]
-[ext_resource type="Texture2D" uid="uid://lsy41gxpxktu" path="res://tiles/faango_spawn_anim_tiles.png" id="7_y0jfl"]
-[ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://scrips/enemy_handler.gd" id="8_7h7mq"]
-[ext_resource type="Texture2D" uid="uid://7rpgfhqri75a" path="res://tiles/fango_anim_tiles.png" id="8_ov8n1"]
-[ext_resource type="Texture2D" uid="uid://xq7ldcdtnjfd" path="res://tiles/faango_spawn_anim_tiles_sm.png" id="9_ov8n1"]
-[ext_resource type="PackedScene" uid="uid://dwo0qwrg43bns" path="res://escenas/inventario_ui.tscn" id="9_v5ou0"]
-[ext_resource type="Texture2D" uid="uid://ccafeovhdmi1e" path="res://tiles/puerta_mosca_scaled.png" id="9_xkswk"]
-[ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/mobs/libelula.tscn" id="10_mpkmm"]
-[ext_resource type="PackedScene" uid="uid://dwccx7bsepupi" path="res://escenas/mobs/mosca.tscn" id="11_2b5um"]
-[ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="11_pausa"]
-[ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="12_music"]
-[ext_resource type="PackedScene" uid="uid://b6kr83mfrc1l3" path="res://escenas/mobs/cangrejo.tscn" id="13_5rq4x"]
-[ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
-[ext_resource type="PackedScene" uid="uid://cloo2ncg2per8" path="res://escenas/mobs/lagartija.tscn" id="18_gtse8"]
-[ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
-[ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="20_7nvlj"]
-[ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="20_vidaui"]
-[ext_resource type="Script" uid="uid://cka4qfr5s13l7" path="res://scrips/score_manager.gd" id="21_7omhy"]
-[ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
-[ext_resource type="PackedScene" uid="uid://da5nmd5v8onv8" path="res://escenas/minimapa.tscn" id="28_7omhy"]
+[ext_resource type="Script" uid="uid://281ausd4b3ol" path="res://scrips/mapa.gd" id="1_avk7q"]
+[ext_resource type="Script" uid="uid://wxlvpw51tjr" path="res://scrips/counter_food_pool.gd" id="2_ugxfx"]
+[ext_resource type="Script" uid="uid://bel5ipuu1m77p" path="res://scrips/objeto_data.gd" id="3_ek1vu"]
+[ext_resource type="Resource" uid="uid://ulcl0pu48yga" path="res://resources/items/ingredients/crab_meat.tres" id="4_3gwvm"]
+[ext_resource type="Resource" uid="uid://bq3bjb478d38g" path="res://resources/items/ingredients/cuija_meat.tres" id="5_mgwsa"]
+[ext_resource type="Resource" uid="uid://cnjwow6dj7e27" path="res://resources/items/ingredients/fly_meat.tres" id="6_brhvq"]
+[ext_resource type="PackedScene" uid="uid://xe01dwhhx3s6" path="res://escenas/music_manager.tscn" id="7_auue8"]
+[ext_resource type="PackedScene" uid="uid://diu2v1p8qwlq2" path="res://escenas/minimapa_mapa.tscn" id="8_3w8gn"]
+[ext_resource type="Texture2D" uid="uid://b4fc2ssxynq0r" path="res://tiles/debug_tile.png" id="9_quq4h"]
+[ext_resource type="Texture2D" uid="uid://cnopcf8ximalh" path="res://tiles/decor_kitchen_tiles.png" id="10_08u4e"]
+[ext_resource type="Texture2D" uid="uid://cdqep68nt7xm5" path="res://tiles/debug_tilemap.png" id="11_i6nm2"]
+[ext_resource type="Texture2D" uid="uid://bvpxrjfwivo3o" path="res://tiles/base_tiles.png" id="12_upr4x"]
+[ext_resource type="Texture2D" uid="uid://lsy41gxpxktu" path="res://tiles/faango_spawn_anim_tiles.png" id="13_de10u"]
+[ext_resource type="Texture2D" uid="uid://7rpgfhqri75a" path="res://tiles/fango_anim_tiles.png" id="14_kmw1h"]
+[ext_resource type="Texture2D" uid="uid://xq7ldcdtnjfd" path="res://tiles/faango_spawn_anim_tiles_sm.png" id="15_j1ks1"]
+[ext_resource type="Texture2D" uid="uid://ccafeovhdmi1e" path="res://tiles/puerta_mosca_scaled.png" id="16_kxftx"]
+[ext_resource type="PackedScene" uid="uid://dqfx7pf5ldgdp" path="res://escenas/sapo.tscn" id="17_3f3gi"]
+[ext_resource type="Script" uid="uid://ipvj56py2vyo" path="res://scrips/camera_2d.gd" id="18_fypy3"]
+[ext_resource type="PackedScene" uid="uid://dwo0qwrg43bns" path="res://escenas/inventario_ui.tscn" id="19_wukmp"]
+[ext_resource type="Script" uid="uid://cadgx6a2j1lbq" path="res://scrips/spawner.gd" id="20_sqwph"]
+[ext_resource type="PackedScene" uid="uid://dwccx7bsepupi" path="res://escenas/mobs/mosca.tscn" id="21_q5ud1"]
+[ext_resource type="PackedScene" uid="uid://c71lpemk7f4jw" path="res://escenas/mobs/libelula.tscn" id="22_2cixp"]
+[ext_resource type="PackedScene" uid="uid://b6kr83mfrc1l3" path="res://escenas/mobs/cangrejo.tscn" id="23_32822"]
+[ext_resource type="PackedScene" uid="uid://cloo2ncg2per8" path="res://escenas/mobs/lagartija.tscn" id="24_16djt"]
+[ext_resource type="Script" uid="uid://bhdiu6vohhf0n" path="res://scrips/enemy_handler.gd" id="25_02suw"]
+[ext_resource type="PackedScene" uid="uid://bp7k3wravn2mx" path="res://escenas/menu_pausa.tscn" id="26_p7gn1"]
+[ext_resource type="Script" uid="uid://cka4qfr5s13l7" path="res://scrips/score_manager.gd" id="27_goms0"]
+[ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="28_c77va"]
+[ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="29_bi36m"]
+[ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="30_jn3xp"]
+[ext_resource type="Script" uid="uid://buykm5ia2r30o" path="res://scrips/inventario_ui.gd" id="31_4eywq"]
+[ext_resource type="Texture2D" uid="uid://k6cjbkuhg2bf" path="res://sprites/inventario/estomago.png" id="32_lsjju"]
+[ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="33_qtj1i"]
+[ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="34_sac4x"]
+[ext_resource type="PackedScene" uid="uid://da5nmd5v8onv8" path="res://escenas/minimapa.tscn" id="35_88fuf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p57by"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7omhy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6c6cw"]
-texture = ExtResource("3_3y3fl")
+texture = ExtResource("9_quq4h")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 16, 16, 16, -16, -16, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpl2r"]
-texture = ExtResource("5_mpkmm")
+texture = ExtResource("10_08u4e")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -60,7 +60,7 @@ texture_region_size = Vector2i(32, 32)
 2:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3y0p"]
-texture = ExtResource("4_6bp1q")
+texture = ExtResource("11_i6nm2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -124,7 +124,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yx8p"]
-texture = ExtResource("4_0nlt0")
+texture = ExtResource("12_upr4x")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kk3cu")
@@ -211,7 +211,7 @@ texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inkq8"]
-texture = ExtResource("7_y0jfl")
+texture = ExtResource("13_de10u")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 8
 0:0/animation_speed = 3.0
@@ -233,7 +233,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eai1v"]
-texture = ExtResource("8_ov8n1")
+texture = ExtResource("14_kmw1h")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 5
 0:0/animation_speed = 2.0
@@ -259,7 +259,7 @@ sources/7 = SubResource("TileSetAtlasSource_inkq8")
 sources/8 = SubResource("TileSetAtlasSource_eai1v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtse8"]
-texture = ExtResource("3_3y3fl")
+texture = ExtResource("9_quq4h")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -274,7 +274,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gtse8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o57ik"]
-texture = ExtResource("5_mpkmm")
+texture = ExtResource("10_08u4e")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -290,7 +290,7 @@ texture_region_size = Vector2i(32, 32)
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkswk"]
-texture = ExtResource("9_ov8n1")
+texture = ExtResource("15_j1ks1")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 9
 0:0/animation_speed = 10.0
@@ -307,7 +307,7 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kk3cu"]
-texture = ExtResource("9_xkswk")
+texture = ExtResource("16_kxftx")
 texture_region_size = Vector2i(61, 39)
 0:0/animation_columns = 10
 0:0/animation_speed = 8.0
@@ -349,12 +349,12 @@ font = SubResource("SystemFont_6c6cw")
 size = Vector2(269, 500)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
-script = ExtResource("1_6x3aa")
+script = ExtResource("1_avk7q")
 
 [node name="COUNTER" type="Node2D" parent="." unique_id=236132940]
 position = Vector2(376, 638)
-script = ExtResource("2_spehb")
-pool_food = Array[ExtResource("3_inkq8")]([ExtResource("4_eai1v"), ExtResource("5_7qtrp"), ExtResource("6_m8gh5")])
+script = ExtResource("2_ugxfx")
+pool_food = Array[ExtResource("3_ek1vu")]([ExtResource("4_3gwvm"), ExtResource("5_mgwsa"), ExtResource("6_brhvq")])
 
 [node name="1" type="Marker2D" parent="COUNTER" unique_id=610899960]
 position = Vector2(9, -225)
@@ -365,9 +365,9 @@ position = Vector2(6, -150)
 [node name="3" type="Marker2D" parent="COUNTER" unique_id=1718856627]
 position = Vector2(4, 78)
 
-[node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
+[node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("7_auue8")]
 
-[node name="mapa_minimapa" parent="." unique_id=186682887 instance=ExtResource("3_6c6cw")]
+[node name="mapa_minimapa" parent="." unique_id=186682887 instance=ExtResource("8_3w8gn")]
 
 [node name="Environment" type="TileMapLayer" parent="." unique_id=1295835675]
 material = SubResource("CanvasItemMaterial_p57by")
@@ -383,7 +383,7 @@ position = Vector2(0, -31)
 tile_map_data = PackedByteArray("AAAvAA8AAwAAAAAAAAAvABcAAwAAAAAAAAAvABwAAwAAAAAAAAAwABIAAwAAAAAAAAAwABwAAwAAAAAAAAAxABYAAwAAAAAAAAAyABQAAwAAAAAAAAAzABAAAwAAAAAAAAA0ABUAAwAAAAAAAAA0ABcAAwAAAAAAAAA1ABUAAwAAAAAAAAA1ABYAAwAAAAAAAAA3ABEAAwAAAAAAAAA3ABUAAwAAAAAAAAA4AA8AAwAAAAAAAAA5ABMAAwAAAAAAAAA5ABgAAwAAAAAAAAA6AA8AAwAAAAAAAAA6ABAAAwAAAAAAAAA6ABYAAwAAAAAAAAA7ABcAAwAAAAAAAAA8ABIAAwAAAAAAAAA8ABUAAwAAAAAAAAA8ABwAAwAAAAAAAAA9ABAAAwAAAAAAAAA9ABEAAwAAAAAAAAA9ABQAAwAAAAAAAAA9ABgAAwAAAAAAAAA9ABwAAwAAAAAAAAA+ABUAAwAAAAAAAABAABIAAwAAAAAAAABAABwAAwAAAAAAAABBAA8AAwAAAAAAAABBABAAAwAAAAAAAABBABEAAwAAAAAAAABBABQAAwAAAAAAAABBABwAAwAAAAAAAABCABYAAwAAAAAAAABCABwAAwAAAAAAAABDABIAAwAAAAAAAABDABYAAwAAAAAAAABDABoAAwAAAAAAAABDABsAAwAAAAAAAABEABgAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_qhmoj")
 
-[node name="Jugador" parent="." unique_id=662870097 instance=ExtResource("5_7h7mq")]
+[node name="Jugador" parent="." unique_id=662870097 instance=ExtResource("17_3f3gi")]
 position = Vector2(549, 681)
 velocidad = 200.0
 dash_velocidad = 1000.0
@@ -393,17 +393,17 @@ position = Vector2(0, 448)
 anchor_mode = 0
 zoom = Vector2(3.8, 3.8)
 limit_enabled = false
-script = ExtResource("2_0nlt0")
+script = ExtResource("18_fypy3")
 player = NodePath("../Jugador")
 tilemap_layer = NodePath("../Environment")
 
-[node name="InventarioUI2" parent="Camera2D" unique_id=1734074673 instance=ExtResource("9_v5ou0")]
+[node name="InventarioUI2" parent="Camera2D" unique_id=1734074673 instance=ExtResource("19_wukmp")]
 visible = false
 
 [node name="FlySpawner2" type="Area2D" parent="." unique_id=1932648362]
 position = Vector2(1024, 1060)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("11_2b5um")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("21_q5ud1")
 max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="FlySpawner2" unique_id=2052962396]
@@ -415,8 +415,8 @@ shape = SubResource("RectangleShape2D_2b5um")
 
 [node name="FlySpawner" type="Area2D" parent="." unique_id=1390575355]
 position = Vector2(1101, 626)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("11_2b5um")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("21_q5ud1")
 max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="FlySpawner" unique_id=2071323185]
@@ -428,8 +428,8 @@ shape = SubResource("RectangleShape2D_2b5um")
 
 [node name="FlySpawner3" type="Area2D" parent="." unique_id=2037798830]
 position = Vector2(1026, 236)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("11_2b5um")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("21_q5ud1")
 max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="FlySpawner3" unique_id=1591649794]
@@ -441,8 +441,8 @@ shape = SubResource("RectangleShape2D_2b5um")
 
 [node name="DragonflySpawner" type="Area2D" parent="." unique_id=457887317]
 position = Vector2(1836, 200)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("10_mpkmm")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("22_2cixp")
 max_enemigos = 3
 
 [node name="Timer" type="Timer" parent="DragonflySpawner" unique_id=1935487750]
@@ -454,8 +454,8 @@ shape = SubResource("RectangleShape2D_j0bqh")
 
 [node name="CrabSpaw" type="Area2D" parent="." unique_id=1385029937]
 position = Vector2(1836, 672)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("13_5rq4x")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("23_32822")
 max_enemigos = 2
 
 [node name="Timer" type="Timer" parent="CrabSpaw" unique_id=1348058001]
@@ -467,8 +467,8 @@ shape = SubResource("RectangleShape2D_5rq4x")
 
 [node name="LizardSpawner" type="Area2D" parent="." unique_id=2093045693]
 position = Vector2(1699, 1097)
-script = ExtResource("7_3y3fl")
-enemy = ExtResource("18_gtse8")
+script = ExtResource("20_sqwph")
+enemy = ExtResource("24_16djt")
 max_enemigos = 4
 
 [node name="Timer" type="Timer" parent="LizardSpawner" unique_id=513115428]
@@ -481,12 +481,12 @@ shape = SubResource("RectangleShape2D_2b5um")
 
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=975077062]
 position = Vector2(1142, 1730)
-script = ExtResource("8_7h7mq")
+script = ExtResource("25_02suw")
 
-[node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("11_pausa")]
+[node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("26_p7gn1")]
 
 [node name="Score" type="CanvasLayer" parent="." unique_id=1087169124]
-script = ExtResource("21_7omhy")
+script = ExtResource("27_goms0")
 
 [node name="Control" type="Control" parent="Score" unique_id=437298131]
 layout_mode = 3
@@ -505,7 +505,7 @@ text = "000"
 label_settings = SubResource("LabelSettings_7nvlj")
 
 [node name="VidaUI" type="CanvasLayer" parent="." unique_id=331936200]
-script = ExtResource("20_vidaui")
+script = ExtResource("28_c77va")
 
 [node name="Control" type="Control" parent="VidaUI" unique_id=331936201]
 layout_mode = 3
@@ -526,40 +526,40 @@ theme_override_constants/separation = 8
 [node name="Corazon1" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936203]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-texture = ExtResource("21_corazonlleno")
+texture = ExtResource("29_bi36m")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Corazon2" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936204]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-texture = ExtResource("21_corazonlleno")
+texture = ExtResource("29_bi36m")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Corazon3" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936205]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-texture = ExtResource("21_corazonlleno")
+texture = ExtResource("29_bi36m")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Corazon4" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936206]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-texture = ExtResource("21_corazonlleno")
+texture = ExtResource("29_bi36m")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Corazon5" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936207]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-texture = ExtResource("21_corazonlleno")
+texture = ExtResource("29_bi36m")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Cronometro" type="CanvasLayer" parent="." unique_id=1067474624]
-script = ExtResource("20_7nvlj")
+script = ExtResource("30_jn3xp")
 
 [node name="Control" type="Control" parent="Cronometro" unique_id=486361330]
 layout_mode = 3
@@ -580,7 +580,7 @@ label_settings = SubResource("LabelSettings_7nvlj")
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
 offset = Vector2(0, 400)
 transform = Transform2D(1, 0, 0, 1, 0, 400)
-script = ExtResource("2_28t68")
+script = ExtResource("31_4eywq")
 
 [node name="Control" type="Control" parent="InventarioUI" unique_id=95508160]
 layout_mode = 3
@@ -612,7 +612,7 @@ theme_override_constants/separation = 16
 [node name="Slot1" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=218149327]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -631,7 +631,7 @@ offset_bottom = 20.02
 [node name="Slot2" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=994880346]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -650,7 +650,7 @@ offset_bottom = 20.02
 [node name="Slot3" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=126826491]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -669,7 +669,7 @@ offset_bottom = 20.02
 [node name="Slot4" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=427087162]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -688,7 +688,7 @@ offset_bottom = 20.02
 [node name="Slot5" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=592864335]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -707,7 +707,7 @@ offset_bottom = 20.02
 [node name="Slot6" type="TextureRect" parent="InventarioUI/Control/HBoxContainer" unique_id=821363207]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture = ExtResource("3_dq1yp")
+texture = ExtResource("32_lsjju")
 expand_mode = 1
 stretch_mode = 5
 
@@ -723,28 +723,28 @@ offset_top = -19.98
 offset_right = 20.02
 offset_bottom = 20.02
 
-[node name="FilaClientes" parent="." unique_id=556170947 instance=ExtResource("15_lpxjc")]
+[node name="FilaClientes" parent="." unique_id=556170947 instance=ExtResource("33_qtj1i")]
 position = Vector2(77, 505)
 scale = Vector2(0.5, 0.5)
 
-[node name="FilaClientes" parent="FilaClientes" unique_id=689610250 instance=ExtResource("15_lpxjc")]
+[node name="FilaClientes" parent="FilaClientes" unique_id=689610250 instance=ExtResource("33_qtj1i")]
 position = Vector2(-3, 212)
 
-[node name="FilaClientes" parent="FilaClientes/FilaClientes" unique_id=1551199088 instance=ExtResource("15_lpxjc")]
+[node name="FilaClientes" parent="FilaClientes/FilaClientes" unique_id=1551199088 instance=ExtResource("33_qtj1i")]
 position = Vector2(-3, 212)
 
-[node name="FilaClientes" parent="FilaClientes/FilaClientes/FilaClientes" unique_id=1646549566 instance=ExtResource("15_lpxjc")]
+[node name="FilaClientes" parent="FilaClientes/FilaClientes/FilaClientes" unique_id=1646549566 instance=ExtResource("33_qtj1i")]
 position = Vector2(-3, 212)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1511945949]
 position = Vector2(542, 628)
-script = ExtResource("19_qur8h")
+script = ExtResource("34_sac4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=650996500]
 position = Vector2(9.5, 44)
 shape = SubResource("RectangleShape2D_8w0r3")
 
-[node name="minimapa" parent="." unique_id=1536366674 node_paths=PackedStringArray("jugador", "mapa_minimapa") instance=ExtResource("28_7omhy")]
+[node name="minimapa" parent="." unique_id=1536366674 node_paths=PackedStringArray("jugador", "mapa_minimapa") instance=ExtResource("35_88fuf")]
 jugador = NodePath("../Jugador")
 mapa_minimapa = NodePath("../mapa_minimapa")
 
