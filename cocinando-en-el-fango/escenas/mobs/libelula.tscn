@@ -348,6 +348,8 @@ radius = 20.0
 height = 80.0
 
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_dfdpt")
 velocidad_dash = 300.0
 tiempo_entre_dash = 1.5
@@ -402,6 +404,9 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_e2xqg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=429540055]
+path_desired_distance = 40.0
 debug_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=821016038]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

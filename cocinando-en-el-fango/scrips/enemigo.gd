@@ -26,6 +26,7 @@ var ultima_direccion_personaje: String = "abajo"
 #variables para la deteccion del jugador
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 @export var angulo: float = 120.0
 @export var largo: float = 2000.0
@@ -93,6 +94,14 @@ func esta_en_el_cono() -> bool:
 
 func _physics_process(delta: float) -> void:
 
+	var puede_ver_jugador = esta_en_el_cono() and tiene_linea_de_señal()
+
+
+	if esta_en_el_cono() and tiene_linea_de_señal():
+		animated_sprite_2d.self_modulate = Color.RED
+	else:
+		animated_sprite_2d.self_modulate = Color.WHITE
+
 	if jugador == null:
 
 		patrullar()
@@ -115,7 +124,6 @@ func _physics_process(delta: float) -> void:
 	if persiguiendo:
 
 		if esta_en_el_cono():
-
 			tiempo_perdiendo_jugador = 0.0
 
 		else:
@@ -139,6 +147,8 @@ func perseguir_jugador() -> void:
 		velocity = Vector2.ZERO
 
 		return
+
+	navigation_agent_2d.target_position = jugador.global_position
 
 	direccion = to_local(navigation_agent_2d.get_next_path_position()).normalized()
 	velocity = direccion * velocidad
@@ -228,10 +238,12 @@ func actualizar_animacion(estado: String) -> void:
 
 func _on_timer_timeout() -> void:
 
-	navigation_agent_2d.target_position = jugador.global_position
-
 	esta_esperando = false
 
+	if jugador == null:
+		return
+
+	navigation_agent_2d.target_position = jugador.global_position
 func recibir_daño(daño_arma: float) -> void:
 
 	$AnimatedSprite2D/AnimationPlayer.play("tomando_daño")
@@ -256,3 +268,29 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group("jugador"):
 		body.recibir_daño(daño)
+
+func rayo_deteccion():
+
+	if jugador == null:
+		return
+
+	ray_cast_2d.target_position = to_local(jugador.position)
+	ray_cast_2d.force_raycast_update()
+
+func tiene_linea_de_señal() -> bool:
+
+	if jugador == null:
+		return false
+
+	ray_cast_2d.target_position = to_local(jugador.global_position)
+	ray_cast_2d.force_raycast_update()
+
+	if not ray_cast_2d.is_colliding():
+		return false
+
+	var colision = ray_cast_2d.get_collider()
+
+	if colision == null:
+		return false
+
+	return colision.is_in_group("jugador")
