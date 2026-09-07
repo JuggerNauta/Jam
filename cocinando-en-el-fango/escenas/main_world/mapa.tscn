@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
 [ext_resource type="PackedScene" uid="uid://cloo2ncg2per8" path="res://escenas/mobs/lagartija.tscn" id="18_gtse8"]
 [ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
+[ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="20_7nvlj"]
 [ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="20_vidaui"]
 [ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
 
