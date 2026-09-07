@@ -254,7 +254,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_aivak")
 }],
 "loop": 1,
-"name": &"caminando_abajo",
+"name": &"caminar_abajo",
 "speed": 10.0
 }, {
 "frames": [{
@@ -280,7 +280,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7icn2")
 }],
 "loop": 1,
-"name": &"caminando_arriba",
+"name": &"caminar_arriba",
 "speed": 10.0
 }, {
 "frames": [{
@@ -306,7 +306,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1u105")
 }],
 "loop": 1,
-"name": &"caminando_derecha",
+"name": &"caminar_derecha",
 "speed": 10.0
 }, {
 "frames": [{
@@ -332,7 +332,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fcu1s")
 }],
 "loop": 1,
-"name": &"caminando_izquierda",
+"name": &"caminar_izquierda",
 "speed": 10.0
 }, {
 "frames": [{
@@ -511,6 +511,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_gqfh6")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 angulo = 50.0
+largo = 600.0
 vida = 6.0
 "daño" = 2.0
 
@@ -523,7 +524,7 @@ texture = ExtResource("2_x1obh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=890983106]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_kk3cu")
-animation = &"idle_izquierda"
+animation = &"caminar_izquierda"
 autoplay = "idle_abajo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1585108824]

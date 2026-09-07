@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://darw2m5ekfh2b" path="res://sprites/player/idle_izq.png" id="10_e68lp"]
 [ext_resource type="Texture2D" uid="uid://c6pgnnvld5l6q" path="res://sprites/player/idle_der.png" id="10_jlb2t"]
 [ext_resource type="Texture2D" uid="uid://dk4bnh84g3d2f" path="res://sprites/player/espada.png" id="12_0qkmg"]
+[ext_resource type="Script" uid="uid://bua6bg2swu7kh" path="res://scrips/espada_tiempo.gd" id="12_p0qrw"]
 
 [sub_resource type="Gradient" id="Gradient_d6606"]
 offsets = PackedFloat32Array(0.9516908, 1)
@@ -487,8 +488,9 @@ material = SubResource("ShaderMaterial_7h7mq")
 rotation = 1.1428595e-05
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_jlb2t")
-animation = &"caminar_arriba"
+animation = &"caminar_abajo"
 autoplay = "idle_abajo"
+script = ExtResource("12_p0qrw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1842397912]
 libraries/ = SubResource("AnimationLibrary_ghixb")
