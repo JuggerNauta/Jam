@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Inventario="*res://scrips/inventario.gd"
 SelectorSlot="*res://scrips/selector_slot.gd"
 SoltadorObjetos="*res://scrips/soltador_objetos.gd"
+Ingredientes="*uid://cg84ul3r3nmu4"
 
 [display]
 

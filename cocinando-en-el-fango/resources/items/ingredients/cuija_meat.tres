@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObjetoData" format=3 uid="uid://bq3bjb478d38g"]
+
+[ext_resource type="Script" uid="uid://bel5ipuu1m77p" path="res://scrips/objeto_data.gd" id="1_8er8w"]
+[ext_resource type="Texture2D" uid="uid://dm0w6d585qmar" path="res://sprites/items/carnita_mosca.png" id="2_wl56p"]
+
+[resource]
+script = ExtResource("1_8er8w")
+nombre = "Carne de Cuija"
+sprite = ExtResource("2_wl56p")
