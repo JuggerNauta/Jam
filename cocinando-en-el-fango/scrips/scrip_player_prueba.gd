@@ -1,6 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var recibe_daño_sonido_2: AudioStreamPlayer2D = $"recibe daño sonido2"
+@onready var ataque_sonido_2: AudioStreamPlayer2D = $"ataque sonido2"
+
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var espada: Node2D = $AnimatedSprite2D/espada
@@ -90,6 +94,7 @@ func atacar() -> void:
 
 func spawnear_ataque() -> void:
 
+	ataque_sonido_2.play()
 	var espada_ataque = espada_ataque_preload.instantiate()
 	
 	var distancia_ataque := 0.0
@@ -209,7 +214,8 @@ func _dash_logica(delta: float) -> void:
 			puedo_dash = true
 
 func recibir_daño(cantidad: int) -> void:
-	
+
+	recibe_daño_sonido_2.play()
 	$AnimatedSprite2D/AnimationPlayer.play("recibir_daño")
 
 	animated_sprite_2d.material.set_shader_parameter("r", 1.0)
