@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c71lpemk7f4jw"]
 
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
-[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_2rpd7"]
+[ext_resource type="Resource" uid="uid://cy0ni1aq2oifb" path="res://resources/loottable/dragonfly_loot.tres" id="2_2rpd7"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_e2xqg"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_s85l8"]
 [ext_resource type="Texture2D" uid="uid://cx8h6d3kpkb8o" path="res://sprites/mobs/libelula_der.png" id="4_hry84"]

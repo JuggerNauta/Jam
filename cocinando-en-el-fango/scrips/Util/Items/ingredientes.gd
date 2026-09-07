@@ -4,14 +4,15 @@ var EMPTY : ObjetoData = ObjetoData.new()
 const FLY_MEAT : ObjetoData = preload("res://resources/items/ingredients/fly_meat.tres")
 const CUIJA_MEAT : ObjetoData = preload("res://resources/items/ingredients/cuija_meat.tres")
 const CRAB_MEAT : ObjetoData = preload("res://resources/items/ingredients/crab_meat.tres")
+const DRAGONFLY_MEAT : ObjetoData = preload("res://resources/items/ingredients/dragonfly_meat.tres")
 
 var all_items = [
 	EMPTY,
 	FLY_MEAT,
 	CUIJA_MEAT,
 	CRAB_MEAT,
-	#STICK,
-	#ROCK
+	DRAGONFLY_MEAT
+	
 ]
 
 var item_registry := {}

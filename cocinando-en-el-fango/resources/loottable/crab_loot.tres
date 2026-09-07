@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LootTable" format=3 uid="uid://c7jx8bqq00y0q"]
+
+[ext_resource type="Script" uid="uid://e3gjbncgnctw" path="res://scrips/Util/Items/item_roll.gd" id="1_hcb6v"]
+[ext_resource type="Resource" uid="uid://ulcl0pu48yga" path="res://resources/items/ingredients/crab_meat.tres" id="2_hcb6v"]
+[ext_resource type="Script" uid="uid://ow5fonsa0jml" path="res://scrips/Util/Enemy/loot_table.gd" id="3_v5cpu"]
+
+[sub_resource type="Resource" id="Resource_nt6wq"]
+script = ExtResource("1_hcb6v")
+item = ExtResource("2_hcb6v")
+count = 1
+weight = 0.9
+metadata/_custom_type_script = "uid://e3gjbncgnctw"
+
+[resource]
+script = ExtResource("3_v5cpu")
+item_rolls = Array[ExtResource("1_hcb6v")]([SubResource("Resource_nt6wq")])
