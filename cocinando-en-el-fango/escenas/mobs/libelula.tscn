@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c71lpemk7f4jw"]
 
 [ext_resource type="Script" uid="uid://mhrw36ai7v5r" path="res://scrips/libelula.gd" id="1_dfdpt"]
+[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_2rpd7"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_e2xqg"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="2_s85l8"]
 [ext_resource type="Texture2D" uid="uid://cx8h6d3kpkb8o" path="res://sprites/mobs/libelula_der.png" id="4_hry84"]
@@ -355,6 +356,7 @@ velocidad_dash = 300.0
 tiempo_entre_dash = 1.5
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 150.0
+loot_table = ExtResource("2_2rpd7")
 angulo = 270.0
 largo = 150.0
 vida = 5.0

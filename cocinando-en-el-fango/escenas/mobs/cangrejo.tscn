@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5faangg7psy" path="res://sprites/mobs/cagelelo.png" id="1_3nbr8"]
 [ext_resource type="Script" uid="uid://cqqxwm86vkybe" path="res://scrips/cangrejo.gd" id="1_nbpyc"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_nbpyc"]
+[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_x8s0l"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="3_rceuu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbpyc"]
@@ -184,6 +185,7 @@ script = ExtResource("1_nbpyc")
 velocidad_dash = 400.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
 velocidad = 100.0
+loot_table = ExtResource("2_x8s0l")
 angulo = 270.0
 largo = 100.0
 vida = 7.0

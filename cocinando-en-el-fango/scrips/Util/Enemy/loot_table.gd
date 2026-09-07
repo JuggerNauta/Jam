@@ -13,7 +13,7 @@ var rng := RandomNumberGenerator.new()
 func roll_loot() -> Array[ItemStack]:
 	var items : Array[ItemStack]
 	var weights : Array = item_rolls.map(func(roll: ItemRoll): return roll.weight)
-	
+		
 	for i in roll_times:
 		var index := rng.rand_weighted(weights)
 		var roll : ItemRoll = item_rolls[index]

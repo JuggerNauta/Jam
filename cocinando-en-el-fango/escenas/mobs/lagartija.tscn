@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cloo2ncg2per8"]
 
 [ext_resource type="Script" uid="uid://caa223g4550sw" path="res://scrips/enemigo.gd" id="1_gqfh6"]
+[ext_resource type="Resource" uid="uid://cblyh5mq426sv" path="res://resources/loottable/fly_loot.tres" id="2_fbnlo"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_x1obh"]
 [ext_resource type="Texture2D" uid="uid://d03wrfi41hyfw" path="res://sprites/mobs/lagartija derecha.png" id="3_3hey1"]
 [ext_resource type="Texture2D" uid="uid://cquu0ya3x7hni" path="res://sprites/mobs/lagartija izquierda.png" id="4_fbnlo"]
@@ -510,6 +511,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_gqfh6")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
+loot_table = ExtResource("2_fbnlo")
 angulo = 50.0
 largo = 600.0
 vida = 6.0

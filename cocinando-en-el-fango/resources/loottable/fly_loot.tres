@@ -14,4 +14,3 @@ metadata/_custom_type_script = "uid://e3gjbncgnctw"
 [resource]
 script = ExtResource("1_pl7i7")
 item_rolls = Array[ExtResource("1_ts85k")]([SubResource("Resource_nt6wq")])
-roll_times = 0
