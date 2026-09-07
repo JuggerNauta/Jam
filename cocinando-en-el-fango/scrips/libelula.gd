@@ -69,6 +69,9 @@ func hacer_dash() -> void:
 	
 func crear_duplicado_shader() -> void:
 
+	if not is_inside_tree():
+		return
+
 	var duplicado = $AnimatedSprite2D.duplicate(false)
 
 	if $AnimatedSprite2D.material:
@@ -88,12 +91,11 @@ func crear_duplicado_shader() -> void:
 	duplicado.global_scale = $AnimatedSprite2D.global_scale
 	duplicado.z_index = 1
 
-
 	estelas.append(duplicado)
 
 	await get_tree().create_timer(tiempo_vida_duplicado).timeout
 
-	estelas.erase(duplicado)
-
 	if is_instance_valid(duplicado):
 		duplicado.queue_free()
+
+	estelas.erase(duplicado)
