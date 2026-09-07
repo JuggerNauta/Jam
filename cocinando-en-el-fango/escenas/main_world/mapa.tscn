@@ -477,6 +477,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="SpawnArea" type="CollisionShape2D" parent="LizardSpawner" unique_id=1096138967]
+position = Vector2(132, 34)
 shape = SubResource("RectangleShape2D_2b5um")
 
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=975077062]

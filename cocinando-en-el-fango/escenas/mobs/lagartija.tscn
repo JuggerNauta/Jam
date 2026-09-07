@@ -513,7 +513,7 @@ script = ExtResource("1_gqfh6")
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 loot_table = ExtResource("2_fbnlo")
 angulo = 50.0
-largo = 100.0
+largo = 300.0
 vida = 6.0
 "daño" = 2.0
 
