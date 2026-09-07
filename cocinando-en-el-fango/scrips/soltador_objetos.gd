@@ -8,7 +8,10 @@ func _ready() -> void:
 func _on_objeto_soltado(_indice: int, objeto: ObjetoData) -> void:
 	var jugador := get_tree().get_first_node_in_group("jugador")
 	var instancia := OBJETO_RECOGIBLE.instantiate()
-	instancia.get_first_node_in_group("ItemSprite").texture = objeto.sprite
-	instancia.nombre = objeto.nombre
+	var sprite = instancia.get_node("ItemSprite") as Sprite2D
+	
+	sprite.texture = objeto.sprite
+	instancia.stack = ItemStack.new(objeto, 1)
+	#instancia.nombre = objeto.nombre
 	instancia.global_position = jugador.global_position + Vector2(0, 10)
 	get_tree().current_scene.add_child(instancia)
