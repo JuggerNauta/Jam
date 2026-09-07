@@ -368,6 +368,7 @@ position = Vector2(4, 78)
 [node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
 
 [node name="mapa_minimapa" parent="." unique_id=186682887 instance=ExtResource("3_6c6cw")]
+position = Vector2(3, -3)
 
 [node name="Environment" type="TileMapLayer" parent="." unique_id=1295835675]
 material = SubResource("CanvasItemMaterial_p57by")
