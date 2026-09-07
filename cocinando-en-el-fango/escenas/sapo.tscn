@@ -465,7 +465,6 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0qrw"]
-height = 40.0
 
 [node name="sapo" type="CharacterBody2D" unique_id=662870097]
 script = ExtResource("1_e68lp")

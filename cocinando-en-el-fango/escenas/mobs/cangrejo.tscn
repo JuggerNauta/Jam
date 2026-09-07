@@ -178,6 +178,8 @@ radius = 14.0
 
 [node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
 scale = Vector2(2, 2)
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_nbpyc")
 velocidad_dash = 400.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
@@ -219,18 +221,19 @@ shape = SubResource("CircleShape2D_h4t55")
 [node name="Ruta" type="Node2D" parent="." unique_id=1931600629]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=902603721]
-position = Vector2(-37.5, -18)
+position = Vector2(-97, -5.5)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=1307795293]
-position = Vector2(37, 9.5)
+position = Vector2(-97, 14)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=801239452]
-position = Vector2(-23.5, 32)
+position = Vector2(93, 14)
 
 [node name="M4" type="Marker2D" parent="Ruta" unique_id=1645271585]
-position = Vector2(32.5, -29)
+position = Vector2(93, -5.5)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1597881558]
+path_desired_distance = 40.0
 debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
