@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://b6kr83mfrc1l3" path="res://escenas/mobs/cangrejo.tscn" id="13_5rq4x"]
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
 [ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
+[ext_resource type="Script" path="res://scrips/vida_ui.gd" id="20_vidaui"]
+[ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p57by"]
 
@@ -437,6 +439,61 @@ script = ExtResource("8_7h7mq")
 
 [node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("11_pausa")]
 visible = false
+
+[node name="VidaUI" type="CanvasLayer" parent="." unique_id=331936200]
+script = ExtResource("20_vidaui")
+
+[node name="Control" type="Control" parent="VidaUI" unique_id=331936201]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VidaUI/Control" unique_id=331936202]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 324.0
+offset_bottom = 84.0
+theme_override_constants/separation = 8
+
+[node name="Corazon1" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936203]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture = ExtResource("21_corazonlleno")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Corazon2" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936204]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture = ExtResource("21_corazonlleno")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Corazon3" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936205]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture = ExtResource("21_corazonlleno")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Corazon4" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936206]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture = ExtResource("21_corazonlleno")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Corazon5" type="TextureRect" parent="VidaUI/Control/HBoxContainer" unique_id=331936207]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture = ExtResource("21_corazonlleno")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
 offset = Vector2(0, 400)

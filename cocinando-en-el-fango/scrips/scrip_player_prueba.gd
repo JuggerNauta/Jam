@@ -37,7 +37,10 @@ var dash_dir: Vector2 = Vector2.ZERO
 
 #variables vida
 
-@export var vida: float = 10.0
+signal vida_cambiada(actual: float, maxima: float)
+
+@export var vida_maxima: float = 10.0
+var vida: float = vida_maxima
 var esta_muriendo: bool = false
 
 #variables shader
@@ -228,7 +231,8 @@ func recibir_daño(cantidad: int) -> void:
 	if esta_muriendo:
 		return
 
-	vida -= cantidad
+	vida = max(vida - cantidad, 0.0)
+	vida_cambiada.emit(vida, vida_maxima)
 
 	if vida <= 0:
 		esta_muriendo = true
