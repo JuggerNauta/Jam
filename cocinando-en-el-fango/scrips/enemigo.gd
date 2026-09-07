@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 	var _puede_ver_jugador = esta_en_el_cono() and tiene_linea_de_señal()
 
 	if esta_en_el_cono() and tiene_linea_de_señal():
-		animated_sprite_2d.self_modulate = Color.RED
+		animated_sprite_2d.self_modulate = Color.WHITE
 
 	else:
 		animated_sprite_2d.self_modulate = Color.WHITE
