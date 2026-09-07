@@ -4,6 +4,7 @@ func _ready() -> void:
 
 	Inventario.objeto_recogido.connect(_on_objeto_recogido)
 	Inventario.objeto_soltado.connect(_on_objeto_soltado)
+	Inventario.objeto_eliminado.connect(_on_objeto_eliminado)
 	SelectorSlot.cambio.connect(_on_seleccion_cambiada)
 
 	_on_seleccion_cambiada(SelectorSlot.indice)
@@ -15,6 +16,10 @@ func _on_objeto_recogido(indice: int, objeto: ObjetoData) -> void:
 	icono.color = objeto.color
 	icono.visible = true
 	icono.tooltip_text = objeto.nombre
+
+
+func _on_objeto_eliminado(indice: int, _objeto: ObjetoData) -> void:
+	_icono(indice).visible = false
 
 func _on_objeto_soltado(indice: int, _objeto: ObjetoData) -> void:
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObjetoData" format=3 uid="uid://ulcl0pu48yga"]
+
+[ext_resource type="Script" uid="uid://bel5ipuu1m77p" path="res://scrips/objeto_data.gd" id="1_8xk6h"]
+[ext_resource type="Texture2D" uid="uid://dm0w6d585qmar" path="res://sprites/items/carnita_mosca.png" id="2_3u427"]
+
+[resource]
+script = ExtResource("1_8xk6h")
+color = Color(0.7125689, 0.41312832, 0.6598668, 1)
+nombre = "Carne de Cangrejo"
+sprite = ExtResource("2_3u427")

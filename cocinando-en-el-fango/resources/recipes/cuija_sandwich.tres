@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" format=3 uid="uid://cbvpei75cgwex"]
+
+[ext_resource type="Script" uid="uid://ck2k8spk117gy" path="res://scrips/Util/Items/crafting_ingredient.gd" id="1_8ao1c"]
+[ext_resource type="Resource" uid="uid://bq3bjb478d38g" path="res://resources/items/ingredients/cuija_meat.tres" id="2_8ao1c"]
+[ext_resource type="Script" uid="uid://cge64kl8vkmwx" path="res://scrips/Util/Items/crafting_recipe.gd" id="3_5hxue"]
+
+[sub_resource type="Resource" id="Resource_j416o"]
+script = ExtResource("1_8ao1c")
+item = ExtResource("2_8ao1c")
+count = 3
+metadata/_custom_type_script = "uid://ck2k8spk117gy"
+
+[resource]
+script = ExtResource("3_5hxue")
+ingredients = Array[ExtResource("1_8ao1c")]([SubResource("Resource_j416o")])
