@@ -76,8 +76,8 @@ func _draw() -> void:
 
 	var derecha_direccion = direccion_detector.rotated(mitad_angulo_radiales) * largo
 
-	draw_line(Vector2.ZERO,izquierda_direccion,Color.WHITE,0.0)
-	draw_line(Vector2.ZERO,derecha_direccion,Color.WHITE,0.0)
+	draw_line(Vector2.ZERO,izquierda_direccion,Color.YELLOW,0.0)
+	draw_line(Vector2.ZERO,derecha_direccion,Color.YELLOW,0.0)
 
 func esta_en_el_cono() -> bool:
 
@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 	var _puede_ver_jugador = esta_en_el_cono() and tiene_linea_de_señal()
 
 	if esta_en_el_cono() and tiene_linea_de_señal():
-		animated_sprite_2d.self_modulate = Color.WHITE
+		animated_sprite_2d.self_modulate = Color.RED
 
 	else:
 		animated_sprite_2d.self_modulate = Color.WHITE
@@ -279,7 +279,7 @@ func recibir_daño(daño_arma: float) -> void:
 
 func morirse() -> void:
 
-	# Eliminar todas las estelas
+	#eliminar todas las estelas
 	for estela in estelas:
 		if is_instance_valid(estela):
 			estela.queue_free()

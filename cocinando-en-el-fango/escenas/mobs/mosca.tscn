@@ -338,10 +338,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
 radius = 20.0
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 groups=["enemigo"]]
+[node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_xkjoe")
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5")]
 velocidad = 150.0
 loot_table = ExtResource("2_brry3")
 angulo = 350.0
