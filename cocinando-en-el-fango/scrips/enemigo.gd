@@ -11,7 +11,7 @@ var posiciones_waypoints: Array[Vector2] = []
 var current_index: int = 0
 var esta_esperando: bool = false
 
-
+@export var loot_table = Resource
 #señales
 
 signal enemigo_murio(enemigo)

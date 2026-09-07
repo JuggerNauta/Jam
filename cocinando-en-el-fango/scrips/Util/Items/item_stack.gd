@@ -1,7 +1,5 @@
 class_name ItemStack
 
-# Yeah I'm using ItemStacks
-# My experience modding minecraft is showing
 
 signal item_changed(item: ObjetoData)
 
