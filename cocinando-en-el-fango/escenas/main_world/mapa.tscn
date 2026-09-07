@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
 [ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="20_7nvlj"]
 [ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="20_vidaui"]
+[ext_resource type="Script" uid="uid://cka4qfr5s13l7" path="res://scrips/score_manager.gd" id="21_7omhy"]
 [ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p57by"]
@@ -459,6 +460,25 @@ script = ExtResource("8_7h7mq")
 
 [node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("11_pausa")]
 visible = false
+
+[node name="Score" type="CanvasLayer" parent="." unique_id=1087169124]
+script = ExtResource("21_7omhy")
+
+[node name="Control" type="Control" parent="Score" unique_id=437298131]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Score/Control" unique_id=283096201]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 18.0
+offset_right = 589.0
+offset_bottom = 41.0
+scale = Vector2(3, 3)
+text = "000"
+label_settings = SubResource("LabelSettings_7nvlj")
 
 [node name="VidaUI" type="CanvasLayer" parent="." unique_id=331936200]
 script = ExtResource("20_vidaui")
