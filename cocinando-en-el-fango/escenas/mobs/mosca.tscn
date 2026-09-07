@@ -332,11 +332,10 @@ _data = {
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjoe"]
-size = Vector2(36, 36)
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
+radius = 20.0
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=920097428 node_paths=PackedStringArray("waypoints") groups=["enemigo"]]
 script = ExtResource("1_xkjoe")
@@ -361,11 +360,12 @@ autoplay = "idle_abajo"
 libraries/ = SubResource("AnimationLibrary_xkjoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213881108 groups=["enemigo"]]
-shape = SubResource("RectangleShape2D_8w0r3")
+shape = SubResource("CircleShape2D_8w0r3")
 debug_color = Color(0.8294085, 0.001481272, 0.94781655, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=251111865]
-wait_time = 2.0
+wait_time = 0.5
+autostart = true
 
 [node name="Ruta" type="Node2D" parent="." unique_id=291087077]
 
@@ -387,6 +387,9 @@ position = Vector2(-52, 48)
 [node name="Area2D" type="Area2D" parent="." unique_id=1557598893]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=277197211]
-shape = SubResource("RectangleShape2D_xkjoe")
+shape = SubResource("CircleShape2D_h4t55")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=954168209]
+debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

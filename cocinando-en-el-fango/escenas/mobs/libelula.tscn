@@ -339,20 +339,23 @@ _data = {
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqlo"]
-size = Vector2(64, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rpd7"]
+radius = 20.0
+height = 70.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(72, 36)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2xqg"]
+radius = 20.0
+height = 80.0
 
 [node name="libelula" type="CharacterBody2D" unique_id=994728527 node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_dfdpt")
-velocidad_dash = 600.0
+velocidad_dash = 300.0
 tiempo_entre_dash = 1.5
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 150.0
 angulo = 270.0
 largo = 150.0
+vida = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1150208961]
 modulate = Color(1, 1, 1, 0.4)
@@ -373,11 +376,12 @@ autoplay = "idle_abajo"
 libraries/ = SubResource("AnimationLibrary_unocq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968893371 groups=["enemigo"]]
-shape = SubResource("RectangleShape2D_rpqlo")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2rpd7")
 debug_color = Color(0.8601341, 0.0006838417, 0.87673676, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=290691495]
-wait_time = 2.0
+wait_time = 0.5
 
 [node name="Ruta" type="Node2D" parent="." unique_id=385410960]
 
@@ -394,6 +398,10 @@ position = Vector2(36, -52)
 [node name="Area2D" type="Area2D" parent="." unique_id=1589958376]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1385401327]
-shape = SubResource("RectangleShape2D_8w0r3")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_e2xqg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=429540055]
+debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

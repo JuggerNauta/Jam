@@ -16,6 +16,7 @@ var esta_esperando: bool = false
 
 signal enemigo_murio(enemigo)
 var estelas: Array[Node2D] = []
+
 #animaciones
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,6 +24,8 @@ var estelas: Array[Node2D] = []
 var ultima_direccion_personaje: String = "abajo"
 
 #variables para la deteccion del jugador
+
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 @export var angulo: float = 120.0
 @export var largo: float = 2000.0
@@ -137,7 +140,7 @@ func perseguir_jugador() -> void:
 
 		return
 
-	direccion = (jugador.global_position - global_position).normalized()
+	direccion = to_local(navigation_agent_2d.get_next_path_position()).normalized()
 	velocity = direccion * velocidad
 
 	actualizar_direccion(direccion)
@@ -224,6 +227,8 @@ func actualizar_animacion(estado: String) -> void:
 		animated_sprite_2d.play(animacion)
 
 func _on_timer_timeout() -> void:
+
+	navigation_agent_2d.target_position = jugador.global_position
 
 	esta_esperando = false
 

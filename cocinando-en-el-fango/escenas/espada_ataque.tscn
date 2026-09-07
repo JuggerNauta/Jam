@@ -62,7 +62,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(80, 140)
+size = Vector2(100, 140)
 
 [node name="espada_ataque" type="Node2D" unique_id=578289322]
 script = ExtResource("1_nsn53")

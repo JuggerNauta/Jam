@@ -174,15 +174,20 @@ _data = {
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
+radius = 14.0
 
 [node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
 scale = Vector2(2, 2)
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_nbpyc")
 velocidad_dash = 400.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
 velocidad = 100.0
 angulo = 180.0
 largo = 100.0
+vida = 7.0
+"daño" = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202712401]
 modulate = Color(0, 0, 0, 0.4)
@@ -206,6 +211,7 @@ shape = SubResource("CircleShape2D_8w0r3")
 debug_color = Color(0.7721221, 0.15469626, 1, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1181603079]
+wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1634395649]
 
@@ -215,15 +221,19 @@ shape = SubResource("CircleShape2D_h4t55")
 [node name="Ruta" type="Node2D" parent="." unique_id=1931600629]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=902603721]
-position = Vector2(-54.5, -28.5)
+position = Vector2(-97, -5.5)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=1307795293]
-position = Vector2(44.5, 18.5)
+position = Vector2(-97, 14)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=801239452]
-position = Vector2(-28, 45.5)
+position = Vector2(93, 14)
 
 [node name="M4" type="Marker2D" parent="Ruta" unique_id=1645271585]
-position = Vector2(53.5, -54)
+position = Vector2(93, -5.5)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1597881558]
+path_desired_distance = 40.0
+debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
