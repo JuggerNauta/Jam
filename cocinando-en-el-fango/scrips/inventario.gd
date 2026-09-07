@@ -30,6 +30,13 @@ func tiene_objeto(objeto: ObjetoData) -> bool:
 
 	return false
 
+func tiene_objeto_por_nombre(nombre: String) -> bool:
+	for slot in slots:
+		if slot != null and slot.nombre == nombre:
+			return true
+
+	return false
+
 
 
 func soltar_objeto(indice: int) -> void:

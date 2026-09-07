@@ -50,7 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://da5nmd5v8onv8" path="res://escenas/minimapa.tscn" id="28_7omhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfoodz"]
-size = Vector2(140, 220)
+size = Vector2(158, 431)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p57by"]
 
@@ -658,7 +658,9 @@ size = Vector2(440, 240)
 size = Vector2(200, 50)
 
 [sub_resource type="SystemFont" id="SystemFont_6c6cw"]
+font_names = PackedStringArray("Consolas")
 subpixel_positioning = 0
+multichannel_signed_distance_field = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_7nvlj"]
 font = SubResource("SystemFont_6c6cw")
@@ -677,6 +679,7 @@ pool_food = Array[ExtResource("3_inkq8")]([ExtResource("4_eai1v"), ExtResource("
 [node name="ZonaServicio" type="Area2D" parent="COUNTER" unique_id=1038244406]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="COUNTER/ZonaServicio" unique_id=865011563]
+position = Vector2(9, 49.5)
 shape = SubResource("RectangleShape2D_cfoodz")
 
 [node name="MusicManager" parent="." unique_id=984034661 instance=ExtResource("12_music")]
@@ -829,6 +832,7 @@ offset_bottom = 41.0
 scale = Vector2(3, 3)
 text = "000"
 label_settings = SubResource("LabelSettings_7nvlj")
+vertical_alignment = 1
 
 [node name="VidaUI" type="CanvasLayer" parent="." unique_id=331936200]
 script = ExtResource("20_vidaui")
@@ -902,6 +906,7 @@ offset_bottom = 41.0
 scale = Vector2(3, 3)
 text = "09:30"
 label_settings = SubResource("LabelSettings_7nvlj")
+vertical_alignment = 1
 
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
 offset = Vector2(0, 400)

@@ -404,11 +404,13 @@ size = Vector2(440, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rq4x"]
 size = Vector2(200, 50)
 
-[sub_resource type="SystemFont" id="SystemFont_6c6cw"]
-subpixel_positioning = 0
+[sub_resource type="SystemFont" id="SystemFont_as38o"]
+font_names = PackedStringArray("Consolas")
+keep_rounding_remainders = false
+multichannel_signed_distance_field = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_7nvlj"]
-font = SubResource("SystemFont_6c6cw")
+font = SubResource("SystemFont_as38o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
 size = Vector2(200, 500)
