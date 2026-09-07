@@ -10,11 +10,12 @@ var direccion := Vector2.ZERO
 var posiciones_waypoints: Array[Vector2] = []
 var current_index: int = 0
 var esta_esperando: bool = false
-
+	
 
 #señales
 
 signal enemigo_murio(enemigo)
+
 var estelas: Array[Node2D] = []
 
 #animaciones
@@ -43,6 +44,13 @@ var tiempo_perdiendo_jugador: float = 0.0
 @export var vida: float = 3.0
 @export var daño: float = 1.0
 
+#recibir daño no se q mas poner, no se stun y notback? no se cmo se escibre notback
+
+@export var tiempo_aturdido: float = 1.0
+@export var fuerza_empuje: float = 100.0
+
+var aturdido: bool = false
+
 func _ready() -> void:
 
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
@@ -67,8 +75,8 @@ func _draw() -> void:
 
 	var derecha_direccion = direccion_detector.rotated(mitad_angulo_radiales) * largo
 
-	draw_line(Vector2.ZERO,izquierda_direccion,Color.YELLOW,2.0)
-	draw_line(Vector2.ZERO,derecha_direccion,Color.YELLOW,2.0)
+	draw_line(Vector2.ZERO,izquierda_direccion,Color.WHITE,0.0)
+	draw_line(Vector2.ZERO,derecha_direccion,Color.WHITE,0.0)
 
 func esta_en_el_cono() -> bool:
 
@@ -94,11 +102,15 @@ func esta_en_el_cono() -> bool:
 
 func _physics_process(delta: float) -> void:
 
-	var puede_ver_jugador = esta_en_el_cono() and tiene_linea_de_señal()
+	if aturdido:
+		move_and_slide()
+		return
 
+	var _puede_ver_jugador = esta_en_el_cono() and tiene_linea_de_señal()
 
 	if esta_en_el_cono() and tiene_linea_de_señal():
-		animated_sprite_2d.self_modulate = Color.RED
+		animated_sprite_2d.self_modulate = Color.WHITE
+
 	else:
 		animated_sprite_2d.self_modulate = Color.WHITE
 
@@ -241,13 +253,25 @@ func _on_timer_timeout() -> void:
 	esta_esperando = false
 
 	if jugador == null:
+
 		return
 
 	navigation_agent_2d.target_position = jugador.global_position
+
 func recibir_daño(daño_arma: float) -> void:
 
 	$AnimatedSprite2D/AnimationPlayer.play("tomando_daño")
 	vida -= daño_arma
+
+	aturdido = true
+
+	var direccion_empuje = (global_position - jugador.global_position).normalized()
+
+	velocity = direccion_empuje * fuerza_empuje
+
+	await get_tree().create_timer(tiempo_aturdido).timeout
+
+	aturdido = false
 
 	if vida <= 0.0:
 		morirse()

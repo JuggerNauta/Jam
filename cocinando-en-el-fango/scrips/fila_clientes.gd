@@ -37,9 +37,6 @@ func _physics_process(delta: float) -> void:
 	for i in range(_saliendo.size() - 1, -1, -1):
 		if _mover_hacia(_saliendo[i], _punto_a.global_position, avance):
 			_saliendo[i].queue_free()
-			#_saliendo[i].get_node("Visual").play("walking")
-			#
-			#_saliendo[i].scale.x *= -1
 			_saliendo.remove_at(i)
 
 	_spawner.pausado = _fila.size() >= capacidad
