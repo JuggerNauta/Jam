@@ -12,6 +12,5 @@ func _on_objeto_soltado(_indice: int, objeto: ObjetoData) -> void:
 	
 	sprite.texture = objeto.sprite
 	instancia.stack = ItemStack.new(objeto, 1)
-	#instancia.nombre = objeto.nombre
 	instancia.global_position = jugador.global_position + Vector2(0, 10)
 	get_tree().current_scene.add_child(instancia)

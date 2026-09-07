@@ -338,7 +338,7 @@ size = Vector2(200, 50)
 font = SubResource("SystemFont_6c6cw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(200, 500)
+size = Vector2(269, 500)
 
 [node name="GameManager" type="Node2D" unique_id=1116109976]
 script = ExtResource("1_6x3aa")
@@ -717,7 +717,7 @@ position = Vector2(542, 628)
 script = ExtResource("19_qur8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=650996500]
-position = Vector2(-25, 44)
+position = Vector2(9.5, 44)
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [connection signal="timeout" from="FlySpawner2/Timer" to="FlySpawner2" method="_on_timer_timeout"]
