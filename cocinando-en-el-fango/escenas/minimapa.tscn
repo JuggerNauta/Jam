@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://da5nmd5v8onv8"]
+
+[ext_resource type="Script" uid="uid://b11x74x26xoun" path="res://scrips/minimapa.gd" id="1_wedl3"]
+[ext_resource type="Texture2D" uid="uid://sgh51mngo5lv" path="res://sprites/untitled.png" id="2_1n7i0"]
+
+[node name="minimapa" type="CanvasLayer" unique_id=1536366674]
+script = ExtResource("1_wedl3")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=932123289]
+offset_left = 1669.0
+offset_top = 841.0
+offset_right = 1869.0
+offset_bottom = 1041.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=676489277]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=1344945081]
+zoom = Vector2(0.2, 0.2)
+
+[node name="minimapa_jugador" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1361979904]
+texture = ExtResource("2_1n7i0")
