@@ -13,7 +13,7 @@ func _on_objeto_recogido(indice: int, objeto: ObjetoData) -> void:
 
 	var icono := _icono(indice)
 
-	icono.color = objeto.color
+	icono.texture = objeto.sprite
 	icono.visible = true
 	icono.tooltip_text = objeto.nombre
 
@@ -32,6 +32,6 @@ func _on_seleccion_cambiada(indice: int) -> void:
 		$Control/HBoxContainer.get_child(i).modulate = Color.WHITE
 	$Control/HBoxContainer.get_child(indice).modulate = Color(1.4, 1.4, 1.4)
 
-func _icono(indice: int) -> ColorRect:
+func _icono(indice: int) -> TextureRect:
 
 	return $Control/HBoxContainer.get_child(indice).get_node("Icono")

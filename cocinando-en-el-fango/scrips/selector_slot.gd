@@ -11,5 +11,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.keycode >= KEY_1 and event.keycode <= KEY_6:
 		indice = event.keycode - KEY_1
 		cambio.emit(indice)
-	elif event.keycode == KEY_E:
+	elif event.keycode == KEY_Q:
 		Inventario.soltar_objeto(indice)
