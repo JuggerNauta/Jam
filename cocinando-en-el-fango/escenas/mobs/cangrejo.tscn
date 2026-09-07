@@ -113,6 +113,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_x8s0l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+
 [sub_resource type="Animation" id="Animation_jw3h8"]
 resource_name = "tomando_daño"
 length = 0.35
@@ -139,7 +154,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35),
 "transitions": PackedFloat32Array(0.5, 2, 0.5),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.06, 0.06), Vector2(0.1, 0.1)]
+"values": [Vector2(0.1, 0.1), Vector2(0.12, 0.12), Vector2(0.2, 0.2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -168,21 +183,22 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pra10"]
 _data = {
+&"RESET": SubResource("Animation_x8s0l"),
 &"tomando_daño": SubResource("Animation_jw3h8")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
-radius = 9.0
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
-radius = 14.0
+radius = 20.0
 
 [node name="cangrejo" type="CharacterBody2D" unique_id=1991961352 node_paths=PackedStringArray("waypoints")]
-scale = Vector2(2, 2)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_nbpyc")
 velocidad_dash = 300.0
+tiempo_entre_dash = 3.0
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4")]
 velocidad = 100.0
 loot_table = ExtResource("2_x8s0l")
@@ -193,16 +209,17 @@ vida = 7.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202712401]
 modulate = Color(0, 0, 0, 0.4)
-position = Vector2(0, 12)
-scale = Vector2(0.8, 0.4)
+position = Vector2(0, 24)
+scale = Vector2(1.8, 0.4)
 texture = ExtResource("2_nbpyc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579319357]
 material = SubResource("ShaderMaterial_nbpyc")
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_h4t55")
 animation = &"caminar_izquierda"
 autoplay = "idle_abajo"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1478638763]
 libraries/ = SubResource("AnimationLibrary_pra10")
@@ -236,7 +253,6 @@ position = Vector2(90, -10)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1597881558]
 path_desired_distance = 40.0
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1344971361]
 

@@ -353,13 +353,12 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_dfdpt")
 velocidad_dash = 300.0
-tiempo_entre_dash = 1.5
 waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
 velocidad = 150.0
 loot_table = ExtResource("2_2rpd7")
 angulo = 270.0
 largo = 150.0
-vida = 5.0
+vida = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1150208961]
 modulate = Color(1, 1, 1, 0.4)
@@ -407,7 +406,6 @@ shape = SubResource("CapsuleShape2D_e2xqg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=429540055]
 path_desired_distance = 40.0
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=821016038]
 

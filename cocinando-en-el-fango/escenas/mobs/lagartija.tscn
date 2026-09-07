@@ -4,7 +4,17 @@
 [ext_resource type="Resource" uid="uid://dqpiyc31efg7q" path="res://resources/loottable/cuija_loot.tres" id="2_fbnlo"]
 [ext_resource type="Texture2D" uid="uid://b6mx0te22owyu" path="res://sprites/mobs/untitled.png" id="2_x1obh"]
 [ext_resource type="Texture2D" uid="uid://d03wrfi41hyfw" path="res://sprites/mobs/lagartija derecha.png" id="3_3hey1"]
+[ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="4_1onfv"]
 [ext_resource type="Texture2D" uid="uid://cquu0ya3x7hni" path="res://sprites/mobs/lagartija izquierda.png" id="4_fbnlo"]
+[ext_resource type="AudioStream" uid="uid://cud6tdr3u7coj" path="res://assets/audios/recibedaño.mp3" id="7_h0ndk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1j3v1"]
+shader = ExtResource("4_1onfv")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1onfv"]
 atlas = ExtResource("3_3hey1")
@@ -510,9 +520,15 @@ height = 70.0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_3hey1")
-waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3")]
+velocidad_dash = 300.0
+duracion_dash = 0.1
+waypoints = [NodePath("Ruta/M1"), NodePath("Ruta/M2"), NodePath("Ruta/M3"), NodePath("Ruta/M4"), NodePath("Ruta/M5"), NodePath("Ruta/M6")]
+velocidad = 125.0
 loot_table = ExtResource("2_fbnlo")
 largo = 200.0
+vida = 5.0
+tiempo_aturdido = 2.0
+fuerza_empuje = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=316847999]
 modulate = Color(1, 1, 1, 0.4)
@@ -521,6 +537,7 @@ scale = Vector2(2.8, 0.4)
 texture = ExtResource("2_x1obh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=890983106]
+material = SubResource("ShaderMaterial_1j3v1")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_kk3cu")
 animation = &"caminar_izquierda"
@@ -541,13 +558,22 @@ wait_time = 0.5
 [node name="Ruta" type="Node2D" parent="." unique_id=2000735585]
 
 [node name="M1" type="Marker2D" parent="Ruta" unique_id=330267252]
-position = Vector2(218, 46)
+position = Vector2(225, 1)
 
 [node name="M2" type="Marker2D" parent="Ruta" unique_id=1992693416]
-position = Vector2(-169, -35)
+position = Vector2(225, -139)
 
 [node name="M3" type="Marker2D" parent="Ruta" unique_id=1104794325]
-position = Vector2(86, 25)
+position = Vector2(-228, -139)
+
+[node name="M4" type="Marker2D" parent="Ruta" unique_id=943933870]
+position = Vector2(-228, 207)
+
+[node name="M5" type="Marker2D" parent="Ruta" unique_id=974382616]
+position = Vector2(0, 198)
+
+[node name="M6" type="Marker2D" parent="Ruta" unique_id=759674338]
+position = Vector2(225, 198)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=44828937]
 
@@ -558,8 +584,10 @@ shape = SubResource("CapsuleShape2D_fbnlo")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1047222548]
 path_desired_distance = 40.0
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1492196490]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1785284211]
+stream = ExtResource("7_h0ndk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
