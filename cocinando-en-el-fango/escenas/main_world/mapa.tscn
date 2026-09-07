@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://beqjhru6fcxal" path="res://fila_clientes/fila_clientes.tscn" id="15_lpxjc"]
 [ext_resource type="PackedScene" uid="uid://cloo2ncg2per8" path="res://escenas/mobs/lagartija.tscn" id="18_gtse8"]
 [ext_resource type="Script" uid="uid://vojouaxct54f" path="res://scrips/area_desaparece_arma.gd" id="19_qur8h"]
+[ext_resource type="Script" uid="uid://cj4hbvj27p50k" path="res://scrips/cronometro.gd" id="20_7nvlj"]
 [ext_resource type="Script" uid="uid://gf2x4c6pb0bk" path="res://scrips/vida_ui.gd" id="20_vidaui"]
 [ext_resource type="Texture2D" uid="uid://imiy6b0qyqen" path="res://assets/corazones/corazon.png" id="21_corazonlleno"]
 
@@ -330,6 +331,11 @@ size = Vector2(440, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rq4x"]
 size = Vector2(200, 50)
 
+[sub_resource type="SystemFont" id="SystemFont_6c6cw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7nvlj"]
+font = SubResource("SystemFont_6c6cw")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
 size = Vector2(200, 500)
 
@@ -507,6 +513,25 @@ layout_mode = 2
 texture = ExtResource("21_corazonlleno")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Cronometro" type="CanvasLayer" parent="." unique_id=1067474624]
+script = ExtResource("20_7nvlj")
+
+[node name="Control" type="Control" parent="Cronometro" unique_id=486361330]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Cronometro/Control" unique_id=173739603]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 18.0
+offset_right = 395.0
+offset_bottom = 41.0
+scale = Vector2(3, 3)
+text = "09:30"
+label_settings = SubResource("LabelSettings_7nvlj")
 
 [node name="InventarioUI" type="CanvasLayer" parent="." unique_id=331936117]
 offset = Vector2(0, 400)
