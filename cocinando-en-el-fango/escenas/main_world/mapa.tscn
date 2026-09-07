@@ -724,6 +724,7 @@ player = NodePath("../Jugador")
 tilemap_layer = NodePath("../Environment")
 
 [node name="InventarioUI2" parent="Camera2D" unique_id=1734074673 instance=ExtResource("9_v5ou0")]
+visible = false
 
 [node name="FlySpawner2" type="Area2D" parent="." unique_id=1932648362]
 position = Vector2(1024, 1060)

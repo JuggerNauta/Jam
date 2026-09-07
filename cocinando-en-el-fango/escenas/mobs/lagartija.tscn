@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d03wrfi41hyfw" path="res://sprites/mobs/lagartija derecha.png" id="3_3hey1"]
 [ext_resource type="Shader" uid="uid://bikjnrpskwrn5" path="res://shaders/dash_y_slash.gdshader" id="4_1onfv"]
 [ext_resource type="Texture2D" uid="uid://cquu0ya3x7hni" path="res://sprites/mobs/lagartija izquierda.png" id="4_fbnlo"]
+[ext_resource type="AudioStream" uid="uid://cud6tdr3u7coj" path="res://assets/audios/recibedaño.mp3" id="7_h0ndk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1j3v1"]
 shader = ExtResource("4_1onfv")
@@ -585,5 +586,8 @@ shape = SubResource("CapsuleShape2D_fbnlo")
 path_desired_distance = 40.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1492196490]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1785284211]
+stream = ExtResource("7_h0ndk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
