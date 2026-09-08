@@ -719,7 +719,6 @@ position = Vector2(1142, 1730)
 script = ExtResource("8_7h7mq")
 
 [node name="MenuPausa" parent="." unique_id=1116109977 instance=ExtResource("11_pausa")]
-visible = false
 
 [node name="Score" type="CanvasLayer" parent="." unique_id=1087169124]
 script = ExtResource("21_7omhy")
